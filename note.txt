@@ -1,0 +1,17 @@
+conda activate longhorizon (for daniel)
+
+# 1) PyTorch with CUDA (5090 needs cu124+; use cu126 wheels)
+pip3 install torch --index-url https://download.pytorch.org/whl/cu126
+
+# 2) everything else
+pip3 install \
+  transformers \
+  soundfile \
+  librosa \
+  noisereduce \
+  scipy \
+  numpy \
+  pandas \
+  pyarrow \
+  matplotlib \
+  rclone-python
