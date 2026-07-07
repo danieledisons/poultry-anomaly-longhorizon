@@ -1,0 +1,27 @@
+cat > .gitignore << 'EOF'
+# raw + processed data — lives on server storage only, never GitHub
+data/*
+!data/.gitkeep
+
+# heavy / generated artifacts
+figures/*
+!figures/.gitkeep
+results/*
+!results/.gitkeep
+*.parquet
+*.csv
+*.pth
+*.ckpt
+*.npy
+*.npz
+
+# logs / cluster
+*.log
+slurm-*.out
+
+# python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+EOF
