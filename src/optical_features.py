@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-video_features.py — Room-level video -> global optical-flow activity features.
+optical_features.py — Room-level video -> global optical-flow activity features.
 
 Companion to audio_features.py. Same conventions: single-source-of-truth config,
 config fingerprint in every artifact, one month per invocation, per-file quality
@@ -23,7 +23,7 @@ Design goals:
     change grain.
 
 Usage:
-  python3 video_features.py \
+  python3 optical_features.py \
       --room "Room 2" --month 2025-07 \
       --in  data/raw_room2/2025-07/video \
       --out data/features_room2/room2_2025-07_video
