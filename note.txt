@@ -15,3 +15,17 @@ pip3 install \
   pyarrow \
   matplotlib \
   rclone-python
+
+
+to run optical features run
+
+nohup bash -c 'for m in July August September October; do
+  python3 optical_features.py --room "Room 2" --month "$m" \
+    --in "data/raw_room2/$m/video" \
+    --out "data/features_room2/room2_${m}_video"
+done' > optical_run.log 2>&1 &
+
+to run audio feature extraction run
+python3 audio_features.py --room "Room 2" --month <monthname> \
+  --in  data/raw_room2/audio/<monthname> \
+  --out data/features_room2/room2_audio_July_daily.parquet
