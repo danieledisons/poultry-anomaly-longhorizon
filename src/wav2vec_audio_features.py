@@ -11,7 +11,7 @@ Design goals:
   * One month per invocation (fits the download -> extract -> verify -> delete loop).
 
 Usage:
-  python3 audio_features.py \
+  python3 wav2vec_audio_features.py \
       --room "Room 2" --month 2025-06 \
       --in  data/raw_room2/2025-06 \
       --out data/features_room2/room2_2025-06_daily.parquet
