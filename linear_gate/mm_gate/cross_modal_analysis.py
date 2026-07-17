@@ -34,7 +34,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse
 
-from alpha_gate import AlphaGate
+from linear_gate.mm_gate.alpha_gate import AlphaGate
 
 # Channels used for the joint signal (activity level, not fast residual)
 VIDEO_COL = "vid_flow_mean_avg"

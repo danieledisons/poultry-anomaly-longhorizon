@@ -33,7 +33,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from alpha_gate import slow_fast_decompose, AlphaGate, robust_scale
+from linear_gate.gate.alpha_gate import slow_fast_decompose, AlphaGate, robust_scale
 
 # ----------------------------------------------------------------------
 FILES = {
