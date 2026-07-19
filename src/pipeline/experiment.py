@@ -120,7 +120,10 @@ def event_trials(det, Xtr, Xpool, trials, seed=0, timeline=240,
                  n_spikes=5, spike_mag=10.0):
     """Per-trial event-level counts for DL-alone (threshold) and DL+gate."""
     rng = np.random.default_rng(seed)
-    base = det.score(Xtr)
+    # Calibrate threshold + gate on CLEAN hours from the evaluation distribution,
+    # not the training set — the autoencoder underestimates its own training
+    # error, which otherwise saturates the gate closed on every test hour.
+    base = det.score(Xpool)
     thr = np.quantile(base, 0.99)
     n = len(Xpool); d = Xpool.shape[1]
     rec = {k: [] for k in ("tp_a", "fp_a", "fn_a", "tp_g", "fp_g", "fn_g", "lat")}
@@ -369,7 +372,7 @@ def trace_and_operating(plt, F, label):
     rng = np.random.default_rng(7)
     d = Xpool.shape[1]; timeline = 240
     T = Xpool[rng.integers(0, len(Xpool), size=timeline)].copy()
-    base = det.score(Xtr); thr = np.quantile(base, 0.99)
+    base = det.score(Xpool); thr = np.quantile(base, 0.99)   # calibrate on clean eval hours
     spans = [(60, 90)]; spikes = [140, 180]
     for a, b in spans:
         T[a:b] += 2.5 * rng.choice([-1., 1.], size=(1, d))

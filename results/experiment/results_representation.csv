@@ -1,5 +1,5 @@
 method,features,representation,f1_gate
-Classical,lean,RAW,0.545
-Classical,lean,DETREND,0.548
-Classical,rich,RAW,0.545
-Classical,rich,DETREND,0.589
+Classical,lean,RAW,0.564
+Classical,lean,DETREND,0.736
+Classical,rich,RAW,0.551
+Classical,rich,DETREND,0.715
