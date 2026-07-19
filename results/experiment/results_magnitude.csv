@@ -4,3 +4,8 @@ Classical,2,0.884
 Classical,3,0.946
 Classical,4,0.999
 Classical,6,1.0
+DL,1,0.88
+DL,2,0.986
+DL,3,0.993
+DL,4,0.993
+DL,6,1.0
