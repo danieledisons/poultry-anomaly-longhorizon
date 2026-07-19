@@ -1,0 +1,6 @@
+method,magnitude,auc
+Classical,1,0.663
+Classical,2,0.884
+Classical,3,0.946
+Classical,4,0.999
+Classical,6,1.0
