@@ -1,0 +1,2 @@
+question,condition,precision,recall,f1,f1_lo,f1_hi
+model,Classical,0.558,1.0,0.717,0.705,0.73

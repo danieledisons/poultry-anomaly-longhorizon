@@ -1,0 +1,12 @@
+model,axis,value,f1_alone,recall_alone,f1_gate,recall_gate
+Classical,magnitude,0.5,0.367,0.6,0.023,0.012
+Classical,magnitude,1.0,0.415,0.698,0.069,0.037
+Classical,magnitude,1.5,0.478,0.838,0.312,0.203
+Classical,magnitude,2.0,0.521,0.94,0.636,0.657
+Classical,magnitude,2.5,0.53,0.962,0.742,0.99
+Classical,magnitude,3.0,0.54,0.987,0.738,1.0
+Classical,duration,5.0,0.175,0.255,0.019,0.01
+Classical,duration,10.0,0.343,0.552,0.072,0.038
+Classical,duration,15.0,0.424,0.717,0.186,0.108
+Classical,duration,22.0,0.494,0.875,0.337,0.227
+Classical,duration,31.0,0.527,0.955,0.466,0.365
