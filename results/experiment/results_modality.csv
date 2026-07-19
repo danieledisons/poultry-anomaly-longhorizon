@@ -1,6 +1,11 @@
 method,modality,f1_gate,n_features
 Classical,audio,0.545,10
 Classical,video,0.567,8
-Classical,env,0.763,5
+Classical,env,0.755,5
 Classical,av,0.546,18
-Classical,all,0.548,23
+Classical,all,0.547,23
+DL,audio,0.545,130
+DL,video,0.692,68
+DL,env,0.545,15
+DL,av,0.545,198
+DL,all,0.554,213
