@@ -38,8 +38,12 @@ import json
 import random
 import subprocess
 import datetime as dt
+from pathlib import Path
 from dataclasses import dataclass, field
 from concurrent.futures import ProcessPoolExecutor, as_completed
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import RAW_DIR, RESULTS_DIR
 
 import cv2
 import numpy as np
@@ -52,15 +56,15 @@ from tqdm import tqdm
 
 # Folder containing the validation week's raw videos, e.g.:
 #   ".../Room 2 (31 July - 3 Aug)/"
-VIDEO_DIR = os.path.expanduser("~/workspace/projects/longhorizon/data/raw_room2/video/Room 2 (17, 18, 19 Aug)")
+VIDEO_DIR = str(RAW_DIR / "video" / "Room 2 (17, 18, 19 Aug)")
 
 # Parent folder containing MULTIPLE date-range subfolders (e.g. all of Room 2's
 # July+Aug folders side by side). Used only by --audit-only, which sweeps every
 # subfolder here without doing any optical flow -- fast metadata-only pass.
-VIDEO_PARENT_DIR = os.path.expanduser("~/workspace/projects/longhorizon/data/Room2_Video")
+VIDEO_PARENT_DIR = str(RAW_DIR / "Room2_Video")
 
 # Where CSVs and logs get written
-OUTPUT_DIR = os.path.expanduser("~/workspace/projects/longhorizon/results")
+OUTPUT_DIR = str(RESULTS_DIR)
 
 # Where the brightness-check clip/stills get written (see --check-brightness)
 BRIGHTNESS_CHECK_DIR = os.path.join(OUTPUT_DIR, "brightness_check")

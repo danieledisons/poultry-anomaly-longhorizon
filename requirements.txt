@@ -1,0 +1,18 @@
+# Core analysis / pipeline
+numpy
+pandas
+pyarrow
+scipy
+matplotlib
+
+# Audio feature extraction
+soundfile
+librosa
+noisereduce
+
+# Deep models (optional; install torch separately with the right CUDA wheel)
+# torch  --index-url https://download.pytorch.org/whl/cu126
+transformers
+
+# Data sync
+rclone-python

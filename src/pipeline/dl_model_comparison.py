@@ -28,9 +28,13 @@ Usage:
     # torch optional: if absent, GRU rows are skipped with a note; everything else runs.
 """
 from __future__ import annotations
-import argparse, os
+import argparse, os, sys
+from pathlib import Path
 import numpy as np, pandas as pd
-from linear_gate.comparison.alpha_gate import AlphaGate
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import RESULTS_DIR
+from src.models.alpha_gate import AlphaGate
 
 try:
     import torch, torch.nn as nn
@@ -333,8 +337,8 @@ def make_figure(tbl, out_dir):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--merged", default="./outputs/room2_merged_hourly.csv")
-    ap.add_argument("--out-dir", default="./outputs")
+    ap.add_argument("--merged", default=str(RESULTS_DIR / "room2_merged_hourly.csv"))
+    ap.add_argument("--out-dir", default=str(RESULTS_DIR))
     args = ap.parse_args(); os.makedirs(args.out_dir, exist_ok=True)
     print(f"[env] torch available: {HAVE_TORCH}")
     Z, Sig, Sinv = load_multimodal(args.merged)

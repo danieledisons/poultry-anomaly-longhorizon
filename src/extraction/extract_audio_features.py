@@ -89,8 +89,12 @@ import calendar
 import concurrent.futures as cf
 import os
 import re
+import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import RAW_DIR, FEATURES_DIR
 
 import librosa
 import numpy as np
@@ -115,8 +119,8 @@ import pandas as pd
 # CPU contention, which the M5's multiple cores absorb fine for two audio
 # extraction jobs.
 # ---------------------------------------------------------------------------
-INPUT_ROOT   = "/Users/daniel/Documents/LongHorizon/data/raw_room2/Room 2 (June)"
-OUTPUT_DIR   = "/Users/daniel/Documents/LongHorizon/data/features_room2/audio"
+INPUT_ROOT   = str(RAW_DIR / "Room 2 (June)")
+OUTPUT_DIR   = str(FEATURES_DIR / "audio")
 ROOM_LABEL   = "Room2"
 MONTH_TAG    = "2025-06"   # <-- change per batch (e.g. 2025-08). Keeps each month
                            #     in its own file so runs never overwrite each other.

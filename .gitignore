@@ -1,27 +1,13 @@
-cat > .gitignore << 'EOF'
-# raw + processed data — lives on server storage only, never GitHub
-data/*
-!data/.gitkeep
+# Minimal ignore — everything else (CSVs, figures, .env variants, results) is
+# intentionally committed and shared across machines.
 
-# heavy / generated artifacts
-figures/*
-!figures/.gitkeep
-results/*
-!results/.gitkeep
-*.parquet
-*.csv
-*.pth
-*.ckpt
-*.npy
-*.npz
-
-# logs / cluster
-*.log
-slurm-*.out
-
-# python
+# Python / OS junk only
 __pycache__/
 *.pyc
+*.pyo
 .ipynb_checkpoints/
+.DS_Store
+
+# The active machine-specific symlink (the .env.laptop/.env.server templates
+# ARE committed; the resolved symlink itself is not).
 .env
-EOF

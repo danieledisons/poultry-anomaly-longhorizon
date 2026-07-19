@@ -27,12 +27,17 @@ standardized activity LEVELS, where the joint structure exists.
 from __future__ import annotations
 import argparse
 import os
+import sys
+from pathlib import Path
 import numpy as np
 import pandas as pd
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import RESULTS_DIR
 
 from linear_gate.mm_gate.alpha_gate import AlphaGate
 
@@ -220,8 +225,8 @@ def figures(fused, Sig, Sinv, GPj, GPm, inj, out_dir):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--merged", default="./outputs/room2_merged_hourly.csv")
-    ap.add_argument("--out-dir", default="./outputs")
+    ap.add_argument("--merged", default=str(RESULTS_DIR / "room2_merged_hourly.csv"))
+    ap.add_argument("--out-dir", default=str(RESULTS_DIR))
     args = ap.parse_args()
     os.makedirs(args.out_dir, exist_ok=True)
 

@@ -14,13 +14,17 @@ Usage:
 
 import os
 import sys
+from pathlib import Path
 
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import pandas as pd
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import ENV_FEATURES_ROOM2
+
 # ---------------------------------------------------------------------------
-ENV_CSV   = "~/workspace/projects/longhorizon/data/raw_room2/env/env_features_Room2.csv"
+ENV_CSV   = str(ENV_FEATURES_ROOM2)
 OUT_PNG   = "env_trajectory_annotated_Room2.png"
 ROLL      = 7          # days, smoothing window for trend lines
 ROOM      = "Room 2"

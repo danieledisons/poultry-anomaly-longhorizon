@@ -33,7 +33,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from linear_gate.gate.alpha_gate import slow_fast_decompose, AlphaGate, robust_scale
+from config import FEATURES_DIR, RESULTS_DIR
+from src.models.alpha_gate import slow_fast_decompose, AlphaGate, robust_scale
 
 # ----------------------------------------------------------------------
 FILES = {
@@ -227,8 +228,12 @@ def make_figures(m, res, residual, scale, quiet, out_dir):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data-dir", default="./data")
-    ap.add_argument("--out-dir", default="./outputs")
+    ap.add_argument("--data-dir", default=str(FEATURES_DIR),
+                    help="Directory holding the hourly/audio/env feature CSVs "
+                         "(default: FEATURES_DIR from .env).")
+    ap.add_argument("--out-dir", default=str(RESULTS_DIR),
+                    help="Where to write merged CSV, metrics and figures "
+                         "(default: RESULTS_DIR from .env).")
     args = ap.parse_args()
     os.makedirs(args.out_dir, exist_ok=True)
 

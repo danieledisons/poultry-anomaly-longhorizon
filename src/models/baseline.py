@@ -107,8 +107,15 @@ USAGE
 
 import argparse
 import os
+import sys
 import warnings
 from itertools import product
+from pathlib import Path
+
+# Make the repo root importable so `config` resolves no matter how this script
+# is launched (python src/models/baseline.py  OR  python -m src.models.baseline).
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import FEATURES_DIR, RESULTS_DIR
 
 import matplotlib
 matplotlib.use("Agg")
@@ -127,17 +134,17 @@ warnings.filterwarnings("ignore")  # statsmodels convergence chatter; real
 # — nothing else about this script needs to change.
 # ---------------------------------------------------------------------------
 AUDIO_HOURLY_CSVS = [
-    "/Users/daniel/Documents/LongHorizon/data/features_room2/audio/audio_features_hourly_Room2_2025-06.csv",
-    "/Users/daniel/Documents/LongHorizon/data/features_room2/audio/audio_features_hourly_Room2_2025-07.csv",
-    # "/Users/daniel/Documents/LongHorizon/data/features_room2/audio/audio_features_hourly_Room2_2025-08.csv",
+    str(FEATURES_DIR / "audio_features_hourly_Room2_2025-06.csv"),
+    str(FEATURES_DIR / "audio_features_hourly_Room2_2025-07.csv"),
+    # str(FEATURES_DIR / "audio_features_hourly_Room2_2025-08.csv"),
 ]
 AUDIO_MINUTE_CSVS = [
-    "/Users/daniel/Documents/LongHorizon/data/features_room2/audio/audio_features_minute_Room2_2025-06.csv",
-    "/Users/daniel/Documents/LongHorizon/data/features_room2/audio/audio_features_minute_Room2_2025-07.csv",
-    # "/Users/daniel/Documents/LongHorizon/data/features_room2/audio/audio_features_minute_Room2_2025-08.csv",
+    str(FEATURES_DIR / "audio_features_minute_Room2_2025-06.csv"),
+    str(FEATURES_DIR / "audio_features_minute_Room2_2025-07.csv"),
+    # str(FEATURES_DIR / "audio_features_minute_Room2_2025-08.csv"),
 ]
-ENV_CSV     = "/Users/daniel/Documents/LongHorizon/data/raw_room2/env/env_features_Room2.csv"
-OUTPUT_DIR  = "/Users/daniel/Documents/LongHorizon/results/baseline"
+ENV_CSV     = str(FEATURES_DIR / "env_features_Room2.csv")
+OUTPUT_DIR  = str(RESULTS_DIR / "baseline")
 ROOM_LABEL  = "Room2"
 RUN_TAG     = "2025-06_07"   # label only, used in output filenames
 
