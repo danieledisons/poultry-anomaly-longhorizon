@@ -1,0 +1,382 @@
+drive,room,modality,session,start_date,end_date,n_files,size_mb,dated,path
+Poultry_Multimodal_SeptDec,Room8,audio,Oct18-20,2025-10-18,2025-10-20,13,26611.4,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room8/Oct18-20
+Poultry_Multimodal_SeptDec,Room8,audio,Nov5-7,2025-11-05,2025-11-07,14,28297.5,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room8/Nov5-7
+Poultry_Multimodal_SeptDec,Room8,audio,Nov12-14,2025-11-12,2025-11-14,13,26611.4,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room8/Nov12-14
+Poultry_Multimodal_SeptDec,Room8,audio,Oct12-15,2025-10-12,2025-10-15,11,22517.4,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room8/Oct12-15
+Poultry_Multimodal_SeptDec,Room8,audio,Nov28-Dec1,2025-11-28,2025-12-01,15,30414.5,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room8/Nov28-Dec1
+Poultry_Multimodal_SeptDec,Room8,audio,Oct20-23,2025-10-20,2025-10-23,13,26611.4,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room8/Oct20-23
+Poultry_Multimodal_SeptDec,Room8,audio,Oct23-27,2025-10-23,2025-10-27,15,30414.5,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room8/Oct23-27
+Poultry_Multimodal_SeptDec,Room8,audio,Oct29-Nov3,2025-10-29,2025-11-03,15,30414.5,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room8/Oct29-Nov3
+Poultry_Multimodal_SeptDec,Room8,audio,Sep 2-5,2025-09-02,2025-09-05,15,30414.4,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room8/Sep 2-5
+Poultry_Multimodal_SeptDec,Room1,audio,Dec3-5,2025-12-03,2025-12-05,8,16376.3,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room1/Dec3-5
+Poultry_Multimodal_SeptDec,Room1,audio,Dec5-8,2025-12-05,2025-12-08,13,26320.7,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room1/Dec5-8
+Poultry_Multimodal_SeptDec,Room1,audio,Nov19-21,2025-11-19,2025-11-21,68,47093.9,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room1/Nov19-21
+Poultry_Multimodal_SeptDec,Room1,audio,Nov26-28,2025-11-26,2025-11-28,11,22517.4,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room1/Nov26-28
+Poultry_Multimodal_SeptDec,Room1,audio,Nov24-26,2025-11-24,2025-11-26,14,28658.4,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room1/Nov24-26
+Poultry_Multimodal_SeptDec,Room1,audio,Nov14-17,2025-11-14,2025-11-17,14,28658.4,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room1/Nov14-17
+Poultry_Multimodal_SeptDec,Room1,audio,Nov5-7,2025-11-05,2025-11-07,14,27566.9,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room1/Nov5-7
+Poultry_Multimodal_SeptDec,Room1,audio,Oct15-18,2025-10-15,2025-10-18,15,30414.3,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room1/Oct15-18
+Poultry_Multimodal_SeptDec,Room1,audio,Oct6-9,2025-10-06,2025-10-09,9,18423.3,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room1/Oct6-9
+Poultry_Multimodal_SeptDec,Room1,audio,Oct9-12,2025-10-09,2025-10-12,6,12282.2,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room1/Oct9-12
+Poultry_Multimodal_SeptDec,Room1,audio,Sep 11-13,2025-09-11,2025-09-13,14,28312.7,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room1/Sep 11-13
+Poultry_Multimodal_SeptDec,Room1,audio,Sep 24-26,2025-09-24,2025-09-26,7,14329.2,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room1/Sep 24-26
+Poultry_Multimodal_SeptDec,Room1,audio,Sep 26-29,2025-09-26,2025-09-29,15,29135.7,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room1/Sep 26-29
+Poultry_Multimodal_SeptDec,Room6,audio,Oct20-23,2025-10-20,2025-10-23,3,6143.5,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room6/Oct20-23
+Poultry_Multimodal_SeptDec,Room2,audio,Dec1-3,2025-12-01,2025-12-03,51,16144.7,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Dec1-3
+Poultry_Multimodal_SeptDec,Room2,audio,Dec3-5,2025-12-03,2025-12-05,51,16144.7,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Dec3-5
+Poultry_Multimodal_SeptDec,Room2,audio,Dec5-8,2025-12-05,2025-12-08,80,25696.4,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Dec5-8
+Poultry_Multimodal_SeptDec,Room2,audio,Nov10-12,2025-11-10,2025-11-12,57,18117.7,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Nov10-12
+Poultry_Multimodal_SeptDec,Room2,audio,Nov12-14,2025-11-12,2025-11-14,48,15152.8,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Nov12-14
+Poultry_Multimodal_SeptDec,Room2,audio,Nov14-17,2025-11-14,2025-11-17,73,23387.6,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Nov14-17
+Poultry_Multimodal_SeptDec,Room2,audio,Nov19-21,2025-11-19,2025-11-21,23,6625.3,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Nov19-21
+Poultry_Multimodal_SeptDec,Room2,audio,Nov17-19,2025-11-17,2025-11-19,43,14163.9,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Nov17-19
+Poultry_Multimodal_SeptDec,Room2,audio,Nov21-24,2025-11-21,2025-11-24,74,23717.2,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Nov21-24
+Poultry_Multimodal_SeptDec,Room2,audio,Nov24-26,2025-11-24,2025-11-26,51,16141.3,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Nov24-26
+Poultry_Multimodal_SeptDec,Room2,audio,Nov28-Dec1,2025-11-28,2025-12-01,80,25696.4,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Nov28-Dec1
+Poultry_Multimodal_SeptDec,Room2,audio,Nov26-28,2025-11-26,2025-11-28,41,13294.5,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Nov26-28
+Poultry_Multimodal_SeptDec,Room2,audio,Nov3-5,2025-11-03,2025-11-05,74,74664.7,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Nov3-5
+Poultry_Multimodal_SeptDec,Room2,audio,Nov5-7,2025-11-05,2025-11-07,47,15306.9,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Nov5-7
+Poultry_Multimodal_SeptDec,Room2,audio,Oct1-3,2025-10-01,2025-10-03,49,15483.5,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Oct1-3
+Poultry_Multimodal_SeptDec,Room2,audio,Nov7-10,2025-11-07,2025-11-10,72,23387.1,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Nov7-10
+Poultry_Multimodal_SeptDec,Room2,audio,Oct12-15,2025-10-12,2025-10-15,75,24046.3,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Oct12-15
+Poultry_Multimodal_SeptDec,Room2,audio,Oct15-18,2025-10-15,2025-10-18,78,25363.3,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Oct15-18
+Poultry_Multimodal_SeptDec,Room2,audio,Oct18-20,2025-10-18,2025-10-20,47,15152.7,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Oct18-20
+Poultry_Multimodal_SeptDec,Room2,audio,Oct20-23,2025-10-20,2025-10-23,74,23716.8,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Oct20-23
+Poultry_Multimodal_SeptDec,Room2,audio,Oct27-29,2025-10-27,2025-10-29,48,15481.7,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Oct27-29
+Poultry_Multimodal_SeptDec,Room2,audio,Oct23-27,2025-10-23,2025-10-27,89,28986.9,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Oct23-27
+Poultry_Multimodal_SeptDec,Room2,audio,Oct3-6,2025-10-03,2025-10-06,73,23716.5,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Oct3-6
+Poultry_Multimodal_SeptDec,Room2,audio,Oct29-Nov3,2025-10-29,2025-11-03,128,41833.2,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Oct29-Nov3
+Poultry_Multimodal_SeptDec,Room2,audio,Oct6-9,2025-10-06,2025-10-09,74,23717.3,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Oct6-9
+Poultry_Multimodal_SeptDec,Room2,audio,Oct9-12,2025-10-09,2025-10-12,73,23716.6,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Oct9-12
+Poultry_Multimodal_SeptDec,Room2,audio,Sep 17-19,2025-09-17,2025-09-19,43,13835.0,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Sep 17-19
+Poultry_Multimodal_SeptDec,Room2,audio,Sep 11-17,2025-09-11,2025-09-17,135,44467.5,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Sep 11-17
+Poultry_Multimodal_SeptDec,Room2,audio,Sep 19-22,2025-09-19,2025-09-22,79,25693.2,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Sep 19-22
+Poultry_Multimodal_SeptDec,Room2,audio,Sep 22-24,2025-09-22,2025-09-24,50,16140.5,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Sep 22-24
+Poultry_Multimodal_SeptDec,Room2,audio,Sep 26-29,2025-09-26,2025-09-29,48,15481.9,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Sep 26-29
+Poultry_Multimodal_SeptDec,Room2,audio,Sep 24-26,2025-09-24,2025-09-26,39,12191.4,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Sep 24-26
+Poultry_Multimodal_SeptDec,Room2,audio,Sep 2-5,2025-09-02,2025-09-05,179,58267.6,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room2/Sep 2-5
+Poultry_Multimodal_SeptDec,Room2,other,Nov12-14,2025-11-12,2025-11-14,57,21744.6,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Nov12-14
+Poultry_Multimodal_SeptDec,Room2,other,Nov24-26,2025-11-24,2025-11-26,57,24641.0,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Nov24-26
+Poultry_Multimodal_SeptDec,Room2,other,Nov19-21,2025-11-19,2025-11-21,55,24202.4,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Nov19-21
+Poultry_Multimodal_SeptDec,Room2,other,Dec1-3,2025-12-01,2025-12-03,60,26221.5,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Dec1-3
+Poultry_Multimodal_SeptDec,Room2,other,Nov14-17,2025-11-14,2025-11-17,86,33171.2,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Nov14-17
+Poultry_Multimodal_SeptDec,Room2,other,Nov10-12,2025-11-10,2025-11-12,65,26159.1,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Nov10-12
+Poultry_Multimodal_SeptDec,Room2,other,Nov17-19,2025-11-17,2025-11-19,59,27646.5,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Nov17-19
+Poultry_Multimodal_SeptDec,Room2,other,Nov21-24,2025-11-21,2025-11-24,86,38557.0,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Nov21-24
+Poultry_Multimodal_SeptDec,Room2,other,Nov26-28,2025-11-26,2025-11-28,47,18425.7,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Nov26-28
+Poultry_Multimodal_SeptDec,Room2,other,Nov28-Dec1,2025-11-28,2025-12-01,93,40133.0,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Nov28-Dec1
+Poultry_Multimodal_SeptDec,Room2,other,Nov3-5,2025-11-03,2025-11-05,51,18287.7,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Nov3-5
+Poultry_Multimodal_SeptDec,Room2,other,Nov5-7,2025-11-05,2025-11-07,55,20193.2,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Nov5-7
+Poultry_Multimodal_SeptDec,Room2,other,Oct1-3,2025-10-01,2025-10-03,57,18379.9,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Oct1-3
+Poultry_Multimodal_SeptDec,Room2,other,Nov7-10,2025-11-07,2025-11-10,86,35035.9,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Nov7-10
+Poultry_Multimodal_SeptDec,Room2,other,Oct12-15,2025-10-12,2025-10-15,88,28687.9,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Oct12-15
+Poultry_Multimodal_SeptDec,Room2,other,Oct15-18,2025-10-15,2025-10-18,92,31335.3,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Oct15-18
+Poultry_Multimodal_SeptDec,Room2,other,Oct18-20,2025-10-18,2025-10-20,56,17781.3,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Oct18-20
+Poultry_Multimodal_SeptDec,Room2,other,Oct20-23,2025-10-20,2025-10-23,87,27856.9,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Oct20-23
+Poultry_Multimodal_SeptDec,Room2,other,Oct27-29,2025-10-27,2025-10-29,1,318.5,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Oct27-29
+Poultry_Multimodal_SeptDec,Room2,other,Oct23-27,2025-10-23,2025-10-27,106,38396.3,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Oct23-27
+Poultry_Multimodal_SeptDec,Room2,other,Oct3-6,2025-10-03,2025-10-06,87,25937.2,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Oct3-6
+Poultry_Multimodal_SeptDec,Room2,other,Oct6-9,2025-10-06,2025-10-09,87,25439.3,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Oct6-9
+Poultry_Multimodal_SeptDec,Room2,other,Oct9-12,2025-10-09,2025-10-12,86,28941.1,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Oct9-12
+Poultry_Multimodal_SeptDec,Room2,other,Oct29-Nov3,2025-10-29,2025-11-03,153,59480.9,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Oct29-Nov3
+Poultry_Multimodal_SeptDec,Room2,other,Sep 17-19,2025-09-17,2025-09-19,51,15521.9,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Sep 17-19
+Poultry_Multimodal_SeptDec,Room2,other,Sep 19-22,2025-09-19,2025-09-22,93,38390.7,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Sep 19-22
+Poultry_Multimodal_SeptDec,Room2,other,Sep 2-5,2025-09-02,2025-09-05,114,36294.6,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Sep 2-5
+Poultry_Multimodal_SeptDec,Room2,other,Sep 22-24,2025-09-22,2025-09-24,62,19712.7,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Sep 22-24
+Poultry_Multimodal_SeptDec,Room2,other,Sep 29-Oct 1,2025-10-01,2025-10-29,57,17445.1,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Sep 29-Oct 1
+Poultry_Multimodal_SeptDec,Room2,other,Sep 26-29,2025-09-26,2025-09-29,87,34294.8,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Sep 26-29
+Poultry_Multimodal_SeptDec,Room2,other,Sep 24-26,2025-09-24,2025-09-26,45,15151.2,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Sep 24-26
+Poultry_Multimodal_SeptDec,Room2,other,Sep 9-11,2025-09-09,2025-09-11,55,16664.9,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Sep 9-11
+Poultry_Multimodal_SeptDec,Room2,other,Sep 6-9,2025-09-06,2025-09-09,118,35780.7,True,/mnt/drive_bf/Poultry_Multimodal_SeptDec/Room 2_Sept_Dec/Sep 6-9
+Poultry Multimodal Data,Room8,audio,Room 8 (10 Aug),2025-08-10,2025-08-10,1,1742.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (10 Aug)
+Poultry Multimodal Data,Room8,audio,FOLDER01,2025-07-03,2025-07-06,7,14329.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 - 3, 4, 5, 6 July/FOLDER01"
+Poultry Multimodal Data,Room8,audio,"Room 8 (13, 14, 15 Aug)",2025-08-13,2025-08-15,15,29849.1,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (13, 14, 15 Aug)"
+Poultry Multimodal Data,Room8,audio,Room 8 (22 Aug),2025-08-22,2025-08-22,1,1742.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (22 Aug)
+Poultry Multimodal Data,Room8,audio,"Room 8 (19, 20, 21 Aug)",2025-08-19,2025-08-21,14,28651.7,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (19, 20, 21 Aug)"
+Poultry Multimodal Data,Room8,audio,"Room 8 (15, 16, 17 Aug)",2025-08-15,2025-08-17,14,27399.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (15, 16, 17 Aug)"
+Poultry Multimodal Data,Room8,audio,"Room 8 (24, 25, 26 July)",2025-07-24,2025-07-26,1,1742.9,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (24, 25, 26 July)"
+Poultry Multimodal Data,Room8,audio,"Room 8 (17, 18, 19 Aug)",2025-08-17,2025-08-19,14,27316.8,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (17, 18, 19 Aug)"
+Poultry Multimodal Data,Room8,audio,"Room 8 (21, 22 Aug)",2025-08-21,2025-08-22,9,16848.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (21, 22 Aug)"
+Poultry Multimodal Data,Room8,audio,Room 8 (25 Aug),2025-08-25,2025-08-25,1,1742.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (25 Aug)
+Poultry Multimodal Data,Room8,audio,"Room 8 (27, 28, 29 July)",2025-07-27,2025-07-29,16,30142.0,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (27, 28, 29 July)"
+Poultry Multimodal Data,Room8,audio,"Room 8 (27, 28, 29 Aug)",2025-08-27,2025-08-29,14,27875.7,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (27, 28, 29 Aug)"
+Poultry Multimodal Data,Room8,audio,Room 8 (31 July),2025-07-31,2025-07-31,1,1742.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (31 July)
+Poultry Multimodal Data,Room8,audio,"Room 8 (29, 30, 31 Aug)",2025-08-29,2025-08-31,15,30414.5,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (29, 30, 31 Aug)"
+Poultry Multimodal Data,Room8,audio,Room 8 (31 July - 2 Aug),2025-07-31,2025-08-02,15,30414.4,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (31 July - 2 Aug)
+Poultry Multimodal Data,Room8,audio,"Room 8 (3, 4, 5 Aug)",2025-08-03,2025-08-05,15,29491.1,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (3, 4, 5 Aug)"
+Poultry Multimodal Data,Room8,audio,"Room 8 (5, 6, 7 Aug)",2025-08-05,2025-08-07,15,28927.4,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (5, 6, 7 Aug)"
+Poultry Multimodal Data,Room8,audio,Room 8 - 1 July,2025-07-01,2025-07-01,1,1743.4,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 - 1 July
+Poultry Multimodal Data,Room8,audio,"Room 8 (7, 8, 9 Aug)",2025-08-07,2025-08-09,15,30418.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 (7, 8, 9 Aug)"
+Poultry Multimodal Data,Room8,audio,"Room 8 - 10, 11, 12 July",2025-07-10,2025-07-12,14,28367.4,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 - 10, 11, 12 July"
+Poultry Multimodal Data,Room8,audio,"Room 8 - 13, 14, 15 July",2025-07-13,2025-07-15,7,14329.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 - 13, 14, 15 July"
+Poultry Multimodal Data,Room8,audio,"Room 8 - 19, 20, 21 July",2025-07-19,2025-07-21,15,30414.4,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 - 19, 20, 21 July"
+Poultry Multimodal Data,Room8,audio,FOLDER01,2025-06-10,2025-06-12,11,22517.4,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 - 10, 11, 12 June/FOLDER01"
+Poultry Multimodal Data,Room8,audio,"Room 8 - 20, 21, 22 June",2025-06-20,2025-06-22,15,30414.5,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 - 20, 21, 22 June"
+Poultry Multimodal Data,Room8,audio,"Room 8 - 23, 24, 25 June",2025-06-23,2025-06-25,14,27625.7,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 - 23, 24, 25 June"
+Poultry Multimodal Data,Room8,audio,"Room 8 - 25,26, 27 June",2025-06-25,2025-06-27,15,30414.5,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 - 25,26, 27 June"
+Poultry Multimodal Data,Room8,audio,FOLDER01,2025-06-13,2025-06-15,15,30414.5,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 - 13, 14, 15 June/FOLDER01"
+Poultry Multimodal Data,Room8,audio,FOLDER01,2025-06-16,2025-06-18,16,30011.0,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 - 16, 17, 18 June/FOLDER01"
+Poultry Multimodal Data,Room8,audio,FOLDER01,2025-06-18,2025-06-20,16,30414.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 - 18, 19, 20 June/FOLDER01"
+Poultry Multimodal Data,Room8,audio,"Room 8 - 6, 7, 8 July",2025-07-06,2025-07-08,15,28445.7,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 - 6, 7, 8 July"
+Poultry Multimodal Data,Room8,audio,FOLDER01,2025-06-06,2025-06-08,20,30423.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 8/Room 8 - 6, 7, 8 June/Room 8 Audio-6,7,8 June/STEREO/FOLDER01"
+Poultry Multimodal Data,Room6,audio,"Room 3 - 3, 4, 5, 6 July",2025-07-03,2025-07-06,7,13418.9,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 3 - 3, 4, 5, 6 July"
+Poultry Multimodal Data,Room6,audio,"Room 6 (16, 17 Aug)",2025-08-16,2025-08-17,29,58055.8,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 (16, 17 Aug)"
+Poultry Multimodal Data,Room6,audio,"Room 6 (17, 18, 19 Aug)",2025-08-17,2025-08-19,33,66933.0,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 (17, 18, 19 Aug)"
+Poultry Multimodal Data,Room6,audio,"Room 6 (13, 14, 15 Aug)",2025-08-13,2025-08-15,42,82104.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 (13, 14, 15 Aug)"
+Poultry Multimodal Data,Room6,audio,"Room 6 (10, 11, 12, 13 Aug)",2025-08-10,2025-08-13,55,111369.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 (10, 11, 12, 13 Aug)"
+Poultry Multimodal Data,Room6,audio,"Room 6 (19, 20, 21 Aug)",2025-08-19,2025-08-21,36,70165.0,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 (19, 20, 21 Aug)"
+Poultry Multimodal Data,Room6,audio,Room 6 (19 - 27 July),2025-07-19,2025-07-27,122,244121.2,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 (19 - 27 July)
+Poultry Multimodal Data,Room6,audio,"Room 6 (25, 26, 27 Aug)",2025-08-25,2025-08-27,34,69175.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 (25, 26, 27 Aug)"
+Poultry Multimodal Data,Room6,audio,"Room 6 (27, 28, 29 July)",2025-07-27,2025-07-29,37,75708.9,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 (27, 28, 29 July)"
+Poultry Multimodal Data,Room6,audio,"Room 6 (27, 28, 29 Aug)",2025-08-27,2025-08-29,35,68251.9,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 (27, 28, 29 Aug)"
+Poultry Multimodal Data,Room6,audio,"Room 6 (29, 30 Aug)",2025-08-29,2025-08-30,24,49147.8,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 (29, 30 Aug)"
+Poultry Multimodal Data,Room6,audio,Room 6 (21 - 25 Aug),2025-08-21,2025-08-25,72,145895.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 (21 - 25 Aug)
+Poultry Multimodal Data,Room6,audio,"Room 6 (29, 30, 31 July)",2025-07-29,2025-07-31,32,65131.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 (29, 30, 31 July)"
+Poultry Multimodal Data,Room6,audio,"Room 6 (31 Aug, 1 Sep)",2025-08-31,2025-09-01,30,57699.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 (31 Aug, 1 Sep)"
+Poultry Multimodal Data,Room6,audio,Room 6 (31 July - 3 Aug),2025-07-31,2025-08-03,51,104323.3,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 (31 July - 3 Aug)
+Poultry Multimodal Data,Room6,audio,"Room 6 (5, 6, 7 July)",2025-07-05,2025-07-07,35,70830.9,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 (5, 6, 7 July)"
+Poultry Multimodal Data,Room6,audio,"Room 6 Audio-6,7,8 June",2025-06-06,2025-06-08,39,71243.5,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/June 6, 7, 8/Room 6 Audio-6,7,8 June"
+Poultry Multimodal Data,Room6,audio,"Room 6 (7, 8, 9, 10 Aug)",2025-08-07,2025-08-10,53,103125.7,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 (7, 8, 9, 10 Aug)"
+Poultry Multimodal Data,Room6,audio,Room 6 Audio,,,33,63508.2,False,/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 Audio
+Poultry Multimodal Data,Room6,audio,"Room 6 - 30 June, 1, 2, 3 July",2025-06-01,2025-07-03,44,88723.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6 - 30 June, 1, 2, 3 July"
+Poultry Multimodal Data,Room6,audio,"Room 6(3, 4, 5 Aug)",2025-08-03,2025-08-05,36,72345.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6/Room 6(3, 4, 5 Aug)"
+Poultry Multimodal Data,Room1,audio,"21, 22, 23 July",2025-07-21,2025-07-23,15,30414.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/21, 22, 23 July"
+Poultry Multimodal Data,Room1,audio,"Room 1 (10, 11, 12 Aug)",2025-08-10,2025-08-12,15,30414.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 (10, 11, 12 Aug)"
+Poultry Multimodal Data,Room1,audio,"Room 1 (13, 14, 15 Aug)",2025-08-13,2025-08-15,15,30414.7,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 (13, 14, 15 Aug)"
+Poultry Multimodal Data,Room1,audio,"Room 1 (15, 16 Aug)",2025-08-15,2025-08-16,6,12282.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 (15, 16 Aug)"
+Poultry Multimodal Data,Room1,audio,"Room 1 (17, 18, 19 Aug)",2025-08-17,2025-08-19,14,27393.1,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 (17, 18, 19 Aug)"
+Poultry Multimodal Data,Room1,audio,"Room 1 (19, 20, 21 Aug)",2025-08-19,2025-08-21,15,28932.4,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 (19, 20, 21 Aug)"
+Poultry Multimodal Data,Room1,audio,Room 1 (22 Aug),2025-08-22,2025-08-22,1,1742.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 (22 Aug)
+Poultry Multimodal Data,Room1,audio,"Room 1 (24, 25, 26 July)",2025-07-24,2025-07-26,1,1743.4,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 (24, 25, 26 July)"
+Poultry Multimodal Data,Room1,audio,Room 1 (25 Aug),2025-08-25,2025-08-25,2,1743.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 (25 Aug)
+Poultry Multimodal Data,Room1,audio,"Room 1 (27, 28, 29 Aug)",2025-08-27,2025-08-29,14,27399.8,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 (27, 28, 29 Aug)"
+Poultry Multimodal Data,Room1,audio,"Room 1 (27, 28, 29 July)",2025-07-27,2025-07-29,15,29501.8,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 (27, 28, 29 July)"
+Poultry Multimodal Data,Room1,audio,"Room 1 (29, 30, 31 Aug)",2025-08-29,2025-08-31,16,30414.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 (29, 30, 31 Aug)"
+Poultry Multimodal Data,Room1,audio,Room 1 (3 Aug),2025-08-03,2025-08-03,2,4094.1,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 (3 Aug)
+Poultry Multimodal Data,Room1,audio,Room 1 (31 July),2025-07-31,2025-07-31,1,1742.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 (31 July)
+Poultry Multimodal Data,Room1,audio,"Room 1 (31 July & 1, 2 Aug)",2025-07-31,2025-08-02,15,30414.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 (31 July & 1, 2 Aug)"
+Poultry Multimodal Data,Room1,audio,"Room 1 (5, 6, 7 Aug)",2025-08-05,2025-08-07,15,28718.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 (5, 6, 7 Aug)"
+Poultry Multimodal Data,Room1,audio,"Room 1 - 1, 2, 3 July",2025-07-01,2025-07-03,15,30414.7,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 1, 2, 3 July"
+Poultry Multimodal Data,Room1,audio,"Room 1 - 10, 11, 12 July",2025-07-10,2025-07-12,15,30414.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 10, 11, 12 July"
+Poultry Multimodal Data,Room1,audio,"Room 1 - 13, 14, 15 July",2025-07-13,2025-07-15,14,28213.7,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 13, 14, 15 July"
+Poultry Multimodal Data,Room1,audio,"Room 1 - 19, 20, 21 July",2025-07-19,2025-07-21,15,30414.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 19, 20, 21 July"
+Poultry Multimodal Data,Room1,audio,"Room 1 - 20, 21, 22 June",2025-06-20,2025-06-22,14,28367.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 20, 21, 22 June"
+Poultry Multimodal Data,Room1,audio,"Room 1 - 21, 22, 23 July",2025-07-21,2025-07-23,14,28367.1,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 21, 22, 23 July"
+Poultry Multimodal Data,Room1,audio,"Room 1 - 23, 24, 25 June",2025-06-23,2025-06-25,14,27734.4,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 23, 24, 25 June"
+Poultry Multimodal Data,Room1,audio,"Room 1 - 25, 26, 27 June",2025-06-25,2025-06-27,15,30415.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 25, 26, 27 June"
+Poultry Multimodal Data,Room1,audio,"Room 1 - 3, 4, 5, 6 July",2025-07-03,2025-07-06,15,30414.7,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 3, 4, 5, 6 July"
+Poultry Multimodal Data,Room1,audio,FOLDER01,2025-06-10,2025-06-12,15,30421.9,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 10, 11, 12 June/FOLDER01"
+Poultry Multimodal Data,Room1,audio,"Room 1 - 7, 8, 9 Aug",2025-08-07,2025-08-09,15,30418.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 7, 8, 9 Aug"
+Poultry Multimodal Data,Room1,audio,FOLDER01,2025-06-13,2025-06-15,15,30414.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 13, 14, 15 June/FOLDER01"
+Poultry Multimodal Data,Room1,audio,FOLDER01,2025-06-16,2025-06-18,15,30000.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 16, 17, 18 June/FOLDER01"
+Poultry Multimodal Data,Room1,audio,FOLDER01,2025-06-18,2025-06-20,15,30414.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 18, 19, 20 June/FOLDER01"
+Poultry Multimodal Data,Room1,audio,FOLDER01,2025-07-06,2025-07-08,13,26611.4,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 6, 7, 8 July/FOLDER01"
+Poultry Multimodal Data,Room1,audio,FOLDER01,2025-07-08,2025-07-10,14,28339.8,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 8, 9, 10 July/FOLDER01"
+Poultry Multimodal Data,Room1,audio,FOLDER01,2025-06-06,2025-06-08,15,29121.5,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 1/Room 1 - 6, 7, 8 June/STEREO/FOLDER01"
+Poultry Multimodal Data,Room2,audio,"19, 20, 21 July (Room 2)",2025-07-19,2025-07-21,132,21740.0,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/July/Room 2/19, 20, 21 July (Room 2)"
+Poultry Multimodal Data,Room2,audio,"9, 10, 11 July (Room 2)",2025-07-09,2025-07-11,146,23617.5,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/July/Room 2/9, 10, 11 July (Room 2)"
+Poultry Multimodal Data,Room2,audio,"12, 13, 14 July (Room 2)",2025-07-12,2025-07-14,114,18446.8,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/July/Room 2/12, 13, 14 July (Room 2)"
+Poultry Multimodal Data,Room2,audio,"29, 30, 31 July",2025-07-29,2025-07-31,118,19434.5,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/July/Room 2/29, 30, 31 July"
+Poultry Multimodal Data,Room2,audio,"1, 2, 3, 4 July (Room 2)",2025-07-01,2025-07-04,126,20478.7,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/July/Room 2/1, 2, 3, 4 July (Room 2)"
+Poultry Multimodal Data,Room2,audio,"15, 16, 17 July (Room 2)",2025-07-15,2025-07-17,120,19419.1,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/July/Room 2/15, 16, 17 July (Room 2)"
+Poultry Multimodal Data,Room2,audio,"6, 7, 8 July (Room 2)",2025-07-06,2025-07-08,128,20752.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/July/Room 2/6, 7, 8 July (Room 2)"
+Poultry Multimodal Data,Room2,audio,"25, 26, 27 July (Room 2)",2025-07-25,2025-07-27,144,23619.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/July/Room 2/25, 26, 27 July (Room 2)"
+Poultry Multimodal Data,Room2,audio,"22, 23, 24 July (Room 2)",2025-07-22,2025-07-24,146,23924.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/July/Room 2/22, 23, 24 July (Room 2)"
+Poultry Multimodal Data,Room2,audio,"28, 29 July (Room 2)",2025-07-28,2025-07-29,72,11843.0,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/July/Room 2/28, 29 July (Room 2)"
+Poultry Multimodal Data,Room2,audio,"13, 14, 15 Aug",2025-08-13,2025-08-15,124,19901.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/August/Room 2/13, 14, 15 Aug"
+Poultry Multimodal Data,Room2,audio,"16, 17, 18 Aug",2025-08-16,2025-08-18,144,23716.4,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/August/Room 2/16, 17, 18 Aug"
+Poultry Multimodal Data,Room2,audio,19 Aug,2025-08-19,2025-08-19,18,2684.5,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/August/Room 2/19 Aug
+Poultry Multimodal Data,Room2,audio,"4, 5, 6, 7 Aug",2025-08-04,2025-08-07,164,26702.8,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/August/Room 2/4, 5, 6, 7 Aug"
+Poultry Multimodal Data,Room2,audio,"Room 2 (28, 29, 30 Aug)",2025-08-28,2025-08-30,82,13505.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/August/Room 2/Room 2 (28, 29, 30 Aug)"
+Poultry Multimodal Data,Room2,audio,"7, 8, 9 Aug",2025-08-07,2025-08-09,126,20423.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/August/Room 2/7, 8, 9 Aug"
+Poultry Multimodal Data,Room2,audio,"Room 2 (31 Aug, 1 Sep)",2025-08-31,2025-09-01,68,11134.1,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/August/Room 2/Room 2 (31 Aug, 1 Sep)"
+Poultry Multimodal Data,Room2,audio,"1, 2, 3 Aug",2025-08-01,2025-08-03,146,23803.8,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/August/Room 2/1, 2, 3 Aug"
+Poultry Multimodal Data,Room2,audio,"19, 20 Aug",2025-08-19,2025-08-20,80,12846.9,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/August/Room 2/19, 20 Aug"
+Poultry Multimodal Data,Room2,audio,"21, 22 Aug",2025-08-21,2025-08-22,96,15725.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/August/Room 2/21, 22 Aug"
+Poultry Multimodal Data,Room2,audio,"23, 24, 25 Aug",2025-08-23,2025-08-25,120,19645.1,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/August/Room 2/23, 24, 25 Aug"
+Poultry Multimodal Data,Room2,audio,"10, 11, 12, 13 Aug",2025-08-10,2025-08-13,162,25946.1,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/August/Room 2/10, 11, 12, 13 Aug"
+Poultry Multimodal Data,Room2,audio,"Room 2 (6, 7, 8 June)",2025-06-06,2025-06-08,116,19104.7,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/June/Room 2 (June)/Room 2 (6, 7, 8 June)"
+Poultry Multimodal Data,Room2,audio,"Room 2 (9, 10, 11 June)",2025-06-09,2025-06-11,126,20607.7,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/June/Room 2 (June)/Room 2 (9, 10, 11 June)"
+Poultry Multimodal Data,Room2,audio,"Room 2 (13, 15, 16 June)",2025-06-13,2025-06-16,24,1819.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/June/Room 2 (June)/Room 2 (13, 15, 16 June)"
+Poultry Multimodal Data,Room2,audio,"Room (23, 25, 30 June)",2025-06-23,2025-06-30,50,7663.0,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/June/Room 2 (June)/Room (23, 25, 30 June)"
+Poultry Multimodal Data,Room2,audio,"Room 2 (18, 19, 21 June)",2025-06-18,2025-06-21,34,5329.4,True,"/mnt/crucial_x10/Poultry Multimodal Data/Audio/June/Room 2 (June)/Room 2 (18, 19, 21 June)"
+Poultry Multimodal Data,Room2,audio,Oct12-15,2025-10-12,2025-10-15,150,24046.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/October/Room 2/Oct12-15
+Poultry Multimodal Data,Room2,audio,Oct18-20,2025-10-18,2025-10-20,94,15152.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/October/Room 2/Oct18-20
+Poultry Multimodal Data,Room2,audio,Oct23-27,2025-10-23,2025-10-27,178,28987.3,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/October/Room 2/Oct23-27
+Poultry Multimodal Data,Room2,audio,Sep 29-Oct 1,2025-10-01,2025-10-29,98,15811.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/October/Room 2/Sep 29-Oct 1
+Poultry Multimodal Data,Room2,audio,Oct29-Nov3,2025-10-29,2025-11-03,256,41833.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/October/Room 2/Oct29-Nov3
+Poultry Multimodal Data,Room2,audio,Oct1-3,2025-10-01,2025-10-03,98,15483.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/October/Room 2/Oct1-3
+Poultry Multimodal Data,Room2,audio,Oct3-6,2025-10-03,2025-10-06,146,23716.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/October/Room 2/Oct3-6
+Poultry Multimodal Data,Room2,audio,Oct15-18,2025-10-15,2025-10-18,156,25363.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/October/Room 2/Oct15-18
+Poultry Multimodal Data,Room2,audio,Oct20-23,2025-10-20,2025-10-23,148,23717.0,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/October/Room 2/Oct20-23
+Poultry Multimodal Data,Room2,audio,Oct27-29,2025-10-27,2025-10-29,96,15481.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/October/Room 2/Oct27-29
+Poultry Multimodal Data,Room?,audio,Sep 2-5,2025-09-02,2025-09-05,532,86015.2,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/Sept/Sep 2-5
+Poultry Multimodal Data,Room?,audio,Sep 26-29,2025-09-26,2025-09-29,96,15482.1,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/Sept/Sep22-29/Sep 26-29
+Poultry Multimodal Data,Room?,audio,Sep 24-26,2025-09-24,2025-09-26,78,12191.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/Sept/Sep22-29/Sep 24-26
+Poultry Multimodal Data,Room?,audio,Sep 22-24,2025-09-22,2025-09-24,100,16140.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/Sept/Sep22-29/Sep 22-24
+Poultry Multimodal Data,Room?,audio,Sep 17-19,2025-09-17,2025-09-19,86,13835.2,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/Sept/Sept9-22/Sep 17-19
+Poultry Multimodal Data,Room?,audio,Sep 19-22,2025-09-19,2025-09-22,158,25693.5,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/Sept/Sept9-22/Sep 19-22
+Poultry Multimodal Data,Room?,audio,Sep 11-17,2025-09-11,2025-09-17,270,44468.1,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/Sept/Sept9-22/Sep 11-17
+Poultry Multimodal Data,Room?,audio,Sep 9-11,2025-09-09,2025-09-11,42,6849.5,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/Sept/Sept9-22/Sep 9-11
+Poultry Multimodal Data,Room2,audio,Nov5-7,2025-11-05,2025-11-07,94,15307.1,True,/mnt/crucial_x10/Poultry Multimodal Data/Audio/November/Room 2/Nov5-7
+Poultry Multimodal Data,Room?,thermal,11 sep,2025-09-11,2025-09-11,196,7.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/11 sep
+Poultry Multimodal Data,Room2,thermal,room2,2025-10-29,2025-10-29,64,2.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/29 Oct/room2
+Poultry Multimodal Data,Room6,thermal,Room6,2025-10-29,2025-10-29,40,1.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/29 Oct/Room6
+Poultry Multimodal Data,Room1,thermal,Room1,2025-10-29,2025-10-29,40,1.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/29 Oct/Room1
+Poultry Multimodal Data,Room7,thermal,Room7&8,2025-10-29,2025-10-29,80,3.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/29 Oct/Room7&8
+Poultry Multimodal Data,Room2,thermal,room2,2025-10-15,2025-10-15,40,1.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/15 oct/room2
+Poultry Multimodal Data,Room6,thermal,Room6,2025-10-15,2025-10-15,40,1.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/15 oct/Room6
+Poultry Multimodal Data,Room1,thermal,room1,2025-10-15,2025-10-15,40,1.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/15 oct/room1
+Poultry Multimodal Data,Room8,thermal,room8,2025-10-15,2025-10-15,40,1.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/15 oct/room8
+Poultry Multimodal Data,Room7,thermal,Room7,2025-10-15,2025-10-15,40,1.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/15 oct/Room7
+Poultry Multimodal Data,Room?,thermal,24Sep,2025-09-24,2025-09-24,200,8.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/24Sep
+Poultry Multimodal Data,Room?,thermal,17 sep,2025-09-17,2025-09-17,200,8.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/17 sep
+Poultry Multimodal Data,Room2,thermal,Room2,2025-11-24,2025-11-24,36,1.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/24 Nov/Room2
+Poultry Multimodal Data,Room6,thermal,Room6,2025-11-24,2025-11-24,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/24 Nov/Room6
+Poultry Multimodal Data,Room1,thermal,Room1,2025-11-24,2025-11-24,40,1.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/24 Nov/Room1
+Poultry Multimodal Data,Room8,thermal,Room8,2025-11-24,2025-11-24,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/24 Nov/Room8
+Poultry Multimodal Data,Room7,thermal,Room7,2025-11-24,2025-11-24,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/24 Nov/Room7
+Poultry Multimodal Data,Room?,thermal,29 Sep,2025-09-29,2025-09-29,196,8.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/29 Sep
+Poultry Multimodal Data,Room?,thermal,12 Oct,2025-10-12,2025-10-12,200,9.0,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/12 Oct
+Poultry Multimodal Data,Room?,thermal,9 sep,2025-09-09,2025-09-09,2,0.1,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/9 sep
+Poultry Multimodal Data,Room2,thermal,Room2,2025-11-07,2025-11-07,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/7 Nov/Room2
+Poultry Multimodal Data,Room6,thermal,Room6,2025-11-07,2025-11-07,40,1.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/7 Nov/Room6
+Poultry Multimodal Data,Room1,thermal,Room1,2025-11-07,2025-11-07,36,1.5,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/7 Nov/Room1
+Poultry Multimodal Data,Room8,thermal,Room8,2025-11-07,2025-11-07,36,1.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/7 Nov/Room8
+Poultry Multimodal Data,Room7,thermal,room7,2025-11-07,2025-11-07,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/7 Nov/room7
+Poultry Multimodal Data,Room2,thermal,Room2,2025-11-05,2025-11-05,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/5 Nov/Room2
+Poultry Multimodal Data,Room6,thermal,Room6,2025-11-05,2025-11-05,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/5 Nov/Room6
+Poultry Multimodal Data,Room8,thermal,Room8,2025-11-05,2025-11-05,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/5 Nov/Room8
+Poultry Multimodal Data,Room7,thermal,Room7,2025-11-05,2025-11-05,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/5 Nov/Room7
+Poultry Multimodal Data,Room?,thermal,9 Oct,2025-10-09,2025-10-09,196,8.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/9 Oct
+Poultry Multimodal Data,Room2,thermal,Room2,2025-11-03,2025-11-03,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/3 Nov/Room2
+Poultry Multimodal Data,Room6,thermal,Room6,2025-11-03,2025-11-03,80,3.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/3 Nov/Room6
+Poultry Multimodal Data,Room1,thermal,Room1,2025-11-03,2025-11-03,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/3 Nov/Room1
+Poultry Multimodal Data,Room8,thermal,Room8,2025-11-03,2025-11-03,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/3 Nov/Room8
+Poultry Multimodal Data,Room7,thermal,Room7,2025-11-03,2025-11-03,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/3 Nov/Room7
+Poultry Multimodal Data,Room?,thermal,6 Oct,2025-10-06,2025-10-06,200,8.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/6 Oct
+Poultry Multimodal Data,Room?,thermal,1 Sep,2025-09-01,2025-09-01,324,13.3,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/1 Sep
+Poultry Multimodal Data,Room?,thermal,3 Sep,2025-09-03,2025-09-03,126,5.2,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/3 Sep
+Poultry Multimodal Data,Room?,thermal,1 oct,2025-10-01,2025-10-01,194,8.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/1 oct
+Poultry Multimodal Data,Room?,thermal,3 oct,2025-10-03,2025-10-03,200,8.5,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/3 oct
+Poultry Multimodal Data,Room?,thermal,4 Sep,2025-09-04,2025-09-04,200,8.5,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/4 Sep
+Poultry Multimodal Data,Room?,thermal,5 sep,2025-09-05,2025-09-05,208,8.5,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/5 sep
+Poultry Multimodal Data,Room2,thermal,Room2,2025-10-23,2025-10-23,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/23 Oct/Room2
+Poultry Multimodal Data,Room6,thermal,Room6,2025-10-23,2025-10-23,40,1.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/23 Oct/Room6
+Poultry Multimodal Data,Room1,thermal,Room1,2025-10-23,2025-10-23,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/23 Oct/Room1
+Poultry Multimodal Data,Room8,thermal,room8,2025-10-23,2025-10-23,40,1.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/23 Oct/room8
+Poultry Multimodal Data,Room7,thermal,Room7,2025-10-23,2025-10-23,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/23 Oct/Room7
+Poultry Multimodal Data,Room?,thermal,19 sep,2025-09-19,2025-09-19,204,9.3,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/19 sep
+Poultry Multimodal Data,Room2,thermal,Room2,2025-11-17,2025-11-17,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/17 Nov/Room2
+Poultry Multimodal Data,Room6,thermal,Room6,2025-11-17,2025-11-17,52,2.3,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/17 Nov/Room6
+Poultry Multimodal Data,Room1,thermal,room1,2025-11-17,2025-11-17,36,1.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/17 Nov/room1
+Poultry Multimodal Data,Room8,thermal,Room8,2025-11-17,2025-11-17,40,1.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/17 Nov/Room8
+Poultry Multimodal Data,Room7,thermal,Room7,2025-11-17,2025-11-17,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/17 Nov/Room7
+Poultry Multimodal Data,Room1,thermal,room1,2025-10-20,2025-10-20,40,1.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/20 Oct/room1
+Poultry Multimodal Data,Room?,thermal,26 sep,2025-09-26,2025-09-26,208,9.2,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/26 sep
+Poultry Multimodal Data,Room2,thermal,room2,2025-11-28,2025-11-28,40,1.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/28 Nov/room2
+Poultry Multimodal Data,Room8,thermal,room 8,2025-11-28,2025-11-28,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/28 Nov/room 8
+Poultry Multimodal Data,Room1,thermal,Room 1,2025-11-28,2025-11-28,40,1.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/28 Nov/Room 1
+Poultry Multimodal Data,Room6,thermal,Room6,2025-11-28,2025-11-28,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/28 Nov/Room6
+Poultry Multimodal Data,Room7,thermal,room7,2025-11-28,2025-11-28,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/28 Nov/room7
+Poultry Multimodal Data,Room?,thermal,22 Sep,2025-09-22,2025-09-22,204,8.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/22 Sep
+Poultry Multimodal Data,Room2,thermal,Room2,2025-11-11,2025-11-11,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/11 Nov/Room2
+Poultry Multimodal Data,Room6,thermal,Room6,2025-11-11,2025-11-11,36,1.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/11 Nov/Room6
+Poultry Multimodal Data,Room1,thermal,Room1,2025-11-11,2025-11-11,36,1.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/11 Nov/Room1
+Poultry Multimodal Data,Room8,thermal,Room8,2025-11-11,2025-11-11,56,2.5,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/11 Nov/Room8
+Poultry Multimodal Data,Room7,thermal,Room7,2025-11-11,2025-11-11,48,2.2,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/11 Nov/Room7
+Poultry Multimodal Data,Room2,thermal,Room2,2025-10-18,2025-10-18,40,1.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/18 Oct/Room2
+Poultry Multimodal Data,Room6,thermal,Room6,2025-10-18,2025-10-18,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/18 Oct/Room6
+Poultry Multimodal Data,Room1,thermal,Room1,2025-10-18,2025-10-18,44,1.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/18 Oct/Room1
+Poultry Multimodal Data,Room8,thermal,Room8,2025-10-18,2025-10-18,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/18 Oct/Room8
+Poultry Multimodal Data,Room7,thermal,Room7,2025-10-18,2025-10-18,40,1.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/18 Oct/Room7
+Poultry Multimodal Data,Room2,thermal,room2,2025-10-27,2025-10-27,40,1.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/27 Oct/room2
+Poultry Multimodal Data,Room6,thermal,Room6,2025-10-27,2025-10-27,36,1.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/27 Oct/Room6
+Poultry Multimodal Data,Room1,thermal,Room1,2025-10-27,2025-10-27,40,1.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/27 Oct/Room1
+Poultry Multimodal Data,Room8,thermal,room8,2025-10-27,2025-10-27,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/27 Oct/room8
+Poultry Multimodal Data,Room7,thermal,room7,2025-10-27,2025-10-27,40,1.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data Sep-Dec 2025/27 Oct/room7
+Poultry Multimodal Data,Room?,thermal,July 15,2025-07-15,2025-07-15,268,12.3,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/July 2025/July 15
+Poultry Multimodal Data,Room?,thermal,July 22,2025-07-22,2025-07-22,256,11.3,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/July 2025/July 22
+Poultry Multimodal Data,Room?,thermal,3 July,2025-07-03,2025-07-03,160,6.5,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/July 2025/3 July
+Poultry Multimodal Data,Room?,thermal,29 July,2025-07-29,2025-07-29,300,13.1,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/July 2025/29 July
+Poultry Multimodal Data,Room?,thermal,24 July,2025-07-24,2025-07-24,204,9.2,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/July 2025/24 July
+Poultry Multimodal Data,Room?,thermal,27 July,2025-07-27,2025-07-27,196,9.1,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/July 2025/24 July/27 July
+Poultry Multimodal Data,Room?,thermal,27 July,2025-07-27,2025-07-27,196,9.1,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/July 2025/27 July
+Poultry Multimodal Data,Room?,thermal,31 July,2025-07-31,2025-07-31,244,10.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/July 2025/31 July
+Poultry Multimodal Data,Room?,thermal,July 10,2025-07-10,2025-07-10,224,9.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/July 2025/July 10
+Poultry Multimodal Data,Room?,thermal,July 19,2025-07-19,2025-07-19,274,12.3,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/July 2025/July 19
+Poultry Multimodal Data,Room?,thermal,July 6,2025-07-06,2025-07-06,428,18.0,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/July 2025/July 6
+Poultry Multimodal Data,Room?,thermal,Aug 13,2025-08-13,2025-08-13,238,10.2,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/August 2025/Aug 13
+Poultry Multimodal Data,Room?,thermal,15 Aug,2025-08-15,2025-08-15,192,7.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/August 2025/15 Aug
+Poultry Multimodal Data,Room?,thermal,29 Aug,2025-08-29,2025-08-29,276,11.5,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/August 2025/29 Aug
+Poultry Multimodal Data,Room?,thermal,10 Aug,2025-08-10,2025-08-10,256,11.1,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/August 2025/10 Aug
+Poultry Multimodal Data,Room?,thermal,21 Aug,2025-08-21,2025-08-21,232,10.1,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/August 2025/21 Aug
+Poultry Multimodal Data,Room?,thermal,Aug 17,2025-08-17,2025-08-17,244,11.2,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/August 2025/Aug 17
+Poultry Multimodal Data,Room?,thermal,Aug 19,2025-08-19,2025-08-19,226,9.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/August 2025/Aug 19
+Poultry Multimodal Data,Room?,thermal,25 Aug,2025-08-25,2025-08-25,316,13.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/August 2025/25 Aug
+Poultry Multimodal Data,Room?,thermal,27 Aug,2025-08-27,2025-08-27,264,12.0,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/August 2025/27 Aug
+Poultry Multimodal Data,Room?,thermal,7 Aug,2025-08-07,2025-08-07,206,8.9,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/August 2025/7 Aug
+Poultry Multimodal Data,Room?,thermal,5 Aug,2025-08-05,2025-08-05,200,8.7,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/August 2025/5 Aug
+Poultry Multimodal Data,Room?,thermal,3 Aug,2025-08-03,2025-08-03,204,8.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/August 2025/3 Aug
+Poultry Multimodal Data,Room?,thermal,16 June,2025-06-16,2025-06-16,162,7.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/June 2025/16 June
+Poultry Multimodal Data,Room?,thermal,6 June,2025-06-06,2025-06-06,150,7.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/June 2025/6 June
+Poultry Multimodal Data,Room?,thermal,21 June,2025-06-21,2025-06-21,164,7.2,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/June 2025/21 June
+Poultry Multimodal Data,Room?,thermal,30 June,2025-06-30,2025-06-30,128,5.2,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/June 2025/30 June
+Poultry Multimodal Data,Room?,thermal,13 June,2025-06-13,2025-06-13,162,4.8,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/June 2025/13 June
+Poultry Multimodal Data,Room?,thermal,25 June,2025-06-25,2025-06-25,174,8.0,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/June 2025/25 June
+Poultry Multimodal Data,Room?,thermal,18 June,2025-06-18,2025-06-18,170,8.6,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/June 2025/18 June
+Poultry Multimodal Data,Room?,thermal,15 June,2025-06-15,2025-06-15,10,0.5,True,/mnt/crucial_x10/Poultry Multimodal Data/Thermal/Thermal Imaging Data June July August/June 2025/15 June
+Poultry Multimodal Data,Room8,video,"Room 8 - 3, 4, 5, 6 July",2025-07-03,2025-07-06,91,51278.9,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 8/Room 8 - 3, 4, 5, 6 July"
+Poultry Multimodal Data,Room8,video,"Room 8 - 8, 9, 10, 11, 12 July",2025-07-08,2025-07-12,93,28258.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 8/Room 8 - 8, 9, 10, 11, 12 July"
+Poultry Multimodal Data,Room8,video,"Room 8 - 13, 14, 15 July",2025-07-13,2025-07-15,48,14029.7,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 8/Room 8 - 13, 14, 15 July"
+Poultry Multimodal Data,Room8,video,"Room 8 - 16, 17, 18 July",2025-07-16,2025-07-18,86,27241.7,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 8/Room 8 - 16, 17, 18 July"
+Poultry Multimodal Data,Room8,video,"Room 8 - 19, 20, 21 July",2025-07-19,2025-07-21,86,26805.0,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 8/Room 8 - 19, 20, 21 July"
+Poultry Multimodal Data,Room8,video,"Room 8 - 22, 23, 24 July",2025-07-22,2025-07-24,70,23430.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 8/Room 8 - 22, 23, 24 July"
+Poultry Multimodal Data,Room8,video,"Room 8 (3, 4, 5 Aug)",2025-08-03,2025-08-05,56,17474.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 8/Room 8 (3, 4, 5 Aug)"
+Poultry Multimodal Data,Room8,video,"Room 8 (5, 6, 7 Aug)",2025-08-05,2025-08-07,58,17866.9,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 8/Room 8 (5, 6, 7 Aug)"
+Poultry Multimodal Data,Room8,video,"Room 8 (7, 8, 9, 10 Aug)",2025-08-07,2025-08-10,84,25552.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 8/Room 8 (7, 8, 9, 10 Aug)"
+Poultry Multimodal Data,Room8,video,"Room 8 (10, 11, 12, 13 Aug)",2025-08-10,2025-08-13,106,35324.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 8/Room 8 (10, 11, 12, 13 Aug)"
+Poultry Multimodal Data,Room8,video,"Room 8 (13, 14, 15 Aug)",2025-08-13,2025-08-15,39,11398.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 8/Room 8 (13, 14, 15 Aug)"
+Poultry Multimodal Data,Room8,video,Room 8 (27 - 31 July),2025-07-27,2025-07-31,114,38123.5,True,/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 8/Room 8 (27 - 31 July)
+Poultry Multimodal Data,Room2,video,"Room 2 (10, 11, 12, 13 Aug)",2025-08-10,2025-08-13,90,36756.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (10, 11, 12, 13 Aug)"
+Poultry Multimodal Data,Room2,video,"Room 2 (17, 18, 19 Aug)",2025-08-17,2025-08-19,54,20387.4,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (17, 18, 19 Aug)"
+Poultry Multimodal Data,Room2,video,"Room 2 (23, 24, 25 Aug)",2025-08-23,2025-08-25,69,29539.7,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (23, 24, 25 Aug)"
+Poultry Multimodal Data,Room2,video,"Room 2 (25, 26, 27 Aug)",2025-08-25,2025-08-27,57,21354.9,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (25, 26, 27 Aug)"
+Poultry Multimodal Data,Room2,video,"Room 2 (7, 8, 9, 10 Aug)",2025-08-07,2025-08-10,85,26208.5,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (7, 8, 9, 10 Aug)"
+Poultry Multimodal Data,Room2,video,"Room 2. (13, 14, 15 Aug)",2025-08-13,2025-08-15,40,14349.0,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2. (13, 14, 15 Aug)"
+Poultry Multimodal Data,Room2,video,"Room 2. (16, 17 Aug)",2025-08-16,2025-08-17,39,15568.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2. (16, 17 Aug)"
+Poultry Multimodal Data,Room2,video,Room 2 ( 31 July - 3 Aug),2025-07-31,2025-08-03,86,28235.1,True,/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 ( 31 July - 3 Aug)
+Poultry Multimodal Data,Room2,video,"Room 2 (3, 4, 5 Aug)",2025-08-03,2025-08-05,59,22170.5,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (3, 4, 5 Aug)"
+Poultry Multimodal Data,Room2,video,"Room 2 (5, 6, 7 Aug)",2025-08-05,2025-08-07,57,23496.0,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (5, 6, 7 Aug)"
+Poultry Multimodal Data,Room2,video,"Room 2 (19, 20, 21 Aug)",2025-08-19,2025-08-21,75,243783.5,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (19, 20, 21 Aug)"
+Poultry Multimodal Data,Room2,video,"Room 2 (27, 28, 29 Aug)",2025-08-27,2025-08-29,56,16793.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (27, 28, 29 Aug)"
+Poultry Multimodal Data,Room2,video,"Room 2 (29, 30 Aug)",2025-08-29,2025-08-30,41,16203.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (29, 30 Aug)"
+Poultry Multimodal Data,Room2,video,"Room 2 (31 Aug, 1 Sep)",2025-08-31,2025-09-01,45,17365.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (31 Aug, 1 Sep)"
+Poultry Multimodal Data,Room2,video,"Room 2 (20, 21, 22 July)",2025-07-20,2025-07-22,87,29462.1,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (20, 21, 22 July)"
+Poultry Multimodal Data,Room2,video,"Room 2 (17, 18, 19 July)",2025-07-17,2025-07-19,85,27543.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (17, 18, 19 July)"
+Poultry Multimodal Data,Room2,video,"Room 2 (14, 15, 16 July)",2025-07-14,2025-07-16,48,14428.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (14, 15, 16 July)"
+Poultry Multimodal Data,Room2,video,"Room 2 (11, 12, 13 July)",2025-07-11,2025-07-13,86,26509.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (11, 12, 13 July)"
+Poultry Multimodal Data,Room2,video,"Room 2 (8, 9, 10 July)",2025-07-08,2025-07-10,36,10944.9,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (8, 9, 10 July)"
+Poultry Multimodal Data,Room2,video,"Room 2 (3, 4, 5, 6 July)",2025-07-03,2025-07-06,85,49456.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 2 - Complete/Room 2 (3, 4, 5, 6 July)"
+Poultry Multimodal Data,Room6,video,"Room 6 - 3, 4, 5, 6 July",2025-07-03,2025-07-06,85,36638.4,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 - 3, 4, 5, 6 July"
+Poultry Multimodal Data,Room6,video,"Room 6 - 10, 11, 12, 13 July",2025-07-10,2025-07-13,98,26584.8,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 - 10, 11, 12, 13 July"
+Poultry Multimodal Data,Room6,video,"Room 6 - 14, 15, 16 July",2025-07-14,2025-07-16,49,12852.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 - 14, 15, 16 July"
+Poultry Multimodal Data,Room6,video,"Room 6 - 17, 18, 19 July",2025-07-17,2025-07-19,86,24875.4,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 - 17, 18, 19 July"
+Poultry Multimodal Data,Room6,video,"Room 6 - 20, 21, 22 July",2025-07-20,2025-07-22,82,24578.5,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 - 20, 21, 22 July"
+Poultry Multimodal Data,Room6,video,"Room 6 - 23, 24, 25 July",2025-07-23,2025-07-25,71,22424.2,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 - 23, 24, 25 July"
+Poultry Multimodal Data,Room6,video,"Room 6 - 26, 27 July",2025-07-26,2025-07-27,42,12582.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 - 26, 27 July"
+Poultry Multimodal Data,Room6,video,"Room 6 (10, 11, 12, 13 Aug)",2025-08-10,2025-08-13,90,28725.9,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 (10, 11, 12, 13 Aug)"
+Poultry Multimodal Data,Room6,video,"Room 6 (13, 14, 15 Aug)",2025-08-13,2025-08-15,40,11958.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 (13, 14, 15 Aug)"
+Poultry Multimodal Data,Room6,video,"Room 6 (16, 17 Aug)",2025-08-16,2025-08-17,40,14049.5,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 (16, 17 Aug)"
+Poultry Multimodal Data,Room6,video,"Room 6 (17, 18, 19 Aug)",2025-08-17,2025-08-19,54,16556.5,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 (17, 18, 19 Aug)"
+Poultry Multimodal Data,Room6,video,"Room 6 (19, 20, 21 Aug)",2025-08-19,2025-08-21,50,155685.9,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 (19, 20, 21 Aug)"
+Poultry Multimodal Data,Room6,video,"Room 6 (27, 28, 29 Aug)",2025-08-27,2025-08-29,55,15379.4,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 (27, 28, 29 Aug)"
+Poultry Multimodal Data,Room6,video,"Room 6 (25, 26, 27 Aug)",2025-08-25,2025-08-27,56,17857.6,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 (25, 26, 27 Aug)"
+Poultry Multimodal Data,Room6,video,Room 6 (27 - 31 July),2025-07-27,2025-07-31,115,36280.0,True,/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 (27 - 31 July)
+Poultry Multimodal Data,Room6,video,"Room 6 (29, 30 Aug)",2025-08-29,2025-08-30,40,11384.9,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 (29, 30 Aug)"
+Poultry Multimodal Data,Room6,video,"Room 6 (3, 4, 5 Aug)",2025-08-03,2025-08-05,59,16663.8,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 (3, 4, 5 Aug)"
+Poultry Multimodal Data,Room6,video,"Room 6 (23, 24, 25 Aug)",2025-08-23,2025-08-25,69,22534.5,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 (23, 24, 25 Aug)"
+Poultry Multimodal Data,Room6,video,"Room 6 (31 Aug, 1 Sep)",2025-08-31,2025-09-01,46,12838.8,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 (31 Aug, 1 Sep)"
+Poultry Multimodal Data,Room6,video,"Room 6 (5, 6, 7 July)",2025-07-05,2025-07-07,57,15749.5,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 (5, 6, 7 July)"
+Poultry Multimodal Data,Room6,video,"Room 6 (7, 8, 9, 10 Aug)",2025-08-07,2025-08-10,84,24636.3,True,"/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 (7, 8, 9, 10 Aug)"
+Poultry Multimodal Data,Room6,video,Room 6 (31 July - 3 Aug),2025-07-31,2025-08-03,85,26066.1,True,/mnt/crucial_x10/Poultry Multimodal Data/Video/Room 6 - Complete/Room 6 (31 July - 3 Aug)
