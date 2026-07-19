@@ -11,3 +11,18 @@ __pycache__/
 # The active machine-specific symlink (the .env.laptop/.env.server templates
 # ARE committed; the resolved symlink itself is not).
 .env
+
+# raw media (~300G) — synced via rclone, never git
+data/
+
+# frame-level intermediates >100MB — regenerable, exceed GitHub's file limit
+frame_level_features_all_folders.csv
+
+# model checkpoints / cached arrays — regenerable, too heavy for git
+*.pkl
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz
+*.h5

@@ -1,0 +1,7 @@
+modality,date_range,duration_days,hours_present,hours_expected,missingness_pct,share_of_fused_pct
+Video (all recorded),2025-07-03 to 2025-08-31,59,974,1417,31.3,240.5
+Video (lit / usable),2025-07-03 to 2025-08-31,59,476,1417,66.4,117.5
+Video (dark / unlit),2025-07-05 to 2025-08-31,56,498,1356,63.3,123.0
+Audio,2025-06-06 to 2025-09-01,87,1458,2092,30.3,360.0
+Environment,2025-06-06 to 2025-09-01,87,2092,2092,0.0,516.5
+Fused (all 3),2025-07-03 to 2025-08-31,59,405,1417,71.4,100.0

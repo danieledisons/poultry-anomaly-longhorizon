@@ -1,0 +1,43 @@
+2026-07-10 17:30:43,210 INFO START room=Room 2 month=July (2025-07)
+2026-07-10 17:30:43,210 INFO preproc={"target_sr": 16000, "hpf_hz": 80, "denoise": true, "prop_decrease": 0.8, "stationary": true, "peak_target": 0.97, "window_s": 10, "model": "facebook/wav2vec2-base"}
+2026-07-10 17:30:43,513 INFO device=cuda (NVIDIA GeForce RTX 5090)
+2026-07-10 17:30:43,654 INFO HTTP Request: GET https://huggingface.co/api/agent-harnesses "HTTP/1.1 200 OK"
+2026-07-10 17:30:43,712 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-07-10 17:30:43,712 WARNING Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-10 17:30:43,769 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-10 17:30:43,796 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/wav2vec2-base/0b5b8e868dd84f03fd87d01f9c4ff0f080fecfe8/preprocessor_config.json "HTTP/1.1 200 OK"
+2026-07-10 17:30:43,855 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-10 17:30:43,881 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/wav2vec2-base/0b5b8e868dd84f03fd87d01f9c4ff0f080fecfe8/config.json "HTTP/1.1 200 OK"
+2026-07-10 17:30:43,954 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-07-10 17:30:44,012 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-07-10 17:30:44,380 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-07-10 17:30:44,440 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-07-10 17:30:44,500 INFO HTTP Request: GET https://huggingface.co/api/models/facebook/wav2vec2-base "HTTP/1.1 200 OK"
+2026-07-10 17:30:44,572 INFO HTTP Request: GET https://huggingface.co/api/models/facebook/wav2vec2-base/commits/main "HTTP/1.1 200 OK"
+2026-07-10 17:30:44,690 INFO HTTP Request: GET https://huggingface.co/api/models/facebook/wav2vec2-base/discussions?p=0 "HTTP/1.1 200 OK"
+2026-07-10 17:30:44,761 INFO HTTP Request: GET https://huggingface.co/api/models/facebook/wav2vec2-base/commits/refs%2Fpr%2F11 "HTTP/1.1 200 OK"
+2026-07-10 17:30:44,785 INFO found 0 audio files under /home/daniel/workspace/projects/longhorizon/data/raw_room2/July
+2026-07-10 17:30:44,786 ERROR NO DATA AGGREGATED — writing nothing. Check inputs/timestamps.
+2026-07-10 17:30:44,819 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/refs%2Fpr%2F11/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-07-10 17:30:44,879 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/refs%2Fpr%2F11/model.safetensors "HTTP/1.1 302 Found"
+2026-07-10 17:30:51,852 INFO START room=Room 2 month=July (2025-07)
+2026-07-10 17:30:51,853 INFO preproc={"target_sr": 16000, "hpf_hz": 80, "denoise": true, "prop_decrease": 0.8, "stationary": true, "peak_target": 0.97, "window_s": 10, "model": "facebook/wav2vec2-base"}
+2026-07-10 17:30:52,130 INFO device=cuda (NVIDIA GeForce RTX 5090)
+2026-07-10 17:30:52,248 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-07-10 17:30:52,304 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-10 17:30:52,304 WARNING Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-10 17:30:52,332 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/wav2vec2-base/0b5b8e868dd84f03fd87d01f9c4ff0f080fecfe8/preprocessor_config.json "HTTP/1.1 200 OK"
+2026-07-10 17:30:52,387 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-10 17:30:52,413 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/wav2vec2-base/0b5b8e868dd84f03fd87d01f9c4ff0f080fecfe8/config.json "HTTP/1.1 200 OK"
+2026-07-10 17:30:52,492 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-07-10 17:30:52,553 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-07-10 17:30:52,612 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-07-10 17:30:52,673 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-07-10 17:30:52,733 INFO HTTP Request: GET https://huggingface.co/api/models/facebook/wav2vec2-base "HTTP/1.1 200 OK"
+2026-07-10 17:30:52,801 INFO HTTP Request: GET https://huggingface.co/api/models/facebook/wav2vec2-base/commits/main "HTTP/1.1 200 OK"
+2026-07-10 17:30:52,868 INFO found 0 audio files under /home/daniel/workspace/projects/longhorizon/data/raw_room2/July
+2026-07-10 17:30:52,869 INFO HTTP Request: GET https://huggingface.co/api/models/facebook/wav2vec2-base/discussions?p=0 "HTTP/1.1 200 OK"
+2026-07-10 17:30:52,869 ERROR NO DATA AGGREGATED — writing nothing. Check inputs/timestamps.
+2026-07-10 17:30:52,937 INFO HTTP Request: GET https://huggingface.co/api/models/facebook/wav2vec2-base/commits/refs%2Fpr%2F11 "HTTP/1.1 200 OK"
+2026-07-10 17:30:52,994 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/refs%2Fpr%2F11/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-07-10 17:30:53,055 INFO HTTP Request: HEAD https://huggingface.co/facebook/wav2vec2-base/resolve/refs%2Fpr%2F11/model.safetensors "HTTP/1.1 302 Found"
