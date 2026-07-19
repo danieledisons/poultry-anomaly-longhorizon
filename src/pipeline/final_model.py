@@ -217,14 +217,14 @@ def make_figures(R, do_c, do_d):
     panels = []
     if do_d and do_c:
         panels.append(("a", "Detector backbone",
-                       ["Classical", "Deep"],
+                       ["Classical\n+ gate", "Deep\n+ gate"],
                        [R["classical_detrend_gate"], R["deep_detrend_gate"]], [GREY, GREEN]))
     if do_d:
         panels.append(("b", "Persistence gate",
-                       ["Gate off", "Gate on"],
+                       ["Deep,\nno gate", "Deep\n+ gate"],
                        [R["deep_detrend_nogate"], R["deep_detrend_gate"]], [GREY, GREEN]))
         panels.append(("c", "Environmental detrending",
-                       ["Trend retained", "Trend removed"],
+                       ["Deep + gate,\ntrend kept", "Deep + gate,\ndetrended"],
                        [R["deep_raw_gate"], R["deep_detrend_gate"]], [GREY, GREEN]))
 
     if not panels:
