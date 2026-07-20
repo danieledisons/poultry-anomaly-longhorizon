@@ -1,24 +1,21 @@
-# Minimal ignore — everything else (CSVs, figures, .env variants, results) is
-# intentionally committed and shared across machines.
-
-# Python / OS junk only
+# Python / OS
 __pycache__/
 *.pyc
 *.pyo
 .ipynb_checkpoints/
 .DS_Store
 
-# The active machine-specific symlink (the .env.laptop/.env.server templates
-# ARE committed; the resolved symlink itself is not).
+
 .env
 
-# raw media (~300G) — synced via rclone, never git
+# raw media
 data/
+docs/
 
-# frame-level intermediates >100MB — regenerable, exceed GitHub's file limit
+# frame-level intermediates >100MB
 frame_level_features_all_folders.csv
 
-# model checkpoints / cached arrays — regenerable, too heavy for git
+# model checkpoints
 *.pkl
 *.pt
 *.pth

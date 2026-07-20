@@ -1,38 +1,7 @@
 #!/usr/bin/env python3
-"""
-final_model.py — the locked anomaly-detection architecture and its justification.
+"""The locked model (audio+video OR-gate over detrended autoencoders) plus the three design-justification figures.
 
-MODEL (one architecture, deep and classical variants)
------------------------------------------------------
-Context-conditioned, detrended, dual-modality detector with a per-modality
-persistence gate, OR-fused:
-
-  * Environment = slow-band CONTEXT. The flock-age / growth trend is removed from
-    the behavioural features (detrending), so detection operates on the fast band.
-  * One reconstruction detector PER behavioural modality (audio, video):
-        deep      -> autoencoder reconstruction error   (AVGatedDetector kind="dl")
-        classical -> Mahalanobis distance               (kind="classical")
-  * A per-modality alpha_t persistence gate on each modality's residual.
-  * OR-fusion: an alarm fires if EITHER modality shows sustained, unexplained
-    deviation. No dilution, no cross-modality masking.
-
-The AVGatedDetector class is the deployable model and is reused unchanged for
-cross-barn verification (fit on one barn, calibrate + score on another).
-
-JUSTIFICATION (three questions, three panels)
----------------------------------------------
-  (a) deep vs classical      -> why a learned detector
-  (b) gate on vs off         -> why the persistence gate
-  (c) detrend on vs off      -> why slow/fast (environmental context)
-
-Evaluation: synthetic injection (no labels exist). Sustained departures are the
-anomalies; brief spikes are benign transients. Event-level Precision/Recall/F1
-with bootstrap 95% CIs.
-
-Usage
------
-    python src/pipeline/final_model.py --methods both --epochs 300 --trials 400
-    python src/pipeline/final_model.py --methods classical --trials 300   # sandbox
+Run: python src/pipeline/final_model.py --methods both
 """
 from __future__ import annotations
 

@@ -1,31 +1,7 @@
 #!/usr/bin/env python3
-"""
-dl_model_comparison.py — Deep multimodal anomaly model + baselines, one harness.
+"""Compares a few DL/classical models on the merged Room 2 features.
 
-Two-stage design under test:
-  Stage 1 (representation learning): a GRU AUTOENCODER learns normal multimodal
-    dynamics (video, audio, env) over time windows; reconstruction error = a
-    LEARNED nonlinear residual.
-  Stage 2 (contribution): the alpha_t persistence trust-gate operates on that
-    residual for online, persistence-aware anomaly decisions.
-
-Models compared on the SAME synthetic injection harness (the only ground truth):
-  - GRU-AE + alpha_t      (deep residual, gated)      [needs torch]
-  - GRU-AE (error only)   (deep residual, pointwise)  [needs torch]
-  - MLP-AE + alpha_t      (neural, non-temporal)      [sklearn]
-  - Mahalanobis + alpha_t (linear joint, gated)       [ours, linear]
-  - Mahalanobis (pointwise Hotelling T^2)             [ablation: no gate]
-  - Isolation Forest      (standard unsupervised AD)  [sklearn]
-  - CUSUM                 (classical change detection)[numpy]
-
-Two test batteries:
-  A. SUSTAINED coupling-breaks (0.8-2.0 sigma mix): detection ROC-AUC + latency.
-  B. BRIEF spikes (12 sigma, 1h): false-alarm rate (persistence-gated models
-     should stay ~0; pointwise/magnitude models should fire) -> the discriminating test.
-
-Usage:
-    python dl_model_comparison.py --merged ./outputs/room2_merged_hourly.csv --out-dir ./outputs
-    # torch optional: if absent, GRU rows are skipped with a note; everything else runs.
+Run: python src/pipeline/dl_model_comparison.py
 """
 from __future__ import annotations
 import argparse, os, sys

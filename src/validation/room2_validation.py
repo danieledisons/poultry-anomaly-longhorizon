@@ -1,34 +1,6 @@
-"""
-Room 2 Video Feature Extraction — Phase A: Validation Run
-============================================================
-Validation week: Room 2, 31 July - 3 Aug (post brooding-circle, birds unconfined).
+"""Room 2 validation-week video processing: optical flow, brightness checks and file audits.
 
-Pipeline:
-  1. Discover video files in the validation-week folder
-  2. Pull real timestamps via ffprobe (exif-style creation_time metadata)
-     -- do NOT trust filenames alone; GoPro embeds creation_time in the mp4 container
-  3. Brighten each video with a FIXED, uniform transform (locked params -> reused in Phase B)
-  4. Sample frames, compute dense optical flow (Farneback)
-  5. Derive per-frame features: flow energy (mean/var of magnitude), occupancy proxy
-     (fraction of pixels with motion above threshold)
-  6. Aggregate frame-level features to hourly (mean, std, percentiles)
-  7. Write hourly_features.csv + a per-file metadata log (for the missing-data audit)
-
-Environment
------------
-Works identically on your MacBook (miniconda) or the server -- only EXTERNAL_DRIVE_PATH
-and OUTPUT_DIR need to change. Server is recommended for speed once the hard drive is attached.
-
-    conda create -n poultry-video python=3.11 -y
-    conda activate poultry-video
-    pip install opencv-python-headless numpy pandas tqdm
-
-    # ffmpeg/ffprobe must be on PATH:
-    conda install -c conda-forge ffmpeg -y      # or: brew install ffmpeg / apt install ffmpeg
-
-Usage
------
-    python room2_validation_pipeline.py
+Run: python src/validation/room2_validation.py
 """
 
 import os

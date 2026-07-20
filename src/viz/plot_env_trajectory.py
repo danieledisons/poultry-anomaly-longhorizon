@@ -1,15 +1,6 @@
-"""
-plot_env_trajectory.py — annotated environmental slow-trajectory figure (Room 2).
+"""Three-panel environmental trajectory figure for Room 2.
 
-Reads the derived env feature table and produces a 3-panel figure highlighting
-the real findings:
-  (1) Temperature: brooding set-point curve (~first 4 weeks) -> flat plateau
-  (2) Relative humidity: two exogenous regime shifts (mid-cycle rise, later crash)
-  (3) AM min-max spread widening across the cycle (a slow signal the flat mean hides)
-
-Usage:
-  python3 plot_env_trajectory.py
-  (edit ENV_CSV below, or pass a path as the first argument)
+Run: python src/viz/plot_env_trajectory.py
 """
 
 import os

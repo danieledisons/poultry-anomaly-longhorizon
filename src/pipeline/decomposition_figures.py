@@ -1,25 +1,7 @@
 #!/usr/bin/env python3
-"""
-decomposition_figures.py — publication-quality slow/fast decomposition figures.
+"""Combined slow/fast decomposition figure across modalities, plus the diurnal profiles.
 
-Makes the project's central modelling idea visible: every modality is split into
-a SLOW band (growth trend + recurring diurnal rhythm = expected behaviour) and a
-FAST band (hour-to-hour residual = where anomalies live). Shows it for each
-modality separately and for a fused multimodal activity index.
-
-Composite signals (interpretable one-per-modality summaries):
-    audio  — mean log-mel energy across bands (overall flock loudness)
-    video  — optical-flow mean magnitude (overall motion / activity)
-    env    — daily mean temperature
-    fused  — z-scored average of the three (a single multimodal activity index)
-
-Outputs (RESULTS_DIR/experiment/):
-    fig_decomposition.png     4-modality slow/fast panels (600 dpi)
-    fig_diurnal.png           overlaid diurnal profiles per modality (600 dpi)
-
-Usage
------
-    python src/pipeline/decomposition_figures.py --spine results/spine_room2_rich.csv
+Run: python src/pipeline/decomposition_figures.py
 """
 from __future__ import annotations
 

@@ -1,17 +1,6 @@
-"""
-denoise_listen_sample.py — save RAW vs DENOISED audio side by side to listen.
+"""Denoise a short audio clip and save a listenable sample.
 
-Purpose: confirm by ear that stationary denoising suppresses the fan hum WITHOUT
-chewing up bird calls. Use the SAME settings as extract_audio_features.py.
-
-Usage:
-  python3 denoise_listen_sample.py /path/to/one_clip.wav
-  python3 denoise_listen_sample.py /path/to/one_clip.wav --start 600 --dur 60
-
-Writes into ./listen_samples/:
-  <clip>_raw.wav        (original, resampled to 16k mono)
-  <clip>_denoised.wav   (after stationary noisereduce)
-Listen to both. If calls sound watery/gated in the denoised one, lower PROP.
+Run: python tools/denoise_listen_sample.py <clip>
 """
 
 import argparse

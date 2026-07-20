@@ -1,26 +1,4 @@
-"""
-alpha_gate.py — Minimal residual-gated trust mechanism (alpha_t)
-
-Core dissertation contribution, kept deliberately minimal and testable:
-a STATEFUL FUNCTION, not a learned model.
-
-Two pieces:
-  1. slow_fast_decompose(): split an hourly signal into slow band
-     (gap-aware rolling-median trend + smoothed diurnal cycle) and a
-     fast-band residual.
-  2. AlphaGate: a leaky-bucket persistence accumulator over the fast
-     residual. The bucket fills under sustained unexplained residual
-     energy and drains under ordinary noise. alpha_t (the "trust" /
-     learning-rate gate) CLOSES when persistence crosses a threshold
-     and REOPENS when residual energy subsides.
-
-Design intent: the gate responds to PERSISTENCE of unexplained energy,
-not to instantaneous magnitude. A brief, large, self-resolving spike
-should NOT close the gate; a smaller-but-sustained departure SHOULD.
-This is the property the synthetic injection test validates.
-
-The SAME parameters must be reused across rooms — no per-room retuning —
-or the generalization test is meaningless.
+"""The alpha_t persistence gate and the slow/fast decomposition it runs on. The gate responds to how long a residual stays elevated, not to the size of a single spike.
 """
 from __future__ import annotations
 import numpy as np

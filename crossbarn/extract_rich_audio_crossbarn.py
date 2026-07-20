@@ -1,32 +1,7 @@
 #!/usr/bin/env python3
-"""
-extract_rich_audio_crossbarn.py — RICH per-hour log-mel audio features for a
-HELD-OUT barn, in the SAME format as Room 2 (for cross-barn validation).
+"""Rich log-mel audio features for a held-out barn. Recovers the recording time from either the filename (AudioMoth) or the WAV metadata (Zoom F6).
 
-Identical DSP to src/extraction/extract_rich_audio.py (SR=16000, N_FFT=1024,
-HOP=512, N_MELS=64, stationary noisereduce prop=0.80) so the features are
-directly comparable across barns. Output columns match exactly:
-    time, n_frames, mel00_mean..mel63_mean, mel00_std..mel63_std, gap_hours_since_prev
-
-THE ONLY DIFFERENCE — recorder-agnostic timestamps
---------------------------------------------------
-Room 2 = AudioMoth: time is in the filename ('..._YYYYMMDD_HHMMSS.wav').
-Room 6 = Zoom F6:   time is in the WAV's embedded BWF/iXML metadata
-                    (FILE_UID 'ZOOM F6  YYYYMMDDHHMMSS...' / bext OriginationDate+Time).
-`parse_start_time` tries filename first, then embedded metadata, then the
-'YYMMDD_' filename date prefix, and only falls back to mtime as a last resort
-(mtime is unreliable — on this dataset it is the copy date, not the recording date).
-
-Usage (run overnight in tmux)
------------------------------
-    export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
-    python crossbarn/extract_rich_audio_crossbarn.py \
-        --input-root "/mnt/crucial_x10/Poultry Multimodal Data/Audio Data/Room 6" \
-        --input-root "/mnt/drive_bf/Poultry_Multimodal_SeptDec/Audio data/Room6" \
-        --room-label Room6 --month-tag all \
-        --output-dir features/rich_audio_features --workers 12
-
-    python crossbarn/extract_rich_audio_crossbarn.py --self-test
+Run: python crossbarn/extract_rich_audio_crossbarn.py --input-root <dir> --room-label Room6
 """
 from __future__ import annotations
 import argparse, os, re, concurrent.futures as cf

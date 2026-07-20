@@ -1,33 +1,7 @@
 #!/usr/bin/env python3
-"""
-extract_rich_video.py - RICH per-hour video features (optical-flow histogram + spatial grid).
+"""Hourly rich video features (flow-magnitude histogram + 4x4 motion grid) from GoPro clips.
 
-Companion to extract_video_features.py. That script reduces flow to scalar
-flow_mean/occupancy. This keeps the DISTRIBUTION + SPATIAL layout: per hour ->
-  flow-magnitude histogram (HIST_BINS bins)  +  GRIDxGRID cell mean/std
-  +  flow_mean_avg, moving_frac_avg, dark_fraction, n_pairs
-so the deep models get spatial/distributional texture, aligned to the same hourly
-spine as hourly_features_all_folders_room_2.csv.
-
-CRITICAL - GoPro timestamps: the probe_metadata / resolve_chapter_starts /
-_parse_smpte_timecode functions below are copied verbatim from
-extract_video_features.py (the validated fix: container creation_time is frozen
-across chapters, so per-chapter time comes from the SMPTE timecode tag + the
-creation date, with midnight-rollover handling). Requires ffprobe on PATH.
-
-Preprocessing REPLICATED from the main pipeline: brighten(alpha=1.3,beta=25),
-resize width 640, darkness gating (mean<15), Farneback(0.5,3,15,3,5,1.2), motion
-threshold 1.2, sample every 2 s.
-
-Usage:
-  pip install opencv-python numpy pandas tqdm   # + ffmpeg/ffprobe on PATH
-  # single folder:
-  python extract_rich_video.py --video-dir "/media/daniel/DRIVE/.../Room 2 (17,18,19 Aug)" \
-      --output-dir ./features_room2/video
-  # every date-range subfolder combined:
-  python extract_rich_video.py --video-parent-dir "/media/daniel/DRIVE/.../Room2_Video" \
-      --output-dir ./features_room2/video --all-folders
-  python extract_rich_video.py --self-test
+Run: python src/extraction/extract_rich_video.py --all-folders --video-parent-dir <dir>
 """
 from __future__ import annotations
 import argparse, glob, json, os, subprocess, sys

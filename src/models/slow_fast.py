@@ -1,42 +1,7 @@
 #!/usr/bin/env python3
-"""
-slow_fast_decomposition.py
-============================
-Decomposes video hourly features into a SLOW band (trend + diurnal recurrence
-across weeks) and a FAST band (sub-hourly/hourly deviations from that trend),
-per the project's stated modeling convention:
+"""Standalone slow/fast decomposition of the video features.
 
-    Slow band = trend + diurnal recurrence across weeks
-    Fast band = sub-hourly deviations
-
-Approach
---------
-1. Reindex the hourly series onto a COMPLETE hourly grid spanning the full date
-   range (filling gaps with NaN, not interpolating over them silently) -- this
-   makes gaps explicit rather than letting missing hours quietly compress the
-   rolling windows.
-2. Slow band = a long rolling median/mean (default: 7-day window) computed with
-   min_periods set low enough to survive real gaps (e.g. nightly camera-off
-   stretches) without collapsing to NaN for weeks at a time.
-3. Diurnal component = average value by hour-of-day, computed on the
-   trend-removed residual, to capture the recurring daily rhythm (feeding
-   times, lights on/off, etc.) separately from the slower week-to-week drift.
-4. Fast band = original signal minus (slow trend + diurnal component) --
-   i.e. what's left after removing the slow-moving and recurring-daily parts.
-5. Output: one CSV with all components (original, slow_trend, diurnal, fast,
-   reconstructed) for each configured column, plus a plot for visual review.
-
-This treats video's real gaps (nightly camera-off, multi-day outages) as
-missing data (NaN), not zero -- a gap contributes no information to the
-rolling trend rather than dragging it toward zero.
-
-Usage
------
-    python slow_fast_decomposition.py \\
-        --hourly-csv /path/to/hourly_features_all_folders.csv \\
-        --output-dir /path/to/results \\
-        --columns flow_mean_avg occupancy_avg \\
-        --slow-window-days 7
+Run: python src/models/slow_fast.py --hourly-csv <csv> --output-dir <dir>
 """
 
 from __future__ import annotations

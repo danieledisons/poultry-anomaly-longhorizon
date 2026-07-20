@@ -1,14 +1,5 @@
 #!/usr/bin/env python3
-"""
-data_inventory.py - completeness / missingness inventory for the Room 2 features.
-
-Reads the aligned hourly table (room2_merged_hourly.csv) and reports, per modality:
-date range, hours present, expected hourly slots in that range, missingness %,
-and share of the aligned fused window. Prints a table and writes data_inventory.csv.
-
-Usage:
-  python data_inventory.py --merged ./room2_merged_hourly.csv --out ./data_inventory.csv
-Optionally pass extra single-modality CSVs (with a 'time' or 'date' column) via --extra.
+"""data_inventory.py - completeness / missingness inventory for the Room 2 features.
 """
 import argparse, pandas as pd, numpy as np
 import matplotlib; matplotlib.use('Agg')

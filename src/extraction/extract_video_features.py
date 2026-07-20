@@ -1,69 +1,7 @@
 #!/usr/bin/env python3
-"""
-extract_video_features.py
-==========================
-Extracts hourly-aggregated video behavioral features (optical-flow energy and an
-occupancy/activity proxy) from GoPro poultry-barn recordings, for use as the video
-modality's fast-band signal in a multimodal anomaly-detection pipeline.
+"""Scalar video features (optical flow + occupancy) with GoPro timestamp handling and a few audit modes.
 
-Background / key design decisions
-----------------------------------
-1. GoPro chapter-timestamp bug: GoPro's container-level `format.tags.creation_time`
-   reflects the SESSION start time and is identical across every chapter file of a
-   multi-chapter recording -- it does NOT advance per chapter. The video stream's
-   `timecode` tag (e.g. "14:43:16;17", drop-frame SMPTE) DOES advance correctly per
-   chapter and is used as the source of truth for chapter start time, combined with
-   the calendar date from creation_time. See resolve_chapter_starts() for the full
-   explanation and midnight-rollover handling. Verified against raw ffprobe output
-   and filesystem timestamps before being adopted.
-
-2. Darkness gating: many recordings include long lights-out (overnight) stretches.
-   Running optical flow on near-black frames wastes compute and produces meaningless
-   "motion" from sensor noise. Frames are checked for mean pixel intensity BEFORE any
-   resize/brighten/flow work; dark frames are recorded (as `is_dark=True`, zeroed
-   features) rather than silently dropped, so downstream aggregation can distinguish
-   "measured, found no motion" from "no data, lights were off" (see dark_fraction).
-
-3. Motion threshold: MOTION_THRESHOLD was tuned via visual validation (overlaying
-   the computed motion mask on real frames) rather than picked arbitrarily -- see
-   the --flow-overlay dev tool below. Default of 1.2 was chosen as a middle point
-   between under-sensitive (1.5, missed subtle walking) and over-sensitive (1.0).
-   Re-validate with --flow-overlay before changing this for a new dataset/room.
-
-4. Parallelism: video files are processed independently across worker PROCESSES
-   (not threads), with each worker's internal OpenCV thread pool capped at 1 to
-   avoid oversubscription (N_WORKERS processes x full-core OpenCV threading would
-   massively overcommit CPU). Default worker count is tuned for I/O-bound behavior
-   (reading many large video files off one drive), not raw core count -- see
-   --workers.
-
-5. Behavior-state composition columns (frac_idle, frac_feeding, etc.) are written
-   as NaN placeholders. These require a trained detection/tracking/classification
-   pipeline (e.g. YOLO + ByteTrack + a temporal classifier), which optical flow
-   cannot substitute for -- they are reserved, not faked.
-
-Usage
------
-Single folder:
-    python extract_video_features.py --video-dir "/path/to/Room 2 (17, 18, 19 Aug)" \\
-        --output-dir /path/to/results
-
-Sweep every date-range subfolder under a parent directory, producing one combined
-output spanning the full range:
-    python extract_video_features.py --video-parent-dir /path/to/Room2_Video \\
-        --output-dir /path/to/results --all-folders
-
-Metadata-only audit across every subfolder (fast, no optical flow) -- run this
-BEFORE a full batch to catch unreadable files or timestamp anomalies:
-    python extract_video_features.py --video-parent-dir /path/to/Room2_Video \\
-        --output-dir /path/to/results --audit-only
-
-Dev/validation tools (see --help): --check-brightness, --flow-overlay
-
-Requirements
-------------
-    pip install -r requirements.txt
-    # ffmpeg/ffprobe must be on PATH (provides ffprobe used for metadata extraction)
+Run: python src/extraction/extract_video_features.py --all-folders --video-parent-dir <dir>
 """
 
 from __future__ import annotations

@@ -1,28 +1,7 @@
 #!/usr/bin/env python3
-"""
-build_spine.py — align rich audio + rich video + (daily) env onto ONE hourly
-index, and tag each hour with its modality-coverage state.
+"""Aligns rich audio, video and env onto one hourly index and tags each hour as both_lit / audio_only / video_only / gap.
 
-Why a spine: you can't correlate audio against video, or run fusion, until both
-sit on the same hourly clock. This also encodes the key structural fact about
-this dataset — video is a DAYTIME-ONLY modality (grid/flow features exist only
-for lit hours; night rows are dark by construction, not missing data) — so
-nothing downstream accidentally imputes video across the night.
-
-Coverage state per hour:
-    both_lit      audio present AND video lit  -> the true fusion hours
-    audio_only    audio present, video dark/absent (mostly night)
-    video_only    video lit, audio missing (rare)
-    gap           neither modality present
-
-Columns are namespaced: aud_* / vid_* / env_*.  Env (daily) is broadcast onto
-every hour of its date.
-
-Usage
------
-    python src/pipeline/build_spine.py                       # defaults from .env
-    python src/pipeline/build_spine.py --start 2025-07-03 --end 2025-08-31
-    python src/pipeline/build_spine.py --env data/env_features_Room2.csv
+Run: python src/pipeline/build_spine.py
 """
 from __future__ import annotations
 

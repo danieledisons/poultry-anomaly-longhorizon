@@ -1,32 +1,7 @@
 #!/usr/bin/env python3
-"""
-cross_barn_video.py — RICH per-hour optical-flow video features for a HELD-OUT
-barn (Room 6), in the SAME format as Room 2 (for cross-barn validation).
+"""Rich optical-flow video features for a held-out barn, same 69 columns as Room 2. GoPro timestamps are read from the file metadata via ffprobe.
 
-Self-contained (no repo imports) so it runs standalone in an overnight tmux
-session. DSP and timestamp logic are identical to
-src/extraction/extract_rich_video.py, so Room 6 features are directly comparable
-to Room 2:
-
-  per hour ->  flow-magnitude histogram (32 bins) + 4x4 spatial grid mean/std
-               + flow_mean_avg, moving_frac_avg, dark_fraction, n_pairs
-  columns:     time, n_pairs, dark_fraction, flow_mean_avg, moving_frac_avg,
-               flowhist00..31, gridmean00..15, gridstd00..15
-
-GoPro timestamps come from EMBEDDED metadata (ffprobe creation_time + SMPTE
-timecode), which is camera-consistent across rooms — so no per-recorder change
-is needed (unlike audio). Requires ffprobe/ffmpeg on PATH.
-
-Usage (overnight, tmux)
------------------------
-    tmux new -s room6vid
-    export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
-    python crossbarn/cross_barn_video.py --all-folders \
-        --video-parent-dir "/mnt/<video-drive>/<...>/Room6" \
-        --room-label Room6 --workers 4
-    # single session folder instead:
-    python crossbarn/cross_barn_video.py --video-dir "/mnt/.../Room 6 (17,18,19 Aug)" --room-label Room6
-    python crossbarn/cross_barn_video.py --self-test
+Run: python crossbarn/cross_barn_video.py --all-folders --video-parent-dir <dir> --room-label Room6
 """
 from __future__ import annotations
 import argparse, glob, json, os, subprocess, time

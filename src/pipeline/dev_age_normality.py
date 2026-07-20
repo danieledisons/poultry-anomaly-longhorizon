@@ -1,28 +1,7 @@
 #!/usr/bin/env python3
-"""
-dev_age_normality.py — CAUSAL, development-conditioned normality (component #1 of
-the dev-conditioned drift-vs-anomaly model).
+"""Causal age / time-of-day normality: predicts each hour from earlier data only and returns the residual, so there is no future leakage.
 
-Prerequisite for the whole novelty programme: every detector in the factorized
-benchmark (CUSUM / Page-Hinkley / EWMA / ADWIN / full method) must run on the
-SAME causal residual, or the comparison is unfair and the "leakage" critique bites.
-
-Model:  x_{t,j} = m_{t,j}(age, time-of-day, barn) + r_{t,j}
-where m is estimated ONLINE using only the past — no future leakage. Concretely,
-m is a per-(hour-of-day) exponentially-weighted running mean updated across days;
-the prediction for hour t uses the state BEFORE seeing x_t, so it is strictly causal
-and naturally tracks the slow growth + diurnal drift as the flock ages.
-
-Outputs (RESULTS_DIR/dev_conditioned/model/):
-    residuals_room{R}.csv         time + causal residual per feature + coverage flags
-    fig_causal_vs_global.png      one feature: raw, causal m, causal residual vs the
-                                  old (non-causal, full-record) detrend residual
-
-This is a validation of the FOUNDATION, not a detector yet.
-
-Usage
------
-    python src/pipeline/dev_age_normality.py --spine results/spine_room2_rich.csv --room 2
+Run: python src/pipeline/dev_age_normality.py --spine results/spine_room2_rich.csv --room 2
 """
 from __future__ import annotations
 import argparse, sys

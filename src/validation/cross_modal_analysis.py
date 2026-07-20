@@ -1,28 +1,7 @@
 #!/usr/bin/env python3
-"""
-cross_modal_analysis.py — the "fusion" experiment.
+"""Cross-modal analysis on the merged hourly table.
 
-Shows the alpha_t trust gate, fed a JOINT video+audio divergence signal, closes on
-a coupling-break that NEITHER modality flags alone.
-
-Pipeline:
-  1. Load the merged Room 2 hourly table (produced by run_analysis.py).
-  2. Restrict to fused daytime hours; robustly standardize video & audio activity.
-  3. Estimate the joint covariance and compute a per-hour Mahalanobis divergence.
-  4. Calibrate the gate on the real quiet core (one identical rule for every stream).
-  5. Baseline: run the joint + marginal gates on real data.
-  6. Coupling-break injection: joint gate closes, marginal gates stay open.
-  7. Figures + a metrics CSV.
-
-Usage:
-    python cross_modal_analysis.py --merged ./outputs/room2_merged_hourly.csv --out-dir ./outputs
-
-Dependencies: numpy, pandas, matplotlib  (same requirements.txt).
-Requires alpha_gate.py on the path.
-
-NOTE: the video<->audio coupling (r ~ -0.4) lives in the SLOW/level band, not the
-fast residuals (which are ~independent). So the cross-modal signal is built on the
-standardized activity LEVELS, where the joint structure exists.
+Run: python src/validation/cross_modal_analysis.py --merged <csv>
 """
 from __future__ import annotations
 import argparse

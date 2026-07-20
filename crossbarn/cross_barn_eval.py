@@ -1,23 +1,7 @@
 #!/usr/bin/env python3
-"""
-cross_barn_eval.py — the generalization test: fit the LOCKED model on Room 2,
-evaluate UNCHANGED on the held-out barn (Room 6). No retuning, gate parameters
-frozen; only per-barn robust standardization + gate calibration on the new
-barn's own clean hours (unlabeled). This is the payoff of the persistence-gate
-story: transfer without retuning.
+"""Cross-barn check: fit the model on Room 2 and score the held-out Room 6 with the same settings.
 
-Produces, for each backbone (classical, deep):
-  - within-barn (Room 2 temporal holdout) vs cross-barn (Room 6) P/R/F1 + 95% CI
-  - detection-vs-magnitude sweep for both barns
-
-Outputs (RESULTS_DIR/crossbarn/):
-  crossbarn_results.csv, crossbarn_sweep.csv,
-  fig_crossbarn.png (600 dpi), fig_crossbarn_sweep.png (600 dpi)
-
-Usage
------
-    python crossbarn/cross_barn_eval.py --methods both --epochs 300 --trials 400
-    python crossbarn/cross_barn_eval.py --methods classical --trials 300   # sandbox
+Run: python crossbarn/cross_barn_eval.py --methods both --trials 400
 """
 from __future__ import annotations
 import argparse, sys

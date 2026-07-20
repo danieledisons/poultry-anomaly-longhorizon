@@ -1,13 +1,7 @@
 #!/usr/bin/env python3
-"""
-run_pipeline.py — single entrypoint for the slow/fast + alpha_t gate pipeline.
+"""Entry point for the slow/fast + gate analysis; just calls the pipeline in src/pipeline/analysis.py.
 
-Run from the repo root so `config` and `src` resolve:
-
-    python run_pipeline.py                      # uses FEATURES_DIR / RESULTS_DIR from .env
-    python run_pipeline.py --out-dir /tmp/run7  # override output location
-
-This is a thin launcher; the pipeline itself lives in src/pipeline/analysis.py.
+Run: python run_pipeline.py
 """
 from src.pipeline.analysis import main
 

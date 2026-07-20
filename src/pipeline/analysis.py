@@ -1,28 +1,7 @@
 #!/usr/bin/env python3
-"""
-run_analysis.py — end-to-end reproduction of the Room 2 fusion + alpha_t gate results.
+"""End-to-end Room 2 run: merge the modalities, decompose, run the gate, do the synthetic-injection test, and write the figures.
 
-Pipeline:
-  1. Merge Room 2 video + audio + environment onto one hourly spine.
-  2. Room 6 schema/coverage sanity check.
-  3. Slow/fast decomposition of the Room 2 video residual.
-  4. Baseline gate run on real residual.
-  5. Synthetic injection test (brief spikes vs sustained departures).
-  6. Figures + a metrics CSV.
-
-Usage:
-    python run_analysis.py --data-dir ./data --out-dir ./outputs
-
-Expected files in --data-dir (rename yours to match, or edit FILES below):
-    hourly_features_all_folders_room_2.csv
-    hourly_features_all_folders_room_6.csv
-    audio_features_hourly_Room2_2025-06.csv
-    audio_features_hourly_Room2_2025-07.csv
-    audio_features_hourly_Room2_2025-08.csv
-    audio_features_hourly_Room6_2025-07.csv
-    env_features_Room2.csv
-
-Dependencies: numpy, pandas, matplotlib  (see requirements.txt)
+Run: python run_pipeline.py
 """
 from __future__ import annotations
 import argparse

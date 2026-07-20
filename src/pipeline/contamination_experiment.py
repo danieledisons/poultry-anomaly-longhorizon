@@ -1,40 +1,7 @@
 #!/usr/bin/env python3
-"""
-contamination_experiment.py — the standalone experiment that makes the alpha_t
-gate (C3) a contribution in its own right, not an ablation of detection (C1) or
-slow/fast modelling (C2).
+"""Shows an online detector habituating to a persistent anomaly (going blind to it), and how the gate prevents that by freezing learning while the deviation persists.
 
-THE CLAIM
----------
-The gate is a TRUST / LEARNING-RATE controller. In any deployed detector that
-adapts its notion of "normal" online (consolidation), a sustained anomaly that
-is allowed to keep updating the model POISONS the baseline: the model learns the
-anomaly as normal, and subsequent occurrences become undetectable. The alpha_t
-gate freezes learning while unexplained energy persists, so the contaminated
-period is never consolidated and future detection is preserved.
-
-SETUP
------
-An online detector maintains a running "normal" estimate mu_t (EWMA over the
-fused behavioural features). Anomaly score = standardized distance of the current
-hour from mu. Two conditions differ ONLY in the learning rate:
-
-    ungated:  mu update rate = lambda            (consolidates everything)
-    gated:    mu update rate = lambda * alpha_t   (alpha_t -> 0 pauses learning
-                                                   when a sustained anomaly persists)
-
-Timeline: clean warm-up -> a long sustained CONTAMINATION event -> a post-event
-period seeded with recurring PROBE anomalies (same signature as the contamination).
-We measure how many post-event probes are still detected, and how far the baseline
-drifted toward the anomaly.
-
-Outputs (RESULTS_DIR/contamination/):
-    contamination_results.csv   post-event recall/F1 + baseline drift, gated vs ungated
-    fig_contamination.png       trace (score, baseline, gate) + post-event detection bars
-
-Usage
------
-    python src/pipeline/contamination_experiment.py --spine results/spine_room2_rich.csv --trials 300
+Run: python src/pipeline/contamination_experiment.py --trials 300
 """
 from __future__ import annotations
 import argparse, sys

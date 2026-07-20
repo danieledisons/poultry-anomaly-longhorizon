@@ -1,35 +1,7 @@
 #!/usr/bin/env python3
-"""
-experiment.py — the full anomaly-detection study in one runnable harness.
+"""Main experiment harness: classical vs DL, gate on/off, detrend on/off, modality and representation ablations, cross-room hook, and all the figures.
 
-Compares the CLASSICAL detector (Mahalanobis on the lean interpretable features)
-against the DEEP detector (autoencoder on the rich features), each WITH and
-WITHOUT the alpha_t persistence gate, and produces every table and figure the
-study needs. No real anomaly labels exist, so detection is measured by a
-controlled synthetic-injection protocol (benign spikes vs sustained departures).
-
-What it produces (all in RESULTS_DIR/experiment/):
-  results_main.csv            4-way P/R/F1 with bootstrap 95% CIs
-  results_magnitude.csv       per-hour ROC-AUC vs injected magnitude
-  results_modality.csv        modality ablation (audio/video/env/av/all)
-  results_representation.csv  RAW vs DETREND x lean vs rich
-  results_operating.csv       detection latency + false-alarms/day
-  fig_main.png                headline 4-way bars with CIs
-  fig_magnitude.png           detection-vs-magnitude curves
-  fig_modality.png            modality ablation
-  fig_representation.png      representation ablation
-  fig_trace.png               example timeline: signal, score, gate state
-  fig_operating.png           latency + false-alarm operating metrics
-
-Validation:
-  --split temporal   fit on early weeks, test on later weeks (default; no leakage)
-  --eval-spine PATH  cross-room: fit on --spine, evaluate UNCHANGED on another room
-
-Usage
------
-    python src/pipeline/experiment.py --methods both --epochs 300 --trials 300
-    python src/pipeline/experiment.py --methods classical --quick      # sandbox test
-    python src/pipeline/experiment.py --eval-spine results/spine_room6_rich.csv
+Run: python src/pipeline/experiment.py --methods both
 """
 from __future__ import annotations
 

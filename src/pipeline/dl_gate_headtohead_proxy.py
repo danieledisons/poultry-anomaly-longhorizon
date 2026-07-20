@@ -1,34 +1,7 @@
 #!/usr/bin/env python3
-"""
-dl_gate_headtohead_proxy.py — PROXY (no GPU needed). PCA reconstruction stands in
-for the DL model so the harness runs anywhere. For real numbers use the PyTorch
-version: src/pipeline/dl_gate_pytorch.py (identical evaluation, trained AE/GRU).
+"""Quick PCA stand-in for the DL detector, to test the gate head-to-head without needing a GPU.
 
-The core thesis claim, quantified:
-
-    DL + alpha_t gate  >  DL alone
-
-Scenario: a realistic timeline contains BOTH
-  * brief spikes      — benign transients (a bird crosses the mic, a 1-frame glare):
-                        NOT anomalies we care about, but they blow past a magnitude
-                        threshold.
-  * sustained shifts  — the real anomalies (a developing problem over many hours).
-
-DL alone = threshold the per-hour reconstruction error. It cannot tell a benign
-spike from the onset of a real event, so it false-alarms on spikes.
-DL + gate = feed the same DL error stream through the alpha_t persistence gate,
-which only "closes" under SUSTAINED unexplained energy — so spikes are ignored
-while sustained events are still caught.
-
-We measure event-level precision / recall / F1 over many randomized trials.
-
-The DL scorer here is a low-rank PCA reconstruction (fast, sandbox-friendly).
-On the GPU server, swap `dl_scores()` for a trained autoencoder/GRU — the gate
-comparison harness is identical.
-
-Usage
------
-    python src/pipeline/dl_gate_headtohead.py --variant DETREND --trials 300
+Run: python src/pipeline/dl_gate_headtohead_proxy.py --variant DETREND
 """
 from __future__ import annotations
 

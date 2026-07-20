@@ -1,28 +1,7 @@
 #!/usr/bin/env python3
-"""
-extract_thermal.py — batch thermal feature extraction (barn-level).
+"""Thermal-image features (hotspot statistics) from the thermal camera exports.
 
-Walks a folder tree of FLIR images, extracts whole-frame radiometric summary
-statistics on Otsu-masked BIRD pixels, and writes two CSVs:
-
-  1. <out>/thermal_frame_features.csv   one row per image (timestamped)
-  2. <out>/thermal_daily_features.csv   one row per calendar day (aggregates)
-
-Design (matches the project's flock-level, no-ROI decision):
-  - bird pixels isolated by an Otsu temperature threshold (birds warmer than litter)
-  - features: mean / p10 / p90 bird surface temp, hotspot_frac (heads/feet proxy),
-    spatial heterogeneity, bird_frac (occupancy proxy), ambient_est (barn temp proxy)
-  - timestamp from EXIF (camera_metadata.date_time); falls back to file mtime
-  - NO room attribution (thermal is barn-level); a `source_path` column is kept so a
-    room key can be re-derived later if folder structure ever encodes one.
-
-Usage:
-    pip install flyr numpy pandas
-    python extract_thermal.py --root /path/to/thermal_root --out-dir ./outputs
-    # options:
-    #   --hotspot-c 34.0     absolute C threshold for "hotspot" (heads/feet); default 34
-    #   --glob "*.jpg"       file pattern (default *.jpg, case-insensitive)
-    #   --self-test          run a synthetic sanity check and exit (no images needed)
+Run: python src/extraction/extract_thermal.py --root <dir>
 """
 from __future__ import annotations
 import argparse, os, sys, glob, re

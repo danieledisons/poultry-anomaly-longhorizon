@@ -1,27 +1,7 @@
 #!/usr/bin/env python3
-"""
-extract_rich_audio.py - RICH per-hour acoustic features (64-band log-mel).
+"""Hourly 64-band log-mel audio features. Uses streaming aggregation so memory stays flat over thousands of files.
 
-Companion to extract_audio_features.py: keeps the full 64-band log-mel (that script
-collapses it to scalars). Per hour -> ~130-dim vector [mel00_mean..mel63_mean,
-mel00_std..mel63_std, n_frames, gap], aligned to room2_merged_hourly.csv's spine.
-
-MEMORY-SAFE (streaming) aggregation: each worker reduces its file to compact per-hour
-partial stats (sum, sumsq, count per band) instead of returning raw frames, so RAM
-stays flat no matter how many thousands of files are processed. (An earlier version
-held every frame in memory and OOM-ed on the full ~2900-file batch.)
-
-Preprocessing REPLICATED from extract_audio_features.py (keep in sync):
-  SR=16000 N_FFT=1024 HOP=512 N_MELS=64 ; noisereduce(stationary, prop=0.80);
-  mel=melspectrogram(S=|stft(denoised)|^2); logmel=power_to_db(mel+1e-10);
-  timestamps from filename 'YYYYMMDD_HHMMSS' (fallback mtime); recursive; skips '._'.
-
-Usage:
-  pip install librosa soundfile noisereduce numpy pandas
-  export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1   # avoid thread blowup
-  python extract_rich_audio.py --input-root "/mnt/.../Audio" \
-      --output-dir ./rich_audio_features --month-tag all --room-label Room2 --workers 16
-  python extract_rich_audio.py --self-test
+Run: python src/extraction/extract_rich_audio.py --input-root <dir> --room-label Room2
 """
 from __future__ import annotations
 import argparse, os, re, concurrent.futures as cf

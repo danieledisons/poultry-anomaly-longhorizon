@@ -1,26 +1,6 @@
-"""
-config.py — single source of truth for all filesystem paths.
+"""Central path config. Reads PROJECT_ROOT from a .env file and derives all the data/feature/results paths, so the same code runs on my laptop and the server without editing paths.
 
-WHY THIS EXISTS
----------------
-The codebase runs on two machines (laptop + SSH server) whose folders live at
-different absolute paths. Instead of editing hardcoded paths in every script,
-each machine keeps its own `.env` and everything else derives from ONE root.
-
-USAGE
------
-1. Copy the right template on each machine and symlink it to `.env`:
-       ln -sf .env.laptop .env      # on the laptop
-       ln -sf .env.server .env      # on the server
-   (or just `cp`). `.env` is the only machine-specific file.
-
-2. In any script:
-       from config import PROJECT_ROOT, DATA_DIR, FEATURES_DIR, RESULTS_DIR
-   and build paths from those — never hardcode an absolute path again.
-
-Resolution order for every setting: real OS environment variable  >  value in
-`.env`  >  built-in default derived from PROJECT_ROOT. So you can also override
-any path inline, e.g.  RESULTS_DIR=/tmp/run7 python run_pipeline.py
+Run: python config.py  # prints the resolved paths
 """
 from __future__ import annotations
 

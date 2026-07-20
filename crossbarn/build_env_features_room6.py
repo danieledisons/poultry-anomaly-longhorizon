@@ -1,34 +1,7 @@
 #!/usr/bin/env python3
-"""
-build_env_features_room6.py — derive env_features_Room6.csv in the SAME schema as
-env_features_Room2.csv, from the monthly Temp/RH Excel sheets.
+"""Builds env_features_Room6.csv from the monthly temperature/RH spreadsheets, matching the Room 2 env schema (raw AM/PM readings plus the derived daily columns).
 
-Raw sheets come in two header layouts (both map to the same 6 fields, in order:
-date, temp_am_min, temp_am_max, temp_pm, rh_am, rh_pm):
-  A) two-row header: row0 "Date|Temp-AM|_|Temp-PM|RH|_", row1 "_|Min|Max|PM|AM|PM"
-  B) one-row header: "Date|Temp_AM_Min|Temp_AM_Max|Temp_PM|RH_AM|RH_PM"
-
-Derived columns replicate Room 2 EXACTLY (verified against env_features_Room2.csv):
-  temp_day_mean_c   = mean(am_min, am_max, pm)
-  temp_am_range_c   = am_max - am_min
-  temp_am_pm_swing_c= pm - mean(am_min, am_max)
-  rh_day_mean_pct   = mean(rh_am, rh_pm)
-  rh_am_pm_change_pct = rh_pm - rh_am
-  temp_rate_c_per_day = day-to-day diff of temp_day_mean
-  rh_rate_pct_per_day = day-to-day diff of rh_day_mean
-  temp_roll_mean_c  = 7-day centered rolling mean of temp_day_mean (min_periods=1)
-  rh_roll_mean_pct  = 7-day centered rolling mean of rh_day_mean
-  temp_roll_slope_c_per_day = 7-day centered rolling OLS slope of temp_day_mean
-        (NOTE: the ONLY env column whose original Room 2 formula was unrecoverable;
-         defined cleanly here. The locked AV model uses env only via day_index, so
-         this does not affect cross-barn results.)
-  day_index = days since the first recorded date (flock age; day 0 = 2025-06-05,
-              same as Room 2).
-
-Usage:
-    python crossbarn/build_env_features_room6.py \
-        --xlsx-dir data/raw_room6/env --out features/env_features_Room6.csv
-    # or pass files explicitly with repeated --xlsx
+Run: python crossbarn/build_env_features_room6.py --xlsx-dir data/raw_room6/env --out features/env_features_Room6.csv
 """
 from __future__ import annotations
 import argparse, glob, os

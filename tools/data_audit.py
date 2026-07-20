@@ -1,28 +1,7 @@
 #!/usr/bin/env python3
-"""
-data_audit.py — coverage audit across the multi-drive raw dataset.
+"""Coverage audit across the raw drives. Parses recording dates out of the messy session folder names and reports per room/modality coverage.
 
-The recording date lives in the FOLDER name (files are just STE-000.wav /
-GX0001.MP4), and folder naming is inconsistent across drives:
-
-    Nov28-Dec1            Oct29-Nov3           Sep 11-13
-    Room 8 (13, 14, 15 Aug)   Room 8 - 3, 4, 5, 6 July   June 6, 7, 8
-    Room 6 (31 July - 3 Aug)  Room 6 (31 Aug, 1 Sep)
-
-So we parse dates out of each session folder's name, attach a room (from the
-path), classify modality (audio/video/thermal by path + extension), and report
-per room × modality coverage: earliest date, latest date, #session-days,
-#files, total size.
-
-Usage
------
-    python tools/data_audit.py \
-        --root "/mnt/drive_bf/Poultry_Multimodal_SeptDec" \
-        --root "/mnt/crucial_x10/Poultry Multimodal Data" \
-        --out data_audit.csv --year 2025
-
-Roots that don't exist (e.g. the video drive when it's unplugged) are skipped
-with a warning, so you can run it with whatever is mounted.
+Run: python tools/data_audit.py --root <dir>
 """
 from __future__ import annotations
 

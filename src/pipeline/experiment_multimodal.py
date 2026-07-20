@@ -1,34 +1,7 @@
 #!/usr/bin/env python3
-"""
-experiment_multimodal.py — the experiment that actually tests the multimodal
-premise, removing the "your ablation is flat because the anomaly is in every
-modality" skepticism.
+"""Modality-targeted injection and magnitude/duration sweeps; shows the OR-gate fusion catches an anomaly in any single modality where naive concatenation dilutes it.
 
-Two studies, two new figures:
-
-1. MODALITY-TARGETED injection (fig_targeted_*.png)
-   Inject a sustained anomaly into ONLY one modality's features (audio, or video,
-   or env), then score detectors that see different modality subsets
-   (audio-only / video-only / env-only / ALL). Result is an
-   (detector-input x anomaly-target) F1 matrix:
-       - single-modality detectors only catch anomalies IN their own modality
-         (high on the diagonal, ~chance off it),
-       - the ALL (fused) detector stays high for EVERY target.
-   That last row is the multimodal-value proof: fusion catches partial-modality
-   anomalies that any single stream misses.
-
-2. GRADUATED magnitude / duration sweep (fig_sweep.png)
-   Vary the sustained anomaly's magnitude (0.5..3 sigma) and duration, so recall
-   comes off the ceiling. Shows where each detector's sensitivity breaks down and
-   where the gate's precision advantage holds.
-
-Reuses the trained detectors and evaluation protocol from experiment.py, so
-results are directly comparable.
-
-Usage
------
-    python src/pipeline/experiment_multimodal.py --methods both --epochs 300 --trials 300
-    python src/pipeline/experiment_multimodal.py --methods classical --trials 200   # sandbox
+Run: python src/pipeline/experiment_multimodal.py --methods both
 """
 from __future__ import annotations
 

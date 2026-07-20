@@ -1,35 +1,7 @@
 #!/usr/bin/env python3
-"""
-optical_features.py — Room-level video -> global optical-flow activity features.
+"""Optical-flow features per room-month.
 
-Companion to audio_features.py. Same conventions: single-source-of-truth config,
-config fingerprint in every artifact, one month per invocation, per-file quality
-CSV, month-by-month download->extract->verify->delete loop.
-
-Design goals:
-  * Resumable      : per-FILE checkpointing + manifest. A crash resumes from the
-                     next unprocessed video, NOT from the start of the month.
-                     (Video files are large/slow — whole-month restart is unaffordable.)
-  * Logged         : per-run logfile + per-file quality CSV (feeds the inventory).
-  * Global flow    : one motion scalar per frame-pair (spatial mean of dense-flow
-                     magnitude). No spatial zones — easy to explain, no ROI work.
-  * Framerate-safe : frames sampled to a FIXED fps and flow expressed as pixels/sec,
-                     so magnitudes are comparable across files/rooms/recorders.
-  * Two-tier output:
-        <out>_15min.parquet  -> Tier 1: one row per (room, date, time_bin)  [fine grain]
-        <out>_daily.parquet  -> Tier 2: one row per (room, date)            [joins with
-                                 daily env + daily audio features]
-    Tier 2 is a cheap rollup of Tier 1 — flow is computed ONCE, never re-run to
-    change grain.
-
-Usage:
-  python3 optical_features.py \
-      --room "Room 2" --month 2025-07 \
-      --in  data/raw_room2/2025-07/video \
-      --out data/features_room2/room2_2025-07_video
-
-Dependencies: opencv-python, numpy, pandas, pyarrow
-  pip install opencv-python numpy pandas pyarrow
+Run: python src/extraction/optical_features.py --room 'Room 2' --month July --in <dir> --out <dir>
 """
 
 import argparse

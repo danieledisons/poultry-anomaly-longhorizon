@@ -1,37 +1,7 @@
 #!/usr/bin/env python3
-"""
-fusion_compare.py — compare anomaly-detection scorers on the lean rich features,
-RAW vs day_index-detrended, evaluated by synthetic injection (no labels exist).
+"""Compares Mahalanobis, PCA-reconstruction and gate scorers, RAW vs detrended features.
 
-Design
-------
-Features: the recommended lean set MINUS env_day_index (day_index is the flock
-growth clock — a slow-band covariate, not a fusion feature). Fusion hours only
-(both modalities live).
-
-Two feature variants:
-    RAW       — robustly standardized features.
-    DETREND   — each feature's linear day_index trend removed first (isolates the
-                fast/hour-to-hour signal, per the slow/fast framing), then standardized.
-
-Three scorers (all unsupervised, fit on the assumed-mostly-normal fusion hours):
-    mahalanobis  — classical joint-distribution distance (LedoitWolf covariance).
-    pca_recon    — reconstruction error from a low-rank PCA (DL-bridge proxy;
-                   swap in a GRU/transformer autoencoder on the GPU server later).
-    gate         — the alpha_t persistence gate run on the Mahalanobis residual
-                   stream (your contribution): rewards SUSTAINED, not spiky, anomalies.
-
-Evaluation
-----------
-Per-row scorers (mahalanobis, pca_recon): ROC-AUC separating held-out normal
-hours from synthetically perturbed copies, swept over perturbation magnitude.
-Gate: spike vs sustained injection on the time-ordered residual — false-closure
-on brief spikes and detection rate on sustained departures.
-
-Usage
------
-    python src/pipeline/fusion_compare.py --spine results/spine_room2_rich.csv \
-        --features results/recommended_features.csv
+Run: python src/pipeline/fusion_compare.py
 """
 from __future__ import annotations
 

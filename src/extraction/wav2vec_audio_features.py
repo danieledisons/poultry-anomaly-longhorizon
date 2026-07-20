@@ -1,23 +1,7 @@
 #!/usr/bin/env python3
-"""
-audio_features.py — Room-level audio -> daily wav2vec2 feature aggregation.
+"""Optional wav2vec2 audio embeddings, kept for a later comparison against the log-mel features.
 
-Design goals:
-  * Resumable      : skips files/days already done; safe to re-run after a crash.
-  * Logged         : per-run logfile + per-file quality CSV (feeds the inventory).
-  * GPU-aware      : uses CUDA if available, batches windows on the GPU.
-  * Conservative   : light denoise (prop_decrease<1) to protect biology; consistent
-                     preprocessing applied identically to every file/room.
-  * One month per invocation (fits the download -> extract -> verify -> delete loop).
-
-Usage:
-  python3 wav2vec_audio_features.py \
-      --room "Room 2" --month 2025-06 \
-      --in  data/raw_room2/2025-06 \
-      --out data/features_room2/room2_2025-06_daily.parquet
-
-Output parquet: one row per DAY with mean+std pooled 768-d wav2vec2 embedding,
-plus n_files / n_windows / quality columns.
+Run: python src/extraction/wav2vec_audio_features.py --room 'Room 2' --month July --in <dir> --out <dir>
 """
 
 import argparse

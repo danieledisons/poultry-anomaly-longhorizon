@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""inspect_parquet.py — summarize a daily feature parquet so it can be sanity-checked.
-Usage: python3 inspect_parquet.py data/features_room2/audio/room2_June_daily.parquet
+"""Peek at a parquet file's schema and first rows.
+
+Run: python tools/inspect_parquet.py
 """
 import sys
 import pandas as pd

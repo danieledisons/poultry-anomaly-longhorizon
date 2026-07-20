@@ -1,25 +1,7 @@
 #!/usr/bin/env python3
-"""
-feature_selection.py — turn the 194 rich features into a rich-but-LEAN set.
+"""Trims the rich features to a lean set by pruning within-modality correlation and ranking by cross-modal correlation.
 
-Three filters, in order (see the thesis rationale: with only ~440 fusion hours,
-every feature must earn its place or the DL model overfits):
-
-  1. Variance filter  — drop near-constant / dead features.
-  2. Within-modality redundancy — greedily drop any feature that is >|corr|
-     threshold with an already-kept feature of the same modality (adjacent mel
-     bands and neighbouring grid cells are highly collinear).
-  3. Cross-modal ranking — on the both_lit fusion hours, score each survivor by
-     its strongest correlation with the OTHER modality (and env). Features where
-     the modalities inform each other are the ones fusion should keep.
-
-Outputs: selected_features.csv (the lean set + why kept), a cross-modal top-pairs
-table, and a correlation heatmap of the final set.
-
-Usage
------
-    python src/pipeline/feature_selection.py \
-        --spine results/spine_room2_rich.csv --corr-thresh 0.90
+Run: python src/pipeline/feature_selection.py
 """
 from __future__ import annotations
 

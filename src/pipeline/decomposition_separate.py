@@ -1,26 +1,7 @@
 #!/usr/bin/env python3
-"""
-decomposition_separate.py — individual, publication-quality slow/fast
-decomposition figures, one per modality, in a dedicated folder.
+"""Per-modality slow/fast decomposition figures, saved one file each.
 
-For each signal we split into a SLOW band (growth trend + diurnal rhythm =
-expected behaviour) and a FAST band (residual = where anomalies live), and save
-a clean 2-panel figure.
-
-Signals:
-    audio      mean log-mel energy (flock loudness)
-    video      optical-flow magnitude (activity)
-    env        daily mean temperature
-    fused_av   z-scored average of audio + video (behavioural index)
-    fused_all  z-scored average of audio + video + env (full multimodal index)
-
-Outputs (RESULTS_DIR/decomposition/):
-    fig_decomp_audio.png, fig_decomp_video.png, fig_decomp_env.png,
-    fig_decomp_fused_av.png, fig_decomp_fused_all.png   (all 600 dpi)
-
-Usage
------
-    python src/pipeline/decomposition_separate.py --spine results/spine_room2_rich.csv
+Run: python src/pipeline/decomposition_separate.py
 """
 from __future__ import annotations
 import argparse, sys

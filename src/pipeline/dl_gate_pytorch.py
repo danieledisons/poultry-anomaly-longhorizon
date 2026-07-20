@@ -1,39 +1,7 @@
 #!/usr/bin/env python3
-"""
-dl_gate_pytorch.py — REAL DL version of the gate head-to-head (run on the GPU box).
+"""The real torch version of the DL vs DL+gate comparison, meant for the GPU box.
 
-Same story, same evaluation as dl_gate_headtohead_proxy.py, but the anomaly
-scorer is a trained PyTorch autoencoder instead of PCA. Everything else — the
-detrended lean fusion features, the alpha_t persistence gate, the synthetic
-injection protocol, the output format — is identical, so the narrative figures
-regenerate with real numbers.
-
-Models (unsupervised reconstruction; trained ONLY on assumed-normal fusion hours):
-    early   — MLP autoencoder over the concatenated lean features.
-    late    — per-modality encoders (audio / video / env) -> shared latent ->
-              per-modality decoders. Reconstruction error is the fused residual.
-              This is the fusion topology the alpha_t gate sits on top of.
-
-Anomaly score per hour = reconstruction MSE. The SAME gate then runs on that
-error stream and only closes under SUSTAINED unexplained energy.
-
-Claims tested:
-  1. DETREND (day_index growth removed) > RAW               -> injection ROC-AUC
-  2. DL + alpha_t gate > DL alone (event-level P/R/F1)       -> the core thesis plot
-
-Outputs (drop them back into chat):
-    results/dl_pytorch_auc.csv          per-row injection AUC, RAW vs DETREND x model
-    results/dl_pytorch_dl_vs_gate.csv   event-level P/R/F1, DL alone vs DL+gate
-    results/dl_pytorch_dl_vs_gate.png   the head-to-head bar chart (600 dpi)
-    results/dl_pytorch_auc.png          AUC-vs-magnitude curves (600 dpi)
-    models are checkpointed to results/*.pt (gitignored)
-
-Run
----
-    python src/pipeline/dl_gate_pytorch.py --model late --variant DETREND \
-        --epochs 300 --trials 300
-    # or sweep everything:
-    python src/pipeline/dl_gate_pytorch.py --model both --variant both
+Run: python src/pipeline/dl_gate_pytorch.py --model both --variant both
 """
 from __future__ import annotations
 

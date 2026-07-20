@@ -1,27 +1,7 @@
 #!/usr/bin/env python3
-"""
-gate_learning_figures.py — visualize, as trend lines, HOW an anomaly corrupts an
-online detector's notion of "normal", and how the alpha_t gate prevents it.
+"""Trend figures: an anomaly dragging the learned baseline toward itself, and how the gate resists it.
 
-Two figures (RESULTS_DIR/gate_learning/):
-
-  fig_baseline_drift.png
-      The model's learned "normal" (its baseline, projected onto the anomaly
-      axis) plotted over time. 0 = the true clean normal, 1 = the model has fully
-      adopted the anomaly as normal. Without the gate the baseline CLIMBS toward
-      1 (learns the wrong thing); with the gate it stays near 0 (protected).
-
-  fig_spike_frequency.png
-      Repeated BRIEF spikes (the gate is meant to ignore these as alarms). As the
-      spikes get more frequent, an ungated detector still slowly LEARNS them into
-      its baseline; the gate engages once they persist and keeps the baseline clean.
-      Trend: final baseline corruption vs spike frequency, ungated vs gated.
-
-Both reuse the online detector from contamination_experiment.py.
-
-Usage
------
-    python src/pipeline/gate_learning_figures.py --trials 300
+Run: python src/pipeline/gate_learning_figures.py --trials 300
 """
 from __future__ import annotations
 import argparse, sys

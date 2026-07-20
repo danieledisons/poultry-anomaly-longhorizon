@@ -1,36 +1,7 @@
 #!/usr/bin/env python3
-"""
-cross_modal_check.py
-======================
-First cross-modal sanity check for Room 2: does video activity (optical flow /
-occupancy) track audio activity (vocalization/energy) on the same shared hourly
-cadence? This is a validation step, not a modeling step -- the goal is to catch
-a broken pipeline (either modality) before building anything on top of both.
+"""Quick sanity check of the cross-modal alignment between hourly video and audio features.
 
-Approach
---------
-1. Load video hourly features (hourly_features_all_folders.csv) and audio hourly
-   features (audio_features_hourly_Room2_*.csv, one file per month -- concatenated).
-2. Align both on the shared 'hour' timestamp column (inner join -- only hours
-   present in BOTH modalities are compared; hours where one modality has a gap,
-   e.g. video's nightly camera-off periods, are correctly excluded rather than
-   silently filled).
-3. Report: how many hours overlap, correlation between video activity proxies
-   (flow_mean_avg, occupancy_avg) and audio activity proxies (auto-detected from
-   column names -- e.g. columns containing 'activity', 'rms', 'vocalization').
-4. Save a merged CSV and a simple time-series comparison plot for visual review.
-
-IMPORTANT: this script auto-detects likely audio activity columns by name
-matching, since the exact column names in your audio feature CSVs weren't known
-in advance. Check the printed "audio columns detected" list -- if it picked the
-wrong column, override AUDIO_ACTIVITY_COL_OVERRIDE below.
-
-Usage
------
-    python cross_modal_check.py \\
-        --video-hourly /path/to/hourly_features_all_folders.csv \\
-        --audio-hourly /path/to/audio_features_hourly_Room2_2025-07.csv /path/to/audio_features_hourly_Room2_2025-08.csv \\
-        --output-dir /path/to/results
+Run: python tools/cross_modal_check.py --video-hourly <csv> --audio-hourly <csv> --output-dir <dir>
 """
 
 from __future__ import annotations

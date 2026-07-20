@@ -1,20 +1,5 @@
 #!/usr/bin/env python3
-"""
-dl_detector.py — the deep multimodal anomaly detector.
-
-An unsupervised reconstruction autoencoder trained ONLY on assumed-normal hours;
-per-hour anomaly score = reconstruction MSE. Two fusion topologies:
-
-    early — MLP autoencoder over the concatenated rich features.
-    late  — per-modality encoders (audio / video / env) -> shared latent ->
-            per-modality decoders. This is the fusion topology the alpha_t gate
-            sits on; it is the natural home for the RICH feature set.
-
-torch is imported lazily so the classical path runs without a GPU/torch install.
-
-Interface shared with the classical detector:
-    d = AEDetector(dims, kind="late").fit(X_normal, X_val)
-    scores = d.score(X)          # higher = more anomalous (per row)
+"""Autoencoder detector with early- and late-fusion variants (torch is imported lazily so the classical path runs without it).
 """
 from __future__ import annotations
 
