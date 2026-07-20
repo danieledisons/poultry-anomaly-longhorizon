@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/daniel/workspace/projects/longhorizon/crossbarn/cross_barn_video.py", line 287, in <module>
+    main()
+    ~~~~^^
+  File "/home/daniel/workspace/projects/longhorizon/crossbarn/cross_barn_video.py", line 277, in main
+    subs = sorted(os.path.join(a.video_parent_dir, d) for d in os.listdir(a.video_parent_dir)
+                                                               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/<video-drive>/.../Room6'

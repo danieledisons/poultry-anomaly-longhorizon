@@ -1,0 +1,95 @@
+[scan] 882 audio files
+[run] 12 workers (streaming aggregation, flat memory)
+/home/daniel/workspace/projects/longhorizon/crossbarn/extract_rich_audio_crossbarn.py:114: UserWarning: PySoundFile failed. Trying audioread instead.
+  y_raw, _ = librosa.load(path, sr=SR, mono=True)
+/home/daniel/miniconda3/envs/ai/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+/home/daniel/workspace/projects/longhorizon/crossbarn/extract_rich_audio_crossbarn.py:114: UserWarning: PySoundFile failed. Trying audioread instead.
+  y_raw, _ = librosa.load(path, sr=SR, mono=True)
+/home/daniel/miniconda3/envs/ai/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+/home/daniel/workspace/projects/longhorizon/crossbarn/extract_rich_audio_crossbarn.py:114: UserWarning: PySoundFile failed. Trying audioread instead.
+  y_raw, _ = librosa.load(path, sr=SR, mono=True)
+/home/daniel/miniconda3/envs/ai/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+  [25/882] done  (hours 27, failed 4)
+/home/daniel/workspace/projects/longhorizon/crossbarn/extract_rich_audio_crossbarn.py:114: UserWarning: PySoundFile failed. Trying audioread instead.
+  y_raw, _ = librosa.load(path, sr=SR, mono=True)
+/home/daniel/miniconda3/envs/ai/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+/home/daniel/workspace/projects/longhorizon/crossbarn/extract_rich_audio_crossbarn.py:114: UserWarning: PySoundFile failed. Trying audioread instead.
+  y_raw, _ = librosa.load(path, sr=SR, mono=True)
+/home/daniel/miniconda3/envs/ai/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+/home/daniel/workspace/projects/longhorizon/crossbarn/extract_rich_audio_crossbarn.py:114: UserWarning: PySoundFile failed. Trying audioread instead.
+  y_raw, _ = librosa.load(path, sr=SR, mono=True)
+/home/daniel/miniconda3/envs/ai/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+  [50/882] done  (hours 59, failed 7)
+  [75/882] done  (hours 93, failed 7)
+  [100/882] done  (hours 128, failed 7)
+  [125/882] done  (hours 160, failed 7)
+  [150/882] done  (hours 194, failed 7)
+  [175/882] done  (hours 228, failed 7)
+  [200/882] done  (hours 263, failed 7)
+  [225/882] done  (hours 298, failed 7)
+  [250/882] done  (hours 333, failed 7)
+  [275/882] done  (hours 366, failed 7)
+  [300/882] done  (hours 399, failed 7)
+  [325/882] done  (hours 432, failed 7)
+  [350/882] done  (hours 466, failed 7)
+  [375/882] done  (hours 500, failed 7)
+  [400/882] done  (hours 534, failed 7)
+  [425/882] done  (hours 569, failed 7)
+  [450/882] done  (hours 603, failed 7)
+  [475/882] done  (hours 637, failed 7)
+  [500/882] done  (hours 672, failed 7)
+  [525/882] done  (hours 706, failed 7)
+  [550/882] done  (hours 741, failed 7)
+  [575/882] done  (hours 776, failed 7)
+  [600/882] done  (hours 810, failed 7)
+  [625/882] done  (hours 843, failed 7)
+  [650/882] done  (hours 878, failed 7)
+  [675/882] done  (hours 913, failed 7)
+  [700/882] done  (hours 947, failed 7)
+  [725/882] done  (hours 982, failed 7)
+  [750/882] done  (hours 1015, failed 7)
+  [775/882] done  (hours 1048, failed 7)
+  [800/882] done  (hours 1082, failed 7)
+  [825/882] done  (hours 1118, failed 7)
+/home/daniel/workspace/projects/longhorizon/crossbarn/extract_rich_audio_crossbarn.py:114: UserWarning: PySoundFile failed. Trying audioread instead.
+  y_raw, _ = librosa.load(path, sr=SR, mono=True)
+/home/daniel/miniconda3/envs/ai/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+/home/daniel/workspace/projects/longhorizon/crossbarn/extract_rich_audio_crossbarn.py:114: UserWarning: PySoundFile failed. Trying audioread instead.
+  y_raw, _ = librosa.load(path, sr=SR, mono=True)
+/home/daniel/miniconda3/envs/ai/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+/home/daniel/workspace/projects/longhorizon/crossbarn/extract_rich_audio_crossbarn.py:114: UserWarning: PySoundFile failed. Trying audioread instead.
+  y_raw, _ = librosa.load(path, sr=SR, mono=True)
+/home/daniel/miniconda3/envs/ai/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+  [850/882] done  (hours 1147, failed 10)
+  [875/882] done  (hours 1182, failed 10)
+  [882/882] done  (hours 1193, failed 10)
+[write] features/rich_audio_features/audio_rich_features_hourly_Room6_all.csv  (1193 hours x 131 cols)
+[timestamp sources] {'metadata': 872}
+[write] features/rich_audio_features/audio_rich_Room6_all_failed.csv  (10 failed)

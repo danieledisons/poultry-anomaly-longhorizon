@@ -1,2 +1,3 @@
 method,median_latency_h,spike_FP_per_trial_alone,spike_FP_per_trial_gate
-Classical,5.0,5.0,2.03
+Classical,5.0,5.0,2.09
+DL,2.0,5.0,2.423
