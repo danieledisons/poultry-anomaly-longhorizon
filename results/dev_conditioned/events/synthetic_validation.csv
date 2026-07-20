@@ -1,0 +1,3 @@
+event_type,n,recall_age,recall_coherence,recall_full,cause_accuracy
+concordant,400,0.953,0.983,0.948,0.998
+incoherence,400,0.96,0.983,0.93,0.948

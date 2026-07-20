@@ -1,0 +1,4 @@
+detector,threshold,recall_concordant,recall_discordant,recall_mixed
+age-energy,6.35,0.983,0.02,0.501
+coherence,4.79,0.037,0.98,0.509
+FULL (coupled),7.52,0.94,0.938,0.939
