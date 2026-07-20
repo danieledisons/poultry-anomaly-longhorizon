@@ -1,0 +1,3 @@
+condition,onset_detection,late_detection,late_lo,late_hi,baseline_drift_abs
+Ungated (adapts to anomaly),0.359,0.006,0.0,0.033,6.996
+Gated (learning frozen),0.944,0.936,0.817,1.0,1.131
