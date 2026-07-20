@@ -1,0 +1,7 @@
+detector,threshold,recall,median_delay_h,spike_fp_per_trial,clean_fa_per_trial
+Static,4.92,0.738,6.0,3.69,0.495
+EWMA,1.73,1.0,2.0,2.933,0.398
+CUSUM,7.87,1.0,2.0,1.52,0.767
+Page-Hinkley,13.77,0.985,3.0,0.35,0.19
+ADWIN,2.71,0.94,10.0,0.05,0.347
+alpha_t gate,3.94,0.98,2.0,0.375,0.37
