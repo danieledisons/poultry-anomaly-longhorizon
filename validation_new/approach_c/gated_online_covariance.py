@@ -59,6 +59,14 @@ def inv_ridge(S):
 HUBER_C = 2.5          # robust update: points beyond med + HUBER_C*sig are down-weighted (no lock-in)
 ALPHA_FLOOR = 0.12     # gated_floor: geometry never fully freezes -> tracks slow rotation, no lock-in
 MEAN_FLOOR = 0.0       # but the MEAN can freeze fully (mean contamination is the real threat)
+BETA_VEL = 0.02        # predictive: EWMA rate for the geometry-velocity (age-derivative) estimate
+
+
+def psd_clip(S):
+    S = 0.5 * (S + S.T)
+    w, V = np.linalg.eigh(S)
+    w = np.clip(w, 1e-6, None)
+    return (V * w) @ V.T
 
 
 def run(Z, mu0, S0, med, sig, mode):
@@ -68,6 +76,7 @@ def run(Z, mu0, S0, med, sig, mode):
     mu = mu0.copy(); S = S0.copy(); Sinv = inv_ridge(S)
     score = np.zeros(n); wt = np.ones(n); P = 0.0
     uhat = np.zeros(d)                                  # estimated anomaly direction
+    vmu = np.zeros(d); vS = np.zeros((d, d))            # geometry velocity (age-derivative)
     for t in range(n):
         r = Z[t] - mu
         score[t] = np.sqrt(max(r @ Sinv @ r, 0.0))
@@ -81,13 +90,71 @@ def run(Z, mu0, S0, med, sig, mode):
             # SOFT per-step Huber trust, NO hysteresis lock-in.
             thr = med + HUBER_C * sig
             a = 1.0 if score[t] <= thr else float(thr / score[t])
-        elif mode in ("gated_floor", "meangate_covfree", "directional"):
+        elif mode in ("gated_floor", "meangate_covfree", "directional", "predictive", "hybrid", "stable_directional"):
             e = min(max((score[t] - med) / sig - B_DEAD, 0.0), C_CAP)
             P = GAMMA * P + e
             a = 0.0 if P >= THETA_CLOSE else (1.0 if P <= THETA_OPEN else
                  (THETA_CLOSE - P) / (THETA_CLOSE - THETA_OPEN))
         else:
             a = 1.0
+
+        if mode == "stable_directional":
+            # The contribution, stabilised. Covariance ALWAYS adapts (tracks rotation,
+            # stationary null). The anomaly direction is protected ONLY once the gate
+            # is CONFIRMED closed (a~0, a sustained departure) -- not per-step -- using
+            # a slowly-accumulated, stable direction estimate. In that state the mean
+            # freezes (no absorption) and the covariance update drops the anomaly
+            # component (rr_perp), so the anomaly axis keeps its normal variance and
+            # detection is preserved; every other direction keeps tracking the rotation.
+            confirmed = a < 0.05
+            if confirmed:
+                nu = r / (np.linalg.norm(r) + 1e-9)
+                uhat = 0.9 * uhat + 0.1 * nu
+            else:
+                uhat = 0.8 * uhat
+            a_mu = a                                     # mean freezes when confirmed
+            mu_new = mu + LAM_MU * a_mu * r
+            rr = Z[t] - mu_new
+            un = uhat / (np.linalg.norm(uhat) + 1e-9)
+            if confirmed and np.linalg.norm(uhat) > 1e-6:
+                rr = rr - (rr @ un) * un                 # protect the anomaly axis
+            S = psd_clip((1 - LAM_COV) * S + LAM_COV * np.outer(rr, rr))
+            mu = mu_new; Sinv = inv_ridge(S); wt[t] = a
+            continue
+
+        if mode == "hybrid":
+            # STABLE memory variant: predict the MEAN along its learned age-velocity
+            # (breaks mean-contamination without unstable covariance integration), and
+            # track the COVARIANCE with a robust down-weight (tracks rotation, resists
+            # anomalous inflation). Mean velocity is learned from trusted steps only.
+            thr = med + HUBER_C * sig
+            w_rob = 1.0 if score[t] <= thr else float(thr / score[t])
+            dmu_assim = LAM_MU * r
+            mu_new = mu + a * dmu_assim + (1 - a) * vmu
+            rr = Z[t] - mu_new
+            S = psd_clip((1 - LAM_COV * w_rob) * S + LAM_COV * w_rob * np.outer(rr, rr))
+            if a > 0.8:
+                vmu = (1 - BETA_VEL) * vmu + BETA_VEL * (mu_new - mu)
+            mu = mu_new; Sinv = inv_ridge(S); wt[t] = a
+            continue
+
+        if mode == "predictive":
+            # AGE-CONDITIONED EXPECTED-GEOMETRY PRIOR.
+            # Trusted (gate-open) steps assimilate AND teach the geometry velocity
+            # (its age-derivative). During gate closure the geometry ADVANCES along
+            # that learned velocity instead of freezing (avoids lock-in drift) or
+            # absorbing the anomaly (residual never enters the update). The anomaly
+            # thus stays far from the predicted-normal geometry -> detected.
+            dmu_assim = LAM_MU * r
+            mu_new = mu + a * dmu_assim + (1 - a) * vmu
+            rr = Z[t] - mu_new
+            dS_assim = LAM_COV * (np.outer(rr, rr) - S)
+            S_new = psd_clip(S + a * dS_assim + (1 - a) * vS)
+            if a > 0.8:                                  # learn velocity only from trusted steps
+                vmu = (1 - BETA_VEL) * vmu + BETA_VEL * (mu_new - mu)
+                vS = (1 - BETA_VEL) * vS + BETA_VEL * (S_new - S)
+            mu = mu_new; S = S_new; Sinv = inv_ridge(S); wt[t] = a
+            continue
         wt[t] = a
         a_mu = a                                       # mean trust (can freeze)
         if mode == "gated_floor":
@@ -122,7 +189,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--spine", default=str(DATA / "spine_room2_rich.csv"))
     ap.add_argument("--room", default="2"); ap.add_argument("--outdir", default=str(HERE))
-    a = ap.parse_args(); R = a.room
+    ap.add_argument("--inj_type", default="step", choices=["step", "ramp"],
+                    help="step = sudden sustained; ramp = slow-onset (the discriminating test)")
+    a = ap.parse_args(); R = a.room; ITYPE = a.inj_type
 
     df = pd.read_csv(a.spine).sort_values("time").reset_index(drop=True)
     mel = [c for c in df.columns if c.startswith("aud_mel") and c.endswith("_mean")]
@@ -142,7 +211,12 @@ def main():
     start = ref_end + 150; end = min(start + INJ_LEN, n)
     bidx = [mel.index(f"aud_mel{b:02d}_mean") for b in INJ_BANDS if f"aud_mel{b:02d}_mean" in mel]
     bmad = 1.4826 * np.median(np.abs(Z[:ref_end][:, bidx] - np.median(Z[:ref_end][:, bidx], 0)), 0)
-    Zin = Z.copy(); Zin[start:end][:, bidx] += INJ_MAG * bmad
+    Zin = Z.copy()
+    if ITYPE == "step":
+        Zin[start:end][:, bidx] += INJ_MAG * bmad                       # sudden sustained
+    else:
+        ramp = np.linspace(0, INJ_MAG, end - start)[:, None]           # slow-onset ramp
+        Zin[start:end][:, bidx] += ramp * bmad
 
     def metrics(mode):
         sc_i, al_i = run(Zin, mu0, S0, med, sig, mode)     # injected
@@ -161,7 +235,7 @@ def main():
                     op_early=round(float(early), 2), op_late=round(float(latev), 2),
                     sc_i=sc_i, sc_c=sc_c, al_i=al_i)
 
-    res = {m: metrics(m) for m in ["fixed", "online_ungated", "online_gated", "robust", "gated_floor", "meangate_covfree", "directional"]}
+    res = {m: metrics(m) for m in ["fixed", "online_ungated", "online_gated", "robust", "gated_floor", "meangate_covfree", "directional", "predictive", "hybrid", "stable_directional"]}
 
     summ = pd.DataFrame([{"room": R, "config": m, "shrink_lam": round(lam, 3),
         "det_thresh": round(det, 2),
@@ -169,7 +243,7 @@ def main():
         "late_false_alarm": res[m]["late_false_alarm"],
         "clean_op_early": res[m]["op_early"], "clean_op_late": res[m]["op_late"]}
         for m in res])
-    summ.to_csv(HERE / "csv" / f"approachc_room{R}_summary.csv", index=False)
+    summ.to_csv(HERE / "csv" / f"approachc_room{R}_{ITYPE}_summary.csv", index=False)
 
     # ---- figure ----
     x = np.arange(n)
@@ -188,7 +262,7 @@ def main():
     ax[1].axvspan(start, end, color="orange", alpha=0.15, label="injection")
     ax[1].set_ylabel("injected Mahalanobis"); ax[1].set_xlabel("audio hours"); ax[1].legend(fontsize=7, loc="upper left")
     ax[1].set_ylim(0, np.percentile(res["robust"]["sc_i"], 99.5))
-    fig.tight_layout(); fig.savefig(HERE / "figs" / f"fig_approachc_room{R}.png", dpi=140)
+    fig.tight_layout(); fig.savefig(HERE / "figs" / f"fig_approachc_room{R}_{ITYPE}.png", dpi=140)
 
     print(f"=== Room {R} Approach C: gated online covariance ===")
     print(summ.to_string(index=False))

@@ -1,0 +1,11 @@
+room,config,shrink_lam,det_thresh,inj_retention,inj_latency_hr,late_false_alarm,clean_op_early,clean_op_late
+2,fixed,0.011,10.17,0.014,1.0,0.034,4.05,3.73
+2,online_ungated,0.011,10.17,0.028,1.0,0.024,5.88,4.03
+2,online_gated,0.011,10.17,1.0,inf,0.431,8.07,9.29
+2,robust,0.011,10.17,0.042,2.0,0.028,5.89,4.07
+2,gated_floor,0.011,10.17,0.097,6.0,0.077,6.16,4.46
+2,meangate_covfree,0.011,10.17,0.014,1.0,0.021,5.72,3.95
+2,directional,0.011,10.17,1.0,inf,0.914,15.53,10.54
+2,predictive,0.011,10.17,1.0,inf,1.0,38.65,62.48
+2,hybrid,0.011,10.17,0.014,1.0,0.023,5.74,3.99
+2,stable_directional,0.011,10.17,0.694,1.0,0.083,6.3,3.99
