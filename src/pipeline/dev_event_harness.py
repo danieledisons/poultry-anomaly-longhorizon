@@ -49,8 +49,9 @@ class CoherenceDetector:
         self.b = np.polyfit(u, w, 1)[0]
         self.umed, _ = _zpar(u); self.wmed, _ = _zpar(w)
         self.dmed, self.dmad = _zpar(w - self.b * u)
+        self._vn = np.linalg.norm(V, axis=1)
         self.aMed, self.aMad = _zpar(np.linalg.norm(A, axis=1))
-        self.vMed, self.vMad = _zpar(np.linalg.norm(V, axis=1))
+        self.vMed, self.vMad = _zpar(self._vn)
         # keep clean pool for synthetic timelines + incoherence swaps
         self._A, self._V, self._w = A, V, w
         return self
@@ -108,7 +109,14 @@ def make_incoherence(det, rng, timeline=240, dur=(12, 30)):
     a0 = rng.integers(40, timeline - 40); L = int(rng.integers(*dur)); sl = slice(a0, a0 + L)
     u, _ = det._uw(A[sl], V[sl]); w_hat = det.b * u
     for j, t in enumerate(range(a0, a0 + L)):
-        far = np.argmax(np.abs(det._w - w_hat[j]))    # clean video row least predicted by audio
+        # candidate clean video rows with MATCHED marginal energy (keeps the video stream
+        # individually in-distribution), then pick the one least predicted by the audio.
+        tn = det._vn[t]
+        band = np.abs(det._vn - tn) < 0.15 * tn + 1e-9
+        cand = np.where(band)[0]
+        if len(cand) < 5:                              # widen if the band is too tight
+            cand = np.argsort(np.abs(det._vn - tn))[:20]
+        far = cand[np.argmax(np.abs(det._w[cand] - w_hat[j]))]
         V[t] = det._V[far]
     return A, V, (a0, a0 + L)
 
@@ -124,11 +132,14 @@ def evaluate_event(det, A, V, span, close):
         hit = fired[k][a0:a1]
         out[k] = dict(detected=bool(hit.any()),
                       delay_h=int(np.argmax(hit)) if hit.any() else None)
-    # cause attribution: which channel carries the signal inside the event window
-    age_pk = sc["age"][a0:a1].max(); coh_pk = sc["coherence"][a0:a1].max()
-    cause = "magnitude (concordant)" if age_pk > coh_pk else "incoherence (cross-modal)"
-    out["attribution"] = dict(age_peak=round(float(age_pk), 2),
-                              coherence_peak=round(float(coh_pk), 2), inferred_cause=cause)
+    # cause attribution: which channel carries the STRONGER evidence, measured relative to
+    # each channel's own matched false-alarm threshold (fair across channels with different
+    # scales). >1 means "past the alarm bar for that channel."
+    age_ev = sc["age"][a0:a1].max() / close["age"]
+    coh_ev = sc["coherence"][a0:a1].max() / close["coherence"]
+    cause = "magnitude (concordant)" if age_ev > coh_ev else "incoherence (cross-modal)"
+    out["attribution"] = dict(age_evidence=round(float(age_ev), 2),
+                              coherence_evidence=round(float(coh_ev), 2), inferred_cause=cause)
     return out
 
 

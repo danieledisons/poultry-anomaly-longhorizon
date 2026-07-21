@@ -116,13 +116,23 @@ def calibrate(builder, pool, rng, target_fa, timeline=240, n=200):
     return best
 
 
-def recall(builder, h, pool, rng, kind, trials, timeline=240):
-    det = 0
-    for _ in range(trials):
-        s, (a0, a1) = inject(pool, rng, kind, timeline)
-        if onsets(gate(builder(s), h))[a0:a1].any():
-            det += 1
-    return det / trials
+def make_events(pool, rng, trials, timeline=240):
+    """Generate a FIXED set of events (shared across detectors so gain CIs are paired)."""
+    ev = []
+    for kind in ("concordant", "discordant"):
+        for _ in range(trials):
+            ev.append((kind,) + inject(pool, rng, kind, timeline))
+    return ev
+
+def outcomes(builder, h, events):
+    """Per-event detected/not-detected boolean vector for one detector."""
+    return np.array([bool(onsets(gate(builder(s), h))[a0:a1].any())
+                     for _, s, (a0, a1) in events])
+
+def boot_ci(vec, rng, B=2000):
+    m = vec.mean()
+    bs = np.array([vec[rng.integers(0, len(vec), len(vec))].mean() for _ in range(B)])
+    return m, np.percentile(bs, 2.5), np.percentile(bs, 97.5)
 
 
 def main():
@@ -138,28 +148,34 @@ def main():
           f"{np.corrcoef(pool['u'], pool['w'])[0,1]:.3f}, energy corr(a,v)="
           f"{np.corrcoef(pool['a'], pool['v'])[0,1]:.3f}")
     rng = np.random.default_rng(0)
+    thr = {name: calibrate(b, pool, rng, a.target_fa) for name, b in DETECTORS.items()}
+    events = make_events(pool, rng, a.trials)               # shared across detectors
+    kinds = np.array([e[0] for e in events])
+    cmask, dmask = kinds == "concordant", kinds == "discordant"
+
+    outs = {name: outcomes(b, thr[name], events) for name, b in DETECTORS.items()}
     rows = []
-    for name, b in DETECTORS.items():
-        h = calibrate(b, pool, rng, a.target_fa)
-        rc = recall(b, h, pool, rng, "concordant", a.trials)
-        rd = recall(b, h, pool, rng, "discordant", a.trials)
-        rows.append({"detector": name, "threshold": round(float(h), 2),
-                     "recall_concordant": round(rc, 3), "recall_discordant": round(rd, 3),
-                     "recall_mixed": round((rc + rd) / 2, 3)})
-        print(f"[done] {name}")
+    for name in DETECTORS:
+        o = outs[name]; m, lo, hi = boot_ci(o, rng)
+        rows.append({"detector": name, "threshold": round(float(thr[name]), 2),
+                     "recall_concordant": round(o[cmask].mean(), 3),
+                     "recall_discordant": round(o[dmask].mean(), 3),
+                     "recall_mixed": round(m, 3),
+                     "mixed_CI": f"[{lo:.3f}, {hi:.3f}]"})
     res = pd.DataFrame(rows)
     res.to_csv(OUT / "interaction_results.csv", index=False)
 
-    # interaction term on the mixed population, relative to a no-op baseline (recall 0)
-    g_age = res.loc[res.detector == "age-energy", "recall_mixed"].iloc[0]
-    g_coh = res.loc[res.detector == "coherence", "recall_mixed"].iloc[0]
-    g_full = res.loc[res.detector == "FULL (coupled)", "recall_mixed"].iloc[0]
-    gain = g_full - max(g_age, g_coh)
+    # paired bootstrap on the gain = FULL - best single channel (same resampled events)
+    o_age, o_coh, o_full = outs["age-energy"], outs["coherence"], outs["FULL (coupled)"]
+    gains = np.array([(lambda idx: o_full[idx].mean() - max(o_age[idx].mean(), o_coh[idx].mean()))
+                      (rng.integers(0, len(o_full), len(o_full))) for _ in range(2000)])
+    g_age, g_coh, g_full = o_age.mean(), o_coh.mean(), o_full.mean()
+    gain = g_full - max(g_age, g_coh); glo, ghi = np.percentile(gains, [2.5, 97.5])
     print("\n=== Factorized interaction test (matched FA) ===")
     print(res.to_string(index=False))
     print(f"\nmixed recall: age={g_age:.3f}  coherence={g_coh:.3f}  FULL={g_full:.3f}")
-    print(f"gain over best single channel: +{gain:.3f}  "
-          f"({'COMPLEMENTARY — coupling covers the union of anomaly types' if gain > 0.1 else 'redundant channels — no added value'})")
+    print(f"gain over best single channel: +{gain:.3f}  95% CI [{glo:.3f}, {ghi:.3f}]  "
+          f"({'COMPLEMENTARY (CI excludes 0)' if glo > 0 else 'not significant'})")
     print("interpretation: each channel is blind to the OTHER anomaly type "
           "(recall ~0.5 on the mixed population); coupling them recovers the union. "
           "The coherence channel detects incoherence anomalies (0.02 -> 0.94) that no "
