@@ -182,7 +182,7 @@ def main():
     sweep.to_csv(HERE / "csv" / f"coupling_room{R}_detection_sweep.csv", index=False)
 
     # ---- illustrative gated vs ungated JOINT contamination (one placement) ----
-    s0 = int(post[len(post) // 3]); s1 = s0 + INJ_LENGTH; mag = 2.0
+    s0 = int(post[len(post) // 3]); s1 = s0 + INJ_LENGTH; mag = 4.0  # clearly-detectable break for the trace
     # contamination on the local-deviation representation (consistent with detection)
     DA = np.nan_to_num(dA).copy(); DV = np.nan_to_num(dV).copy()
     DA[s0:s1] += mag * bdir[0] * ma_s; DV[s0:s1] += mag * bdir[1] * mv_s
