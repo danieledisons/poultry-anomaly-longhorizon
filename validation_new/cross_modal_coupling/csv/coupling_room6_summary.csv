@@ -1,0 +1,2 @@
+room,n_overlap_hours,ref_hours,corr_audio_video,break_dir,joint_det_thresh,audio_det_thresh,video_det_thresh,joint_detect_at_1.5sigma,audio_detect_at_1.5sigma,video_detect_at_1.5sigma
+6,407,142,-0.406,"(1,1)",3.523,1.49,12.98,0.375,0.475,0.0

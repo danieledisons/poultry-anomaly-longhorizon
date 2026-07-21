@@ -1,0 +1,8 @@
+mag_sd,onset_offmanifold,above_thresh,ungated_retention,gated_retention,ungated_latency_hr,gated_latency_hr
+1.0,8.48,True,0.264,0.319,5,8.0
+2.0,9.43,True,0.264,0.889,5,10.0
+2.5,10.06,True,0.278,1.0,6,inf
+3.0,10.76,True,0.278,1.0,6,inf
+3.5,11.53,True,0.292,1.0,7,inf
+4.0,12.34,True,0.292,1.0,7,inf
+5.0,14.09,True,0.319,1.0,8,inf

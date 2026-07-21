@@ -1,0 +1,2 @@
+signal,mag_sigma,length_hr,sigma,gain_k,ungated_contam_latency_hr,gated_contam_latency_hr,ungated_detection_retention,gated_detection_retention
+env_temperature,3.0,72,0.1775,0.1,9,inf,0.125,1.0

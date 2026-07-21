@@ -1,0 +1,2 @@
+room,n_lit_hours,n_features,shrinkage_lambda,ref_hours,inj_cells,inj_per_cell_sigma,measured_inj_maha_sigma,det_thresh_maha,sigma_maha,ungated_contam_latency_hr,gated_contam_latency_hr,ungated_retention,gated_retention,clean_false_closure_rate
+6,500,64,0.0478,175,gridmean00-07,4.0,25.08,9.313,0.965,8,inf,0.208,1.0,0.067

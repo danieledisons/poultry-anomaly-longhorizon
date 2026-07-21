@@ -1,0 +1,8 @@
+mag_band_mad,onset_joint_maha,onset_centered_sigma,above_natural_thresh,ungated_retention,gated_retention,ungated_latency_hr,gated_latency_hr
+1.0,7.15,0.92,False,0.014,0.014,0,0.0
+2.0,9.1,2.41,False,0.014,0.264,0,0.0
+2.5,10.52,3.49,False,0.028,0.722,0,0.0
+3.0,12.16,4.73,True,0.069,1.0,4,inf
+3.5,13.77,5.96,True,0.097,1.0,6,inf
+4.0,15.29,7.12,True,0.097,1.0,6,inf
+5.0,18.44,9.51,True,0.125,1.0,7,inf

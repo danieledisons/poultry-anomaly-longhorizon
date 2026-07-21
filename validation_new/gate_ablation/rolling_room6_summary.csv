@@ -1,0 +1,3 @@
+room,roll_win_hr,calib,gated_retention,gated_latency_hr,late_cycle_false_closure
+6,168,fixed,1.0,inf,0.108
+6,168,rolling,0.903,63.0,0.179

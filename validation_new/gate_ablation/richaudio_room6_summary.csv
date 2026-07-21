@@ -1,0 +1,2 @@
+room,n_hours,n_features,shrinkage_lambda,ref_hours,inj_bands,inj_per_band_sigma,measured_inj_maha_sigma,det_thresh_maha,sigma_maha,ungated_contam_latency_hr,gated_contam_latency_hr,ungated_retention,gated_retention,clean_false_closure_rate
+6,1193,64,0.0758,417,20-40,4.0,10.68,6.843,0.927,4,inf,0.056,1.0,0.128

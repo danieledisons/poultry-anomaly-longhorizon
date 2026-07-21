@@ -1,0 +1,2 @@
+room,modality,n_hours,n_features,pca_k,var_explained,ref_hours,det_thresh,sigma,ungated_latency_hr,gated_latency_hr,ungated_retention,gated_retention,ref_false_closure,late_cycle_false_closure
+6,video,500,64,10,0.958,175,5.064,0.642,7,inf,0.292,1.0,0.06,0.941
