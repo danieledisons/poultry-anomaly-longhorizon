@@ -44,7 +44,7 @@ Usage (detector):
   ... --mode detector --weights yolov8n.pt --zones zones_room2.json
 """
 from __future__ import annotations
-import argparse, logging, re, sys, json
+import argparse, logging, re, sys, json, subprocess
 from pathlib import Path
 from datetime import datetime, timedelta
 
@@ -70,25 +70,111 @@ FNAME_DT_PATTERNS = [
     (re.compile(r"(\d{8})_(\d{6})"), "%Y%m%d%H%M%S"),
     (re.compile(r"(\d{6})_(\d{6})"), "%y%m%d%H%M%S"),
 ]
-FNAME_DATE_PATTERNS = [(re.compile(r"(\d{8})"), "%Y%m%d"), (re.compile(r"(\d{6})"), "%y%m%d")]
+STUDY_YEAR = 2025
+MONTHS = {"jan":1,"feb":2,"mar":3,"apr":4,"may":5,"jun":6,"jul":7,"aug":8,
+          "sep":9,"oct":10,"nov":11,"dec":12}
+
+
+def _ffprobe_creation_time(path: Path):
+    """GoPro/most cameras write recording start into MP4 metadata `creation_time`.
+    This is the RELIABLE timestamp (filenames like GX010028.MP4 have none)."""
+    try:
+        out = subprocess.run(
+            ["ffprobe", "-v", "quiet", "-print_format", "json",
+             "-show_entries", "format_tags=creation_time:stream_tags=creation_time",
+             str(path)], capture_output=True, text=True, timeout=30).stdout
+        j = json.loads(out)
+        ct = (j.get("format", {}).get("tags", {}) or {}).get("creation_time")
+        if not ct:
+            for s in j.get("streams", []):
+                ct = (s.get("tags", {}) or {}).get("creation_time")
+                if ct:
+                    break
+        if ct:
+            return datetime.fromisoformat(ct.replace("Z", "+00:00")).replace(tzinfo=None)
+    except Exception:
+        pass
+    return None
+
+
+def _ffprobe_duration(path: Path):
+    try:
+        out = subprocess.run(["ffprobe", "-v", "quiet", "-show_entries",
+             "format=duration", "-of", "csv=p=0", str(path)],
+            capture_output=True, text=True, timeout=30).stdout.strip()
+        return float(out) if out else None
+    except Exception:
+        return None
+
+
+# GoPro filename: G[X|H] <chapter:2> <group:4> .MP4  e.g. GX02 0028 -> chapter 2, group 0028
+GOPRO_RE = re.compile(r"G[XH](\d{2})(\d{4})$", re.IGNORECASE)
+
+
+def build_start_times(files):
+    """Resolve a correct start datetime per file. GoPro splits one continuous
+    recording into chapters that ALL share the same metadata creation_time, so we
+    group by (folder, group-id), order by chapter, and offset each chapter by the
+    cumulative duration of the earlier chapters. Non-GoPro files use the normal
+    single-file resolver."""
+    groups = {}; singles = []
+    for f in files:
+        m = GOPRO_RE.search(f.stem)
+        if m:
+            groups.setdefault((str(f.parent), m.group(2)), []).append((int(m.group(1)), f))
+        else:
+            singles.append(f)
+    starts = {}
+    for key, lst in groups.items():
+        lst.sort()
+        base = None; cum = 0.0
+        for ch, f in lst:
+            ct = _ffprobe_creation_time(f)
+            if base is None:
+                base = ct or _folder_date(f) or datetime.fromtimestamp(f.stat().st_mtime)
+            starts[f] = base + timedelta(seconds=cum)   # chapter offset by prior durations
+            cum += (_ffprobe_duration(f) or 0.0)
+    for f in singles:
+        starts[f] = file_start_datetime(f)
+    return starts
+
+
+def _folder_date(path: Path):
+    """Parse the first date from a folder name like 'Room 2 (10, 11, 12, 13 Aug)'."""
+    for parent in [path.parent.name, path.parent.parent.name]:
+        m = re.search(r"(\d{1,2})[^)]*?\b([A-Za-z]{3})", parent)
+        if m:
+            mon = MONTHS.get(m.group(2).lower()[:3])
+            if mon:
+                try:
+                    return datetime(STUDY_YEAR, mon, int(m.group(1)))
+                except ValueError:
+                    pass
+    return None
+
 
 def file_start_datetime(path: Path):
-    stem = path.stem
+    # 1) filename with explicit datetime (AudioMoth-style, if ever present)
     for pat, fmt in FNAME_DT_PATTERNS:
-        m = pat.search(stem)
+        m = pat.search(path.stem)
         if m:
             try:
                 return datetime.strptime(m.group(1) + m.group(2), fmt)
             except ValueError:
                 pass
-    for pat, fmt in FNAME_DATE_PATTERNS:
-        m = pat.search(stem)
-        if m:
-            try:
-                return datetime.strptime(m.group(1), fmt)
-            except ValueError:
-                pass
+    # 2) MP4 metadata creation_time (the reliable source for GoPro)
+    ct = _ffprobe_creation_time(path)
+    if ct is not None:
+        return ct
+    # 3) folder-name date (GoPro filenames carry no date) — day granularity only
+    fd = _folder_date(path)
+    if fd is not None:
+        logging.warning(f"{path.name}: no metadata time -> using folder date {fd.date()} "
+                        f"(hourly precision degraded)")
+        return fd
+    # 4) last resort: file mtime (may be copy time, not recording time)
     try:
+        logging.warning(f"{path.name}: falling back to mtime (may be wrong)")
         return datetime.fromtimestamp(path.stat().st_mtime)
     except Exception:
         return None
@@ -273,11 +359,13 @@ def main():
     exts = tuple("." + e.lstrip(".") for e in args.exts.split(","))
     files = sorted(p for p in Path(args.indir).rglob("*") if p.suffix in exts)
     logging.info(f"{len(files)} videos under {args.indir}")
+    logging.info("resolving GoPro chapter start times (ffprobe)...")
+    start_times = build_start_times(files)
 
     all_rows = []; ok = 0
     for i, f in enumerate(files, 1):
         try:
-            sdt = file_start_datetime(f)
+            sdt = start_times.get(f)
             if sdt is None:
                 logging.warning(f"NO TIMESTAMP skip {f.name}"); continue
             rows = (process_video_detector(f, sdt, model, zones) if args.mode == "detector"

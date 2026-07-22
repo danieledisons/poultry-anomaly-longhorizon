@@ -23,3 +23,10 @@ frame_level_features_all_folders.csv
 *.npy
 *.npz
 *.h5
+validation_new/data/
+validation_new/system/figs/
+validation_new/approach_c/figs/
+validation_new/geometry_rotation/figs/
+validation_new/cross_modal_coupling/figs/
+features/audio_welfare_biomarkers_*.csv
+features/video_welfare_spatial_*.csv
