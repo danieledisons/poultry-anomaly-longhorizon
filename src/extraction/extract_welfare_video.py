@@ -52,10 +52,13 @@ import numpy as np
 import pandas as pd
 import cv2
 
-SAMPLE_S   = 2.0        # analyse one frame every SAMPLE_S seconds
+SAMPLE_S   = 5.0        # analyse one frame every SAMPLE_S seconds (hourly stats need no more)
+PROC_WIDTH = 640        # DOWNSCALE frames to this width before any processing.
+                        # GoPro is 2.7K/4K; optical flow at full-res is ~30-40x slower
+                        # for no benefit at hourly resolution. Biggest single speedup.
 DARK_LUM   = 25         # mean luminance (0-255) below which the frame is "unlit"
 GRID       = 6          # GRID x GRID spatial occupancy grid for entropy/zone stats
-FG_MIN_AREA = 30        # min foreground blob area (px) to count as a bird cluster
+FG_MIN_AREA = 8         # min foreground blob area (px) at PROC_WIDTH scale
 PERCENTILES = [10, 50, 90]
 
 
@@ -111,12 +114,31 @@ def _ffprobe_duration(path: Path):
 GOPRO_RE = re.compile(r"G[XH](\d{2})(\d{4})$", re.IGNORECASE)
 
 
+def _ffprobe_ct_and_dur(path: Path):
+    """ONE ffprobe call returning (creation_time, duration) — half the subprocess
+    cost vs two calls, which matters on a slow external drive with many files."""
+    ct = dur = None
+    try:
+        out = subprocess.run(
+            ["ffprobe", "-v", "quiet", "-print_format", "json",
+             "-show_entries", "format=duration:format_tags=creation_time",
+             str(path)], capture_output=True, text=True, timeout=30).stdout
+        j = json.loads(out); fmt = j.get("format", {})
+        d = fmt.get("duration")
+        dur = float(d) if d else None
+        c = (fmt.get("tags", {}) or {}).get("creation_time")
+        if c:
+            ct = datetime.fromisoformat(c.replace("Z", "+00:00")).replace(tzinfo=None)
+    except Exception:
+        pass
+    return ct, dur
+
+
 def build_start_times(files):
     """Resolve a correct start datetime per file. GoPro splits one continuous
     recording into chapters that ALL share the same metadata creation_time, so we
     group by (folder, group-id), order by chapter, and offset each chapter by the
-    cumulative duration of the earlier chapters. Non-GoPro files use the normal
-    single-file resolver."""
+    cumulative duration of the earlier chapters."""
     groups = {}; singles = []
     for f in files:
         m = GOPRO_RE.search(f.stem)
@@ -124,18 +146,21 @@ def build_start_times(files):
             groups.setdefault((str(f.parent), m.group(2)), []).append((int(m.group(1)), f))
         else:
             singles.append(f)
-    starts = {}
+    starts = {}; done = 0; total = len(files)
     for key, lst in groups.items():
         lst.sort()
         base = None; cum = 0.0
         for ch, f in lst:
-            ct = _ffprobe_creation_time(f)
+            ct, dur = _ffprobe_ct_and_dur(f)
             if base is None:
                 base = ct or _folder_date(f) or datetime.fromtimestamp(f.stat().st_mtime)
-            starts[f] = base + timedelta(seconds=cum)   # chapter offset by prior durations
-            cum += (_ffprobe_duration(f) or 0.0)
+            starts[f] = base + timedelta(seconds=cum)
+            cum += (dur or 0.0)
+            done += 1
+            if done % 20 == 0:
+                logging.info(f"  timestamps {done}/{total}")
     for f in singles:
-        starts[f] = file_start_datetime(f)
+        starts[f] = file_start_datetime(f); done += 1
     return starts
 
 
@@ -237,6 +262,9 @@ def process_video_occupancy(path, start_dt):
             ok, frame = cap.retrieve()
             if not ok:
                 break
+            if frame.shape[1] > PROC_WIDTH:                 # downscale before any work
+                s = PROC_WIDTH / frame.shape[1]
+                frame = cv2.resize(frame, (PROC_WIDTH, int(frame.shape[0] * s)))
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             lum = float(gray.mean())
             t = start_dt + timedelta(seconds=idx / fps)
@@ -368,11 +396,12 @@ def main():
             sdt = start_times.get(f)
             if sdt is None:
                 logging.warning(f"NO TIMESTAMP skip {f.name}"); continue
+            import time as _t; t0 = _t.time()
             rows = (process_video_detector(f, sdt, model, zones) if args.mode == "detector"
                     else process_video_occupancy(f, sdt))
             all_rows.extend(rows); ok += 1
-            if i % 10 == 0 or i == len(files):
-                logging.info(f"[{i}/{len(files)}] ok={ok} rows={len(all_rows)}")
+            logging.info(f"[{i}/{len(files)}] {f.name} {_t.time()-t0:.1f}s "
+                         f"samples={len(rows)} total={len(all_rows)}")
         except Exception as e:
             logging.error(f"FAILED {f.name}: {e}")
 

@@ -69,12 +69,15 @@ except Exception:
 # CONFIG — single source of truth, identical for every room (never per-room).
 # ---------------------------------------------------------------------------
 TARGET_SR   = 16_000
-HPF_HZ      = 80
+HPF_HZ      = 120       # high-pass: remove subsonic rumble AND most of the fan fundamental
 FRAME_S     = 1.0        # analysis frame length (s) for spectral/cepstral features
 HOP_S       = 0.5        # frame hop (s)
-DENOISE     = True
-PROP_DECREASE = 0.80
-STATIONARY  = True
+# --- DENOISE (heavier, two-stage; override on the CLI) ---
+DENOISE          = True
+DENOISE_TWO_PASS = True   # pass 1 non-stationary (tracks drifting fan), pass 2 stationary
+PROP_DECREASE_NS = 0.90   # non-stationary strength (time-varying noise)
+PROP_DECREASE_ST = 0.90   # stationary strength (steady fan bed)
+FAN_SUBTRACT     = True
 PEAK_TARGET = 0.97
 CLIP_FRAC_THR = 0.005
 
@@ -89,6 +92,7 @@ CALL_MAX_DUR_S = 2.0
 CALL_SNR_DB    = 6.0        # voc-band energy above adaptive noise floor to be a call
 CALL_MIN_HNR   = 3.0        # harmonicity gate: reject broadband machinery transients
 N_MFCC = 13
+PRAAT_WIN_S    = 20         # run Praat voice-quality on the loudest 20 s per file only
 
 PERCENTILES = [10, 50, 90]
 
@@ -159,21 +163,49 @@ def _fan_spectral_subtract(y):
             mag[max(k - 1, 0):k + 2] *= 0.3
     return librosa.istft(mag * np.exp(1j * phase), hop_length=512).astype(np.float32)
 
-def preprocess(y, sr):
+def preprocess(y, sr, return_stages=False):
+    """Explicit, staged preprocessing. NEVER extract features from raw audio.
+
+    Stage 0: mono mix + clip check (quality flag)
+    Stage 1: resample to 16 kHz
+    Stage 2: high-pass filter (remove subsonic rumble + fan fundamental)
+    Stage 3: heavy denoise
+             pass 1 = non-stationary spectral gating (tracks the time-varying fan)
+             pass 2 = stationary spectral gating (removes the steady fan bed)
+    Stage 4: fan spectral subtraction + harmonic notch (residual ventilation lines)
+    Stage 5: peak normalisation (cross-file loudness consistency)
+
+    Returns (clean, flags); if return_stages, also returns the post-resample RAW
+    signal and the post-denoise signal for before/after inspection.
+    """
     flags = {}
+    # Stage 0
     if y.ndim > 1:
         y = y.mean(axis=1)
     flags["clip_frac"] = float(np.mean(np.abs(y) > 0.999))
     flags["clipped"] = flags["clip_frac"] > CLIP_FRAC_THR
+    # Stage 1
     if sr != TARGET_SR:
         y = librosa.resample(y.astype(np.float32), orig_sr=sr, target_sr=TARGET_SR)
+    raw16k = y.copy()                                   # for before/after export
+    # Stage 2
     y = _highpass(y, HPF_HZ)
+    # Stage 3 (heavy, two-stage)
     if DENOISE:
-        y = nr.reduce_noise(y=y, sr=TARGET_SR, stationary=STATIONARY,
-                            prop_decrease=PROP_DECREASE).astype(np.float32)
-    y = _fan_spectral_subtract(y)
+        y = nr.reduce_noise(y=y, sr=TARGET_SR, stationary=False,
+                            prop_decrease=PROP_DECREASE_NS).astype(np.float32)
+        if DENOISE_TWO_PASS:
+            y = nr.reduce_noise(y=y, sr=TARGET_SR, stationary=True,
+                                prop_decrease=PROP_DECREASE_ST).astype(np.float32)
+    denoised = y.copy()
+    # Stage 4
+    if FAN_SUBTRACT:
+        y = _fan_spectral_subtract(y)
+    # Stage 5
     peak = float(np.max(np.abs(y))) + 1e-9
     y = (y * (PEAK_TARGET / peak)).astype(np.float32)
+    if return_stages:
+        return y, flags, raw16k, denoised
     return y, flags
 
 
@@ -207,6 +239,14 @@ def praat_voice_features(y):
                f1=np.nan, f2=np.nan, f3=np.nan)
     if not HAVE_PRAAT or len(y) < TARGET_SR // 2:
         return out
+    # Praat is the slowest stage; running it on a whole (potentially long) file is
+    # impractical. Analyse the LOUDEST PRAAT_WIN_S seconds instead — that is where
+    # vocalisations concentrate, and it caps cost per file to a constant.
+    if len(y) > PRAAT_WIN_S * TARGET_SR:
+        win = int(PRAAT_WIN_S * TARGET_SR)
+        env = np.convolve(np.abs(y), np.ones(TARGET_SR) / TARGET_SR, mode="same")
+        c = int(np.argmax(env))
+        lo = max(0, c - win // 2); y = y[lo:lo + win]
     try:
         snd = parselmouth.Sound(y.astype(np.float64), sampling_frequency=TARGET_SR)
         pitch = snd.to_pitch(pitch_floor=200, pitch_ceiling=6000)  # chicks are high
@@ -249,6 +289,31 @@ def detect_calls(voc_e, hnr_frame, hop_s):
         else:
             i += 1
     return calls
+
+
+def export_denoise_sample(path, outdir, seconds=60):
+    """Write a before/after clip so the denoiser can be inspected by ear.
+    Exports the LOUDEST `seconds` window (where vocalisations concentrate):
+      <stem>_00_raw16k.wav      resampled mono, NO denoise
+      <stem>_01_denoised.wav    after Stage 3 (heavy denoise), before normalisation
+      <stem>_02_final.wav       full pipeline output actually used for features
+    """
+    outdir = Path(outdir); outdir.mkdir(parents=True, exist_ok=True)
+    y, sr = sf.read(path)
+    final, flags, raw16k, denoised = preprocess(y, sr, return_stages=True)
+    win = int(seconds * TARGET_SR)
+    if len(raw16k) > win:                               # locate the loudest window
+        env = np.convolve(np.abs(raw16k), np.ones(TARGET_SR) / TARGET_SR, mode="same")
+        c = int(np.argmax(env)); lo = max(0, c - win // 2)
+    else:
+        lo = 0; win = len(raw16k)
+    sl = slice(lo, lo + win)
+    stem = Path(path).stem
+    sf.write(outdir / f"{stem}_00_raw16k.wav", raw16k[sl], TARGET_SR)
+    sf.write(outdir / f"{stem}_01_denoised.wav", denoised[sl], TARGET_SR)
+    sf.write(outdir / f"{stem}_02_final.wav", final[sl], TARGET_SR)
+    logging.info(f"DENOISE SAMPLE written to {outdir}/  (raw vs denoised vs final, "
+                 f"{seconds}s of {stem})  clip_frac={flags['clip_frac']:.4f}")
 
 
 def process_file(path, start_dt):
@@ -339,14 +404,27 @@ def aggregate_hourly(frame_df, call_df, praat_rows):
 
 
 def main():
+    global PROP_DECREASE_NS, PROP_DECREASE_ST
     ap = argparse.ArgumentParser()
     ap.add_argument("--room", required=True)
     ap.add_argument("--in", dest="indir", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--exts", default="wav,WAV,flac")
     ap.add_argument("--log", default="src/welfare_audio.log")
+    ap.add_argument("--denoise_ns", type=float, default=PROP_DECREASE_NS,
+                    help="non-stationary denoise strength 0-1 (higher = heavier)")
+    ap.add_argument("--denoise_st", type=float, default=PROP_DECREASE_ST,
+                    help="stationary denoise strength 0-1 (higher = heavier)")
+    ap.add_argument("--sample_out", default=None,
+                    help="dir to write a before/after denoise clip from the first file, then continue")
+    ap.add_argument("--sample_only", action="store_true",
+                    help="write the denoise sample and EXIT (no feature extraction)")
+    ap.add_argument("--sample_seconds", type=int, default=60)
     args = ap.parse_args()
     setup_logging(args.log)
+    PROP_DECREASE_NS = args.denoise_ns; PROP_DECREASE_ST = args.denoise_st
+    logging.info(f"denoise: non-stationary={PROP_DECREASE_NS} stationary={PROP_DECREASE_ST} "
+                 f"two_pass={DENOISE_TWO_PASS} hpf={HPF_HZ}Hz fan_subtract={FAN_SUBTRACT}")
     if not HAVE_PRAAT:
         logging.warning("parselmouth not installed -> pitch/jitter/shimmer/HNR/formants "
                         "will be NaN. pip install praat-parselmouth")
@@ -358,9 +436,22 @@ def main():
     files = sorted(p for p in Path(args.indir).rglob("*") if p.suffix in exts)
     logging.info(f"{len(files)} files under {args.indir}")
 
+    # optional before/after denoise sample from the first readable file
+    if args.sample_out or args.sample_only:
+        for f in files:
+            try:
+                export_denoise_sample(f, args.sample_out or "denoise_samples", args.sample_seconds)
+                break
+            except Exception as e:
+                logging.error(f"sample failed on {f.name}: {e}")
+        if args.sample_only:
+            logging.info("sample_only set -> exiting before feature extraction."); return
+
+    import time as _t
     frame_parts = []; call_parts = []; praat_rows = []; ok = 0
     for i, f in enumerate(files, 1):
         try:
+            t0 = _t.time()
             sdt = file_start_datetime(f)
             if sdt is None:
                 logging.warning(f"NO TIMESTAMP skip {f.name}"); continue
@@ -371,8 +462,7 @@ def main():
             pr = fdf.attrs.get("praat", {})
             praat_rows.append(dict(hour=fdf["time"].dt.floor("h").iloc[0], **pr))
             ok += 1
-            if i % 20 == 0 or i == len(files):
-                logging.info(f"[{i}/{len(files)}] ok={ok}")
+            logging.info(f"[{i}/{len(files)}] {f.name} {_t.time()-t0:.1f}s frames={len(fdf)}")
         except Exception as e:
             logging.error(f"FAILED {f.name}: {e}")
 
