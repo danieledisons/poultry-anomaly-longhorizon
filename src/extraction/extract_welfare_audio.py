@@ -105,6 +105,17 @@ PRAAT_WIN_S    = 20         # run Praat voice-quality on the loudest 20 s per fi
 PERCENTILES = [10, 50, 90]
 
 
+def _loudest_center(y, w):
+    """Index of the center of the loudest w-sample window, in O(n) via cumsum.
+    (np.convolve here is direct O(n*w) and hangs for hours on 1-hour files.)"""
+    a = np.abs(y)
+    if len(a) <= w:
+        return len(a) // 2
+    c = np.cumsum(a)
+    wsum = c[w:] - c[:-w]                 # sliding-window sums, length n-w
+    return int(np.argmax(wsum)) + w // 2
+
+
 def setup_logging(logfile):
     Path(logfile).parent.mkdir(parents=True, exist_ok=True)
     logging.basicConfig(level=logging.INFO,
@@ -252,8 +263,7 @@ def praat_voice_features(y):
     # vocalisations concentrate, and it caps cost per file to a constant.
     if len(y) > PRAAT_WIN_S * TARGET_SR:
         win = int(PRAAT_WIN_S * TARGET_SR)
-        env = np.convolve(np.abs(y), np.ones(TARGET_SR) / TARGET_SR, mode="same")
-        c = int(np.argmax(env))
+        c = _loudest_center(y, TARGET_SR)
         lo = max(0, c - win // 2); y = y[lo:lo + win]
     try:
         snd = parselmouth.Sound(y.astype(np.float64), sampling_frequency=TARGET_SR)
@@ -310,9 +320,8 @@ def export_denoise_sample(path, outdir, seconds=60):
     y, sr = sf.read(path)
     final, flags, raw16k, denoised = preprocess(y, sr, return_stages=True)
     win = int(seconds * TARGET_SR)
-    if len(raw16k) > win:                               # locate the loudest window
-        env = np.convolve(np.abs(raw16k), np.ones(TARGET_SR) / TARGET_SR, mode="same")
-        c = int(np.argmax(env)); lo = max(0, c - win // 2)
+    if len(raw16k) > win:                               # locate the loudest window (O(n))
+        c = _loudest_center(raw16k, TARGET_SR); lo = max(0, c - win // 2)
     else:
         lo = 0; win = len(raw16k)
     sl = slice(lo, lo + win)
