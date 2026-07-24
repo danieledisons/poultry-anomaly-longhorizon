@@ -46,9 +46,17 @@ Usage:
   (point --in at the room folder; it recurses into session subfolders)
 """
 from __future__ import annotations
-import argparse, logging, re, sys
+import argparse, logging, re, sys, signal
 from pathlib import Path
 from datetime import datetime, timedelta
+
+
+class _FileTimeout(Exception):
+    pass
+
+
+def _timeout_handler(signum, frame):
+    raise _FileTimeout()
 
 import numpy as np
 import pandas as pd
@@ -404,7 +412,7 @@ def aggregate_hourly(frame_df, call_df, praat_rows):
 
 
 def main():
-    global PROP_DECREASE_NS, PROP_DECREASE_ST
+    global PROP_DECREASE_NS, PROP_DECREASE_ST, DENOISE_TWO_PASS
     ap = argparse.ArgumentParser()
     ap.add_argument("--room", required=True)
     ap.add_argument("--in", dest="indir", required=True)
@@ -420,7 +428,13 @@ def main():
     ap.add_argument("--sample_only", action="store_true",
                     help="write the denoise sample and EXIT (no feature extraction)")
     ap.add_argument("--sample_seconds", type=int, default=60)
+    ap.add_argument("--file_timeout", type=int, default=180,
+                    help="max seconds per file before it is skipped (prevents one bad file hanging the run)")
+    ap.add_argument("--single_pass", action="store_true",
+                    help="use one denoise pass instead of two (roughly halves runtime)")
     args = ap.parse_args()
+    if args.single_pass:
+        DENOISE_TWO_PASS = False
     setup_logging(args.log)
     PROP_DECREASE_NS = args.denoise_ns; PROP_DECREASE_ST = args.denoise_st
     logging.info(f"denoise: non-stationary={PROP_DECREASE_NS} stationary={PROP_DECREASE_ST} "
@@ -448,14 +462,17 @@ def main():
             logging.info("sample_only set -> exiting before feature extraction."); return
 
     import time as _t
-    frame_parts = []; call_parts = []; praat_rows = []; ok = 0
+    signal.signal(signal.SIGALRM, _timeout_handler)   # per-file watchdog (Unix, main thread)
+    frame_parts = []; call_parts = []; praat_rows = []; ok = 0; skipped = 0
     for i, f in enumerate(files, 1):
         try:
             t0 = _t.time()
             sdt = file_start_datetime(f)
             if sdt is None:
                 logging.warning(f"NO TIMESTAMP skip {f.name}"); continue
+            signal.alarm(args.file_timeout)           # abort this file if it runs too long
             fdf, calls = process_file(f, sdt)
+            signal.alarm(0)
             frame_parts.append(fdf.drop(columns=[]).assign())
             if calls:
                 call_parts.append(pd.DataFrame(calls))
@@ -463,8 +480,12 @@ def main():
             praat_rows.append(dict(hour=fdf["time"].dt.floor("h").iloc[0], **pr))
             ok += 1
             logging.info(f"[{i}/{len(files)}] {f.name} {_t.time()-t0:.1f}s frames={len(fdf)}")
+        except _FileTimeout:
+            signal.alarm(0); skipped += 1
+            logging.error(f"[{i}/{len(files)}] TIMEOUT >{args.file_timeout}s, SKIPPED {f.name} "
+                          f"(likely oversized/corrupt) — continuing")
         except Exception as e:
-            logging.error(f"FAILED {f.name}: {e}")
+            signal.alarm(0); logging.error(f"FAILED {f.name}: {e}")
 
     if not frame_parts:
         logging.error("NO DATA — nothing written."); sys.exit(1)
